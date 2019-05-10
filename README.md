@@ -1,16 +1,24 @@
-# [FAMFAMFAM flag icons](http://tkrotoff.github.com/famfamfam_flags/)
+#FamFamFam Language Flag Icons
 
-[FAMFAMFAM flag icons](http://famfamfam.com/lab/icons/flags/) by Mark James.
+These icons are public domain, and as such are free for any use (attribution appreciated but not required).
+
+#Country flags by Mark James.
+
+Note that these country flags are named using the ISO3166-1 alpha-2 codes where appropriate. A list of codes can be found at http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 
 To get started, checkout http://tkrotoff.github.com/famfamfam_flags/
 
-If you are using Ruby on Rails, check https://github.com/tkrotoff/famfamfam_flags_rails
+#Language flags by Florin C Bodin 
 
-## Sprite generation using glue
+Note that these language flags are named using the ISO639-1 codes where appropriate. A list of codes can be found at https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 
-    rm bl.png bv.png famfamfam-flags.png gf.png hm.png mf.png re.png sj.png um.png
-    glue . . --sprite-namespace= --namespace=famfamfam-flag --each-template="%(class_name)s { background-position: %(x)s %(y)s; width: %(width)s; height: %(height)s; }\n"
+If you find these flag icons for languages useful, please donate via paypal to orynider@rdslink.ro (or click the donate button available at http://paypal.me/orynider )
 
-## License
+For country flag icons - http://www.famfamfam.com
 
-As stated on http://famfamfam.com/lab/icons/flags/: "These flag icons are available for free use for any purpose with no requirement for attribution."
+To Do:
+1. Move country flags to country\ folder.
+2. Move language flags to language\ folder.
+3. Adding a function in php to get country flags or language flags.
+
+Contact: orynider@gmail.com 
