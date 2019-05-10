@@ -159,11 +159,11 @@ To Do:
 				
 				case 'ax':
 					$lang_name = 'finnish';
-					$country_name = 'Aland Islands';  //The Aland Islands or Aland (Swedish: Aland, IPA: ['o?land]; Finnish: Ahvenanmaa) is an archipelago province at the entrance to the Gulf of Bothnia in the Baltic Sea belonging to Finland.
+					$country_name = 'Åland Islands';  //The Åland Islands or Åland (Swedish: Åland, IPA: [ˈoːland]; Finnish: Ahvenanmaa) is an archipelago province at the entrance to the Gulf of Bothnia in the Baltic Sea belonging to Finland.
 				break;
 				
 				case 'ba':
-					$lang_name = 'bashkir'; //Baskortost�n (Rusia)
+					$lang_name = 'bashkir'; //Baskortostán (Rusia)
 					$country_name = 'Bosnia &amp; Herzegovina'; //Bosnian, Croatian, Serbian
 				break;
 
@@ -280,7 +280,7 @@ To Do:
 					$lang_name = 'Congo Democratic Republic';
 					$country_name = 'Congo Democratic Republic';
 				break;
-				//??????? ????
+				//нохчийн мотт
 				case 'ce':
 					$lang_name = 'Chechen';
 					$country_name = 'Chechenya';
@@ -325,58 +325,58 @@ To Do:
 					$country_name = 'CHINA';
 				break;		
 				//Chinese Individual Languages 
-			    //	??			
+			    //	中文			
 				// Fujian Province, Republic of China
 				case 'cn-fj':		
-				//	???
+				//	閩東話
 				case 'cdo': 	//Chinese Min Dong  
 					$lang_name = 'CHINESE_DONG';
 					$country_name = 'CHINA';
 				break;
 				//1. Bingzhou		spoken in central Shanxi (the ancient Bing Province), including Taiyuan.
-				//2. L�liang		spoken in western Shanxi (including L�liang) and northern Shaanxi.
+				//2. Lüliang		spoken in western Shanxi (including Lüliang) and northern Shaanxi.
 				//3. Shangdang	spoken in the area of Changzhi (ancient Shangdang) in southeastern Shanxi.
 				//4. Wutai			spoken in parts of northern Shanxi (including Wutai County) and central Inner Mongolia.
-				//5. Da�Bao		spoken in parts of northern Shanxi and central Inner Mongolia, including Baotou.
+				//5. Da–Bao		spoken in parts of northern Shanxi and central Inner Mongolia, including Baotou.
 				//6. Zhang-Hu	spoken in Zhangjiakou in northwestern Hebei and parts of central Inner Mongolia, including Hohhot.
 				//7. Han-Xin		spoken in southeastern Shanxi, southern Hebei (including Handan) and northern Henan (including Xinxiang).
 				//8. Zhi-Yan		spoken in Zhidan County and Yanchuan County in northern Shaanxi.
-				//	??
+				//	晉語
 				case 'cjy': 	//Chinese Jinyu  	
 					$lang_name = 'CHINA_JINYU';
 					$country_name = 'CHINA';
 				break;
-				// ??
+				// 官話
 				case 'cmn': 	//Chinese Mandarin  
 					$lang_name = 'CHINESE_MANDARIN';
 					$country_name = 'CHINA';
 				break;
-				// ??? 
+				// 莆仙片 
 				case 'cpx': 	//Chinese Pu-Xian 
 					$lang_name = 'CHINESE_PU-XIAN';
 					$country_name = 'CHINA';
 				break;
-				// ??
+				// 徽語
 				case 'czh': 	//Chinese HuiZhou 	
 					$lang_name = 'CHINESE_HUIZHOU';
 					$country_name = 'CHINA';
 				break;
-				// ???
+				// 閩中片
 				case 'czo': 	//Chinese Min Zhong  
 					$lang_name = 'CHINESE_ZHONG';
 					$country_name = 'CHINA';
 				break;				
-				// ???
+				// 東干話
 				case 'dng': 	//Ding  Chinese 
 					$lang_name = 'DING_CHINESE';
 					$country_name = 'CHINA';
 				break;				
-				//	??
+				//	贛語
 				case 'gan': 	//Gan Chinese  
 					$lang_name = 'GAN_CHINESE';
 					$country_name = 'CHINA';
 				break;
-				// ???
+				// 客家話
 				case 'hak': 	//Chinese  Hakka 
 					$lang_name = 'CHINESE_HAKKA';
 					$country_name = 'CHINA';
@@ -386,27 +386,27 @@ To Do:
 					$lang_name = 'XIANG_CHINESE';
 					$country_name = 'CHINA';
 				break;				
-				//	??
+				//	文言
 				case 'lzh': 	//Literary Chinese 	
 					$lang_name = 'LITERARY_CHINESE';
 					$country_name = 'CHINA';
 				break;
-				// ???
+				// 閩北片
 				case 'mnp': 	//Min Bei Chinese 
 					$lang_name = 'MIN_BEI_CHINESE';
 					$country_name = 'CHINA';
 				break;
-				// ???
+				// 閩南語
 				case 'nan': 	//Min Nan Chinese 	
 					$lang_name = 'MIN_NAN_CHINESE';
 					$country_name = 'CHINA';
 				break;			 
-				 // ??
+				 // 吴语
 				case 'wuu': 	//Wu Chinese 
 					$lang_name = 'WU_CHINESE ';
 					$country_name = 'CHINA';
 				break;
-				// ??
+				// 粵語
 				case 'yue': 	//Yue Chinese
 					$lang_name = 'YUE_CHINESE';
 					$country_name = 'CHINA';
@@ -454,7 +454,7 @@ To Do:
 				
 				case 'cw':
 					$lang_name = 'papiamentu';   // Papiamentu (Portuguese-based Creole), Dutch, English
-					$country_name = 'Cura�ao'; // Ilha da Cura�ao (Island of Healing)
+					$country_name = 'Curação'; // Ilha da Curação (Island of Healing)
 				break;
 				
 				case 'da':
@@ -629,7 +629,7 @@ To Do:
 				break;
 				
 				case 'gg':
-					$lang_name = 'guernesiais'; //English, Guern�siais, Sercquiais, Auregnais
+					$lang_name = 'guernesiais'; //English, Guernésiais, Sercquiais, Auregnais
 					$country_name = 'Guernsey';
 				break;
 				
@@ -832,7 +832,7 @@ To Do:
 				break;
 				
 				case 'je':
-					$lang_name = 'jerriais'; //Jerriais
+					$lang_name = 'jerriais'; //Jèrriais
 					$country_name = 'Jersey'; //Bailiwick of Jersey
 				break;
 				
@@ -883,11 +883,11 @@ To Do:
 				case 'ko':
 				case 'kp':
 					$lang_name = 'korean';
-					// kor � Modern Korean
-					// jje � Jeju
-					// okm � Middle Korean
-					// oko � Old Korean
-					// oko � Proto Korean
+					// kor – Modern Korean
+					// jje – Jeju
+					// okm – Middle Korean
+					// oko – Old Korean
+					// oko – Proto Korean
 					// okm Middle Korean
 					 // oko Old Korean
 					$country_name = 'Korea North';
@@ -991,7 +991,7 @@ To Do:
 				
 				case 'me':
 					$lang_name = 'montenegrin'; //Serbo-Croatian, Cyrillic, Latin
-					$country_name = 'Montenegro'; //???? ????
+					$country_name = 'Montenegro'; //Црна Гора
 				break;
 				
 				case 'mf':
@@ -1093,7 +1093,7 @@ To Do:
 					$country_name = 'Northern Mariana Islands';
 				break;
 				case 'mq':
-					$lang_name = 'antillean-creole'; // Antillean Creole (Cr�ole Martiniquais)
+					$lang_name = 'antillean-creole'; // Antillean Creole (Créole Martiniquais)
 					$country_name = 'Martinique';
 				break;
 				case 'na':
@@ -1112,7 +1112,7 @@ To Do:
 				break;
 				
 				case 'nc':
-					$lang_name = 'paic�'; //French, Nengone, Paic�, Aji�, Drehu
+					$lang_name = 'paicî'; //French, Nengone, Paicî, Ajië, Drehu
 					$country_name = 'New Caledonia';
 				break;
 				
@@ -1153,7 +1153,7 @@ To Do:
 				
 				case 'nu':
 					$lang_name = 'niuean'; //Niuean (official) 46% (a Polynesian language closely related to Tongan and Samoan)
-					$country_name = 'Niue'; // Niuean: Niue
+					$country_name = 'Niue'; // Niuean: Niuē
 				break;
 				
 				case 'nz':
@@ -1209,7 +1209,7 @@ To Do:
 				
 				case 'pf':
 					$country_name = 'French Polynesia';
-					$lang_name = 'tahitian'; //Polyn�sie fran�aise
+					$lang_name = 'tahitian'; //Polynésie française
 				break;
 				
 				case 'pg':
@@ -1286,8 +1286,8 @@ To Do:
 				break;
 				
 				case 'rs':
-					$country_name = 'Republic of Serbia'; //????????? ?????? //Republika Srbija
-					$lang_name = ''; //Serbia, ?????? / Srbija
+					$country_name = 'Republic of Serbia'; //Република Србија //Republika Srbija
+					$lang_name = ''; //Serbia, Србија / Srbija
 				break;
 				
 				case 'ru':
@@ -1419,7 +1419,7 @@ To Do:
 				
 				case 'tf':
 					$lang_name = 'french '; //
-					$country_name = 'French Southern Territories'; //Terres australes fran�aises
+					$country_name = 'French Southern Territories'; //Terres australes françaises
 				break;
 				
 				case 'tj':
@@ -1441,7 +1441,7 @@ To Do:
 					//260 speakers of Tokelauan, of whom 2,100 live in New Zealand, 
 					//1,400 in Tokelau, 
 					//and 17 in Swains Island
-					$lang_name = 'Tokelauan'; // /to?k?'la??n/ Tokelauans or Polynesians
+					$lang_name = 'Tokelauan'; // /toʊkəˈlaʊən/ Tokelauans or Polynesians
 					$country_name = 'TOKELAUAU'; //Dependent territory of New Zealand
 				break;
 					
@@ -1553,7 +1553,7 @@ To Do:
 				case 'wf':
 					$country_name = 'Territory of the Wallis and Futuna Islands';
 					$lang_name = 'Wallisian'; 
-					//Wallisian, or �Uvean 
+					//Wallisian, or ʻUvean 
 					//Futunan - Austronesian, Malayo-Polynesian
 				break;
 				
@@ -1569,7 +1569,7 @@ To Do:
 				
 				case 'yt':
 					$lang_name = 'Mayotte'; //Shimaore:
-					$country_name = 'Department of Mayotte'; //D�partement de Mayotte
+					$country_name = 'Department of Mayotte'; //Département de Mayotte
 				break;
 				
 				case 'za':
@@ -1597,6 +1597,7 @@ To Do:
 		$return = ($langs_countries == true) ? $lang_name[$country_name] : $return;
 		return $return ;
 	}
+	
 	
 
 Contact: orynider@gmail.com 
