@@ -40,17 +40,17 @@ To Do:
 				break;
 				
 				case 'aae':
-					$lang_name = 'African-American English';
-					$country_name = ' United States'; 
+					$lang_name = 'AFRICAN-AMERICAN_ENGLISH';
+					$country_name = 'UNITED_STATES'; 
 				break;
 				
 				case 'ab':
 					$lang_name = 'ABKHAZIAN';
-					$country_name = 'Abkhazia';
+					$country_name = 'ABKHAZIA';
 				break;
 
 				case 'ad':
-					$lang_name = 'Angola';
+					$lang_name = 'ANGOLA';
 					$country_name = 'ANGOLA';
 				break;
 
@@ -264,12 +264,18 @@ To Do:
 					$lang_name = 'BELARUSIAN';
 					$country_name = 'Belarus';
 				break;
-
-				case 'cm':
+				
+				case 'en-CM':
+				case 'en_cm':
 					$lang_name = 'CAMEROONIAN_PIDGIN_ENGLISH';
 					$country_name = 'Cameroon';
 				break;
-
+				
+				case 'wes':
+					$lang_name = 'CAMEROONIAN'; //Kamtok
+					$country_name = 'Cameroon'; //Wes Cos
+				break;
+				
 				case 'ca':
 					$lang_name = 'CATALAN';
 					$country_name = 'Canada';
@@ -457,57 +463,57 @@ To Do:
 				//Eeyou Istchee ᐄᔨᔨᐤ ᐊᔅᒌ
 				case 'cr':
 					$lang_name = 'CREE';
-					$country_name = 'Costa Rica';
+					$country_name = 'COSTA_RICA';
 				break;
 
 				case 'cs':
 					$lang_name = 'CZECH';
-					$country_name = 'Czech Republic';
+					$country_name = 'CZECH_REPUBLIC';
 				break;
 
 				case 'cu':
 					$lang_name = 'SLAVONIC';
-					$country_name = 'Cuba'; //langs: 
+					$country_name = 'CUBA'; //langs: 
 				break;
 
 				case 'cv':
-					$country_name = 'Cape Verde';
+					$country_name = 'CAPE_VERDE';
 					$lang_name = 'CHUVASH';
 				break;
 				
 				case 'cx':
 					$lang_name = ''; // Malaysian Chinese origin and  European Australians 
-					$country_name = 'Christmas Island';
+					$country_name = 'CHRISTMAS_ISLAND';
 				break;
 				
 				case 'cy':
-					$lang_name = 'Cyprus';
-					$country_name = 'Cyprus';
+					$lang_name = 'CYPRUS';
+					$country_name = 'CYPRUS';
 				break;
 				
 				case 'cz':
-					$lang_name = 'Czech Republic';
-					$country_name = 'Czech Republic';
+					$lang_name = 'CZECH';
+					$country_name = 'CZECH_REPUBLIC';
 				break;
 				
 				case 'cw':
 					$lang_name = 'PAPIAMENTU';   // Papiamentu (Portuguese-based Creole), Dutch, English
-					$country_name = 'Curação'; // Ilha da Curação (Island of Healing)
+					$country_name = 'CURAÇÃO'; // Ilha da Curação (Island of Healing)
 				break;
 				
 				case 'da':
 					$lang_name = 'DANISH';
-					$country_name = 'Denmark';
+					$country_name = 'DENMARK';
 				break;
 
 				case 'de':
 					$lang_name = 'GERMAN';
-					$country_name = 'Germany';
+					$country_name = 'GERMANY';
 				break;
 				
 				case 'dk':
 					$lang_name = 'DANISH';
-					$country_name = 'Denmark';
+					$country_name = 'DENMARK';
 				break;
 
 				case 'dm':
@@ -516,14 +522,14 @@ To Do:
 				case 'fr_dm':
 				case 'fr-DM':
 					$lang_name = 'DOMINICA'; //Roseau
-					$country_name = 'Dominica';
+					$country_name = 'DOMINICA';
 				break;
 
 				case 'do':
 				case 'en_do':
 				case 'en-DO':
 					$lang_name = 'SPANISH'; //Santo Domingo
-					$country_name = 'Dominican Republic';
+					$country_name = 'DOMINICAN_REPUBLIC';
 				break;
 
 				case 'dj':
@@ -535,89 +541,102 @@ To Do:
 
 				case 'dv':
 					$lang_name = 'DIVEHI'; //Maldivian
-					$country_name = 'Maldivia';
+					$country_name = 'MALDIVIA';
 				break;
 
 				case 'dz':
 					$lang_name = 'DZONGKHA';
-					$country_name = 'Algeria'; //http://www.el-mouradia.dz/
+					$country_name = 'ALGERIA'; //http://www.el-mouradia.dz/
 				break;
 
 				case 'ec':
-					$country_name = 'Ecuador';
-					$lang_name = 'Ecuador';
+					$country_name = 'ECUADOR';
+					$lang_name = 'ECUADOR';
 				break;
 
 				case 'eg':
-					$country_name = 'Egypt';
-					$lang_name = 'Egypt';
+					$country_name = 'EGYPT';
+					$lang_name = 'EGYPT';
 				break;
-
 
 				case 'eh':
-					$lang_name = 'Western Sahara';
-					$country_name = 'Western Sahara';
+					$lang_name = 'WESTERN_SAHARA';
+					$country_name = 'WESTERN_SAHARA';
 				break;
-
 
 				case 'ee':
 					$lang_name = 'ESTONIAN';
-					$country_name = 'Estonia';
+					$country_name = 'ESTONIA';
 				break;
-
+				
+				case 'en_uk':
+				case 'en-UK':
+				case 'uk':
+					$lang_name = 'BRITISH_ENGLISH'; //used in United Kingdom
+					$country_name = 'GREAT_BRITAIN';
+				break;
+				
+				case 'GibE':			
+				case 'en_gb':
+				case 'en-GB':
+				case 'gb':
+					$lang_name = 'GIBRALTARIAN _ENGLISH'; //used in Gibraltar
+					$country_name = 'GIBRALTAR';
+				break;
+				
 				case 'en_us':
 				case 'en-US':
 					$lang_name = 'AMERICAN-ENGLISH';
-					$country_name = 'United States of America';
+					$country_name = 'UNITED_STATES_OF_AMERICA';
 				break;
 				
 				case 'en_ie':
 				case 'en-IE':
 				case 'USEng':
 					$lang_name = 'HIBERNO-ENGLISH'; //Irish English
-					$country_name = 'Ireland';
+					$country_name = 'IRELAND';
 				break;
 				
 				case 'en_ca':
 				case 'en-CA':
 				case 'CanE':
 					$lang_name = 'CANADIAN_ENGLISH'; 
-					$country_name = 'Canada';
+					$country_name = 'CANADA';
 				break;	
 				
 				case 'en_in':
 				case 'en-IN':
 					$lang_name = 'INDIAN_ENGLISH'; 
-					$country_name = 'Republic of India';
+					$country_name = 'REPUBLIC_OF_INDIA';
 				break;
 				
 				case 'en_au':
 				case 'en-AU':
 				case 'AuE': 
 					$lang_name = 'AUSTRALIAN_ENGLISH'; 
-					$country_name = 'Australia';
+					$country_name = 'AUSTRALIA';
 				break;	
 				
 				case 'en_nz':
 				case 'en-NZ':
 				case 'NZE': 
 					$lang_name = 'NEW_ZEALAND_ENGLISH'; 
-					$country_name = 'New Zealand';
+					$country_name = 'NEW_ZEALAND';
 				break;	
 				
 				case 'eo':
-					$lang_name = 'ESPERANTO';
-					$country_name = '';
+					$lang_name = 'ESPERANTO'; //created in the late 19th century by L. L. Zamenhof, a Polish-Jewish ophthalmologist. In 1887
+					$country_name = 'EUROPE';
 				break;
 
 				case 'er':
 					$lang_name = 'ERITREA';
-					$country_name = 'Eritrea';
+					$country_name = 'ERITREA';
 				break;
 
 				case 'es':
 					$lang_name = 'SPANISH';
-					$country_name = 'Spain';
+					$country_name = 'SPAIN';
 				break;
 
 				case 'et':
@@ -640,59 +659,49 @@ To Do:
 					$country_name = '';
 				break;
 
-
-
 				case 'fi':
 					$lang_name = 'FINNISH';
-					$country_name = 'Finland';
+					$country_name = 'FINLAND';
 				break;
 
 				case 'fj':
 					$lang_name = 'FIJIAN';
-					$country_name = 'Fiji';
+					$country_name = 'FIJI';
 				break;
 
 				case 'fk':
 					$lang_name = 'FALKLANDIAN';
-					$country_name = 'Falkland Islands';
+					$country_name = 'FALKLAND_ISLANDS';
 				break;
 
-
 				case 'fm':
-					$lang_name = 'Micronesia';
-					$country_name = 'Micronesia';
+					$lang_name = 'MICRONESIA';
+					$country_name = 'MICRONESIA';
 				break;
 
 				case 'fo':
-					$lang_name = 'faroese';
-					$country_name = 'Faroe Islands';
+					$lang_name = 'FAROESE';
+					$country_name = 'FAROE_ISLANDS';
 				break;
 
 				case 'fr':
-					$lang_name = 'french';
-					$country_name = 'France';
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
 				break;
 
 				case 'fy':
-					$lang_name = 'frisian';
+					$lang_name = 'FRISIAN';
 					$country_name = '';
 				break;
 
 				case 'ga':
-					$lang_name = 'irish';
-					$country_name = 'Gabon';
+					$lang_name = 'IRISH';
+					$country_name = 'GABON';
 				break;
 				
 				case 'GenAm':
 					$lang_name = 'General American';
 					$country_name = 'United States';
-				break;
-				
-				case 'en_gb':
-				case 'en-GB':
-				case 'gb':
-					$lang_name = 'British English'; //used in United Kingdom
-					$country_name = 'Great Britain';
 				break;
 				
 				case 'gd':
@@ -702,27 +711,22 @@ To Do:
 				
 				case 'ge':
 					$lang_name = 'Georgia';
-					$country_name = 'Georgia';
+					$country_name = 'GEORGIA';
 				break;
 				
 				case 'gi':
 					$lang_name = 'Llanito'; //Llanito or Yanito
-					$country_name = 'Gibraltar';
+					$country_name = 'GIBRALTAR';
 				break;
 				
 				case 'gg':
 					$lang_name = 'guernesiais'; //English, Guernésiais, Sercquiais, Auregnais
-					$country_name = 'Guernsey';
+					$country_name = 'GUERNSEY';
 				break;
 				
 				case 'gh':
 					$lang_name = 'Ghana';
-					$country_name = 'Ghana';
-				break;
-				
-				case 'GibE':
-					$lang_name = 'Gibraltarian English';
-					$country_name = 'Gibraltar';
+					$country_name = 'GHANA';
 				break;
 				
 				case 'gr':
@@ -1579,7 +1583,7 @@ To Do:
 				break;
 				
 				case 'tw':
-					$lang_name = 'TAIWANESE_HOKKIEN';
+					$lang_name = 'TAIWANESE_HOKKIEN'; //Taibei Hokkien
 					$country_name = 'Taiwan';
 				break;
 				
