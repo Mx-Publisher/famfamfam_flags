@@ -21,19 +21,19 @@ To Do:
 2. Move language flags to language\ folder.
 3. Adding a function in php to get country flags or language flags.
 
-		/**
-		 * function decode_lang from mx_traslator phpBB3 Extension
-		 *
-	 	* $user_lang = decode_country_name($lang['USER_LANG'], 'country');
-	 	*
-	 	* @param unknown_type $lang
-	 	* @return unknown
-	 	*/
-		function decode_country_name($file_dir, $lang_country = 'country', $langs_countries = false)
+	/**
+	 * function decode_lang from mx_traslator phpBB3 Extension
+	 *
+	 * $user_lang = decode_country_name($lang['USER_LANG'], 'country');
+	 *
+	 * @param unknown_type $lang
+	 * @return unknown
+	 */
+	function decode_country_name($file_dir, $lang_country = 'country', $langs_countries = false)
+	{
+		/* known languages */
+		switch ($file_dir)
 		{
-			/* known languages */
-			switch ($file_dir)
-			{
 				case 'aa':
 					$lang_name = 'AFAR';
 					$country_name = 'Afar'; //Ethiopia
@@ -563,9 +563,16 @@ To Do:
 					$lang_name = 'WESTERN_SAHARA';
 					$country_name = 'WESTERN_SAHARA';
 				break;
-
+			
 				case 'ee':
-					$lang_name = 'ESTONIAN';
+					//Kɔsiɖagbe (Sunday)
+					//Dzoɖagbe (Monday) 	
+					//Braɖagbe, Blaɖagbe (Tuesday) 	
+					//Kuɖagbe (Wednesday)
+					//Yawoɖagbe (Thursday)
+					//Fiɖagbe (Friday)
+					//Memliɖagbe (Saturday)
+					$lang_name = 'EWE'; //Èʋegbe Native to Ghana, Togo
 					$country_name = 'ESTONIA';
 				break;
 				
@@ -1699,7 +1706,7 @@ To Do:
 					$lang_name = $file_dir;
 					$country_name = $file_dir;
 				break;
-			}
+		}
 			$return = ($lang_country == 'country') ? $country_name : $lang_name;
 			$return = ($langs_countries == true) ? $lang_name[$country_name] : $return;
 			return $return ;	}
