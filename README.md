@@ -1914,7 +1914,7 @@ To Do:
 			}
 			$return = ($lang_country == 'country') ? $country_name : $lang_name;
 			$return = ($langs_countries == true) ? $lang_name[$country_name] : $return;
-			return $return ;	}
+			return $return;	}
 	
 	
 
