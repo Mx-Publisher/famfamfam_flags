@@ -355,7 +355,9 @@ else
 	 *
 	 * $user_lang = decode_country_name($lang['USER_LANG'], 'country');
 	 *
-	 * @param unknown_type $lang
+	 * @param unknown_type $file_dir
+	 * @param unknown_type $lang_country = 'country' or 'language'
+	 * @param array $langs_countries
 	 * @return unknown
 	 */
 	function decode_country_name($file_dir, $lang_country = 'country', $langs_countries = false)
@@ -364,37 +366,37 @@ else
 		switch ($file_dir)
 		{
 				case 'aa':
-					$lang_name = 'afar';
+					$lang_name = 'AFAR';
 					$country_name = 'AFAR'; //Ethiopia
+				break;
+				
+				case 'aae':
+					$lang_name = 'AFRICAN-AMERICAN_ENGLISH';
+					$country_name = 'UNITED_STATES'; 
 				break;
 
 				case 'ab':
-					$lang_name = 'abkhazian';
+					$lang_name = 'ABKHAZIAN';
 					$country_name = 'ABKHAZIA';
 				break;
 
 				case 'ad':
-					$lang_name = 'Angola';
+					$lang_name = 'ANGOLA';
 					$country_name = 'ANGOLA';
 				break;
 
 				case 'ae':
-					$lang_name = 'avestan';
-					$country_name = 'UNITED_ARAB_EMIRATES';
+					$lang_name = 'AVESTAN';
+					$country_name = 'UNITED_ARAB_EMIRATES'; //Persia
 				break;
 
 				case 'af':
 					$country_name = 'AFGHANISTAN'; // langs: pashto and dari
 					$lang_name = 'AFRIKAANS'; // speakers: 6,855,082 - 13,4%
 				break;
-				
-				case 'ak':
-					$lang_name = 'akan';
-					$country_name = '';
-				break;
-				
+
 				case 'ag':
-					$lang_name = ' english-creole';
+					$lang_name = 'ENGLISH-CREOLE';
 					$country_name = 'ANTIGUA_&AMP;_BARBUDA';
 				break;
 				
@@ -403,66 +405,91 @@ else
 					$country_name = 'ANGUILLA';
 				break;
 				
+				case 'aj':
+					$lang_name = 'AROMANIAN';
+					$country_name = 'Aromaya';
+				break;
+				
+				case 'ak':
+					$lang_name = 'AKAN';
+					$country_name = '';
+				break;
+
 				case 'al':
-					$lang_name = 'albanian';
+					$lang_name = 'ALBANIAN';
 					$country_name = 'ALBANIA';
 				break;
 
 
 				case 'am':
-					$lang_name = 'amharic';
+					$lang_name = 'AMHARIC';
 					//$lang_name = 'armenian';
 					$country_name = 'ARMENIA';
 				break;
 
 				case 'an':
-					$lang_name = 'aragonese'; //
+					$lang_name = 'ARAGONESE'; //
 					//$country_name = 'Andorra';
 					$country_name = 'NETHERLAND_ANTILLES';
 				break;
 				
 				case 'ao':
-					$lang_name = 'angolian';
+					$lang_name = 'ANGOLIAN';
 					$country_name = 'ANGOLA';
 				break;
 				
 				case 'ap':
-					$lang_name = 'angika';
+					$lang_name = 'ANGIKA';
 					$country_name = 'ANGA'; //India
 				break;
 
 				case 'ar':
-					$lang_name = 'arabic';
+					$lang_name = 'ARABIC';
 					$country_name = 'ARGENTINA';
 				break;
 
+				case 'arq':
+					$lang_name = 'ALGERIAN_ARABIC'; //known as Darja or Dziria in Algeria
+					$country_name = 'ALGERIA';
+				break;
+
+				case 'ary':
+					$lang_name = 'ALGERIAN_ARABIC'; //known as Moroccan Arabic or Moroccan Darija or Algerian Saharan Arabic
+					$country_name = 'MOROCCO';
+				break;
+				
 				case 'aq':
 					$lang_name = '';
 					$country_name = 'ANTARCTICA';
 				break;
 
 				case 'as':
-					$lang_name = 'assamese';
+					$lang_name = 'ASSAMESE';
 					$country_name = 'AMERICAN_SAMOA';
 				break;
 
 				case 'at':
-					$lang_name = 'german';
+					$lang_name = 'GERMAN';
 					$country_name = 'AUSTRIA';
 				break;
 
 				case 'av':
-					$lang_name = 'avaric';
+					$lang_name = 'AVARIC';
 					$country_name = '';
 				break;
 
+				case 'av-da':
+					$lang_name = 'AVARIAN_KHANATE';
+					$country_name = 'Daghestanian';
+				break;
+
 				case 'ay':
-					$lang_name = 'aymara';
+					$lang_name = 'AYMARA';
 					$country_name = '';
 				break;
 
 				case 'aw':
-					$lang_name = 'aruba';
+					$lang_name = 'ARUBA';
 					$country_name = 'ARUBA';
 				break;
 
@@ -472,17 +499,17 @@ else
 				break;
 
 				case 'az':
-					$lang_name = 'azerbaijani';
+					$lang_name = 'AZERBAIJANI';
 					$country_name = 'AZERBAIJAN';
 				break;
 				
 				case 'ax':
-					$lang_name = 'finnish';
+					$lang_name = 'FINNISH';
 					$country_name = 'ÅLAND_ISLANDS';  //The Åland Islands or Åland (Swedish: Åland, IPA: [ˈoːland]; Finnish: Ahvenanmaa) is an archipelago province at the entrance to the Gulf of Bothnia in the Baltic Sea belonging to Finland.
 				break;
 				
 				case 'ba':
-					$lang_name = 'bashkir'; //Baskortostán (Rusia)
+					$lang_name = 'BASHKIR'; //Baskortostán (Rusia)
 					$country_name = 'BOSNIA_&AMP;_HERZEGOVINA'; //Bosnian, Croatian, Serbian
 				break;
 
@@ -497,7 +524,7 @@ else
 				break;
 
 				case 'be':
-					$lang_name = 'belarusian';
+					$lang_name = 'BELARUSIAN';
 					$country_name = 'BELGIUM';
 				break;
 
@@ -507,55 +534,55 @@ else
 				break;
 				
 				case 'bg':
-					$lang_name = 'bulgarian';
+					$lang_name = 'BULGARIAN';
 					$country_name = 'BULGARIA';
 				break;
 
 				case 'bh':
-					$lang_name = 'bhojpuri'; // Bihar (India) 
+					$lang_name = 'BHOJPURI'; // Bihar (India) 
 					$country_name = 'BAHRAIN'; // Mamlakat al-Ba?rayn (arabic)
 				break;
 
 				case 'bi':
-					$lang_name = 'bislama';
+					$lang_name = 'BISLAMA';
 					$country_name = 'BURUNDI';
 				break;
 
 
 				case 'bj':
-					$lang_name = 'Benin';
+					$lang_name = 'BENIN';
 					$country_name = 'BENIN';
 				break;
 				
 				case 'bl':
-					$lang_name = 'Bonaire';
+					$lang_name = 'BONAIRE';
 					$country_name = 'BONAIRE';
 				break;
 				
 				case 'bm':
-					$lang_name = 'bambara';
+					$lang_name = 'BAMBARA';
 					$country_name = 'Bermuda';
 				break;
 
 				case 'bn':
-					$country_name = 'Brunei';
-					$lang_name = 'bengali';
+					$country_name = 'BRUNEI';
+					$lang_name = 'BENGALI';
 
 				break;
 				case 'bo':
-					$lang_name = 'tibetan';
+					$lang_name = 'TIBETAN';
 					$country_name = 'BOLIVIA';
 				break;
 
 
 				case 'br':
-					$lang_name = 'breton';
+					$lang_name = 'BRETON';
 					$country_name = 'BRAZIL'; //pt
 				break;
 
 
 				case 'bs':
-					$lang_name = 'bosnian';
+					$lang_name = 'BOSNIAN';
 					$country_name = 'BAHAMAS';
 				break;
 
@@ -570,15 +597,25 @@ else
 				break;
 
 				case 'bz':
-					$lang_name = 'Belize';
+					$lang_name = 'BELIZE';
 					$country_name = 'BELIZE';
 				break;
 
 				case 'by':
-					$lang_name = 'belarusian';
-					$country_name = 'BELARUS';
+					$lang_name = 'BELARUSIAN';
+					$country_name = 'Belarus';
 				break;
-
+				
+				case 'en-CM':
+				case 'en_cm':
+					$lang_name = 'CAMEROONIAN_PIDGIN_ENGLISH';
+					$country_name = 'Cameroon';
+				break;
+				
+				case 'wes':
+					$lang_name = 'CAMEROONIAN'; //Kamtok
+					$country_name = 'Cameroon'; //Wes Cos
+				break;
 
 				case 'cm':
 					$lang_name = 'Cameroon';
@@ -586,12 +623,12 @@ else
 				break;
 
 				case 'ca':
-					$lang_name = 'catalan';
+					$lang_name = 'CATALAN';
 					$country_name = 'CANADA';
 				break;
 				
 				case 'cc':
-					$lang_name = ''; //COA A Cocos dialect of Betawi Malay [ente (you) and ane (me)] and AU-English
+					$lang_name = 'COA_A_COCOS'; //COA A Cocos dialect of Betawi Malay [ente (you) and ane (me)] and AU-English
 					$country_name = 'COCOS_ISLANDS'; //CC 	Cocos (Keeling) Islands
 				break;
 				
@@ -601,7 +638,7 @@ else
 				break;
 				//нохчийн мотт
 				case 'ce':
-					$lang_name = 'Chechen';
+					$lang_name = 'CHECHEN';
 					$country_name = 'Chechenya';
 				break;
 
@@ -611,12 +648,12 @@ else
 				break;
 
 				case 'cg':
-					$lang_name = 'Congo';
+					$lang_name = 'CONGO';
 					$country_name = 'CONGO';
 				break;
 				
 				case 'ch':
-					$lang_name = 'Switzerland';
+					$lang_name = 'CHAMORRO'; //Finu' Chamoru
 					$country_name = 'SWITZERLAND';
 				break;
 				
@@ -636,32 +673,157 @@ else
 				break;
 				
 				case 'cn':
-					$lang_name = 'China';
+				//Chinese Macrolanguage
+				case 'zh': //639-1: zh
+				case 'chi': //639-2/B: chi
+				case 'zho': //639-2/T and 639-3: zho
+					$lang_name = 'CHINESE';
+					$country_name = 'CHINA';
+				break;		
+				//Chinese Individual Languages 
+			    //	中文			
+				// Fujian Province, Republic of China
+				case 'cn-fj':		
+				//	閩東話
+				case 'cdo': 	//Chinese Min Dong  
+					$lang_name = 'CHINESE_DONG';
+					$country_name = 'CHINA';
+				break;
+				//1. Bingzhou		spoken in central Shanxi (the ancient Bing Province), including Taiyuan.
+				//2. Lüliang		spoken in western Shanxi (including Lüliang) and northern Shaanxi.
+				//3. Shangdang	spoken in the area of Changzhi (ancient Shangdang) in southeastern Shanxi.
+				//4. Wutai			spoken in parts of northern Shanxi (including Wutai County) and central Inner Mongolia.
+				//5. Da–Bao		spoken in parts of northern Shanxi and central Inner Mongolia, including Baotou.
+				//6. Zhang-Hu	spoken in Zhangjiakou in northwestern Hebei and parts of central Inner Mongolia, including Hohhot.
+				//7. Han-Xin		spoken in southeastern Shanxi, southern Hebei (including Handan) and northern Henan (including Xinxiang).
+				//8. Zhi-Yan		spoken in Zhidan County and Yanchuan County in northern Shaanxi.
+				//	晋语 / 晉語
+				case 'cjy': 	//Chinese Jinyu 晉 	
+					$lang_name = 'CHINA_JINYU';
+					$country_name = 'CHINA';
+				break;
+				// Cantonese is spoken in Hong Kong
+				// 官話
+				case 'cmn': 	//Chinese Mandarin 普通话 (Pǔ tōng huà) literally translates into “common tongue.” 
+					$lang_name = 'CHINESE_MANDARIN';
+					$country_name = 'CHINA';
+				break;
+				// Mandarin is spoken in Mainland China and Taiwan
+				// 閩語 / 闽语
+				//semantic shift has occurred in Min or the rest of Chinese: 
+			    //*tiaŋB 鼎 "wok". The Min form preserves the original meaning "cooking pot".
+			    //*dzhənA "rice field". scholars identify the Min word with chéng 塍 (MC zying) "raised path between fields", but Norman argues that it is cognate with céng 層 (MC dzong) "additional layer or floor".
+			    //*tšhioC 厝 "house". the Min word is cognate with shù 戍 (MC syuH) "to guard".
+			    //*tshyiC 喙 "mouth". In Min this form has displaced the common Chinese term kǒu 口. It is believed to be cognate with huì 喙 (MC xjwojH) "beak, bill, snout; to pant".
+				//Austroasiatic origin for some Min words:
+			    //*-dəŋA "shaman" compared with Vietnamese đồng (/ɗoŋ2/) "to shamanize, to communicate with spirits" and Mon doŋ "to dance (as if) under demonic possession".
+			    //*kiɑnB 囝 "son" appears to be related to Vietnamese con (/kɔn/) and Mon kon "child".
+				
+				// Southern Min: 
+				//		Datian Min; 
+				//		Hokkien 話; Hokkien-Taiwanese 閩台泉漳語 - Philippine Hokkien 咱儂話.
+				//		Teochew; 
+				//		Zhenan Min; 
+				//		Zhongshan Min, etc.
+				
+				//Pu-Xian Min (Hinghwa); Putian dialect: Xianyou dialect.
+				
+				//Northern Min:  Jian'ou dialect; Jianyang dialect; Chong'an dialect; Songxi dialect; Zhenghe dialect;
+				
+				//Shao-Jiang Min: Shaowu dialect, Jiangle dialect, Guangze dialect, Shunchang dialect;
+				//http://www.shanxigov.cn/
+				//Central Min: Sanming dialect; Shaxian dialect; Yong'an dialect,
+				
+				//Leizhou Min	: Leizhou Min.
+				
+				//Abbreviation
+				//Simplified Chinese:	闽
+				//Traditional Chinese:	閩
+				//Literal meaning:	Min [River]	
+				
+				//莆仙片  
+				case 'cpx': 	//Chinese Pu-Xian Min, Sing-iú-uā / 仙游話, (Xianyou dialect) http://www.putian.gov.cn/
+					$lang_name = 'CHINESE_PU-XIAN';
+					$country_name = 'CHINA';
+				break;
+				// 徽語
+				case 'czh': 	//Chinese HuiZhou 	惠州 http://www.huizhou.gov.cn/ | Song dynasty
+					$lang_name = 'CHINESE_HUIZHOU';
+					$country_name = 'CHINA';
+				break;
+				// 閩中片
+				case 'czo': 	//Chinese Min Zhong 閩中語 |  闽中语  http://zx.cq.gov.cn/ | Zhong-Xian | Zhong  忠县
+					$lang_name = 'CHINESE_ZHONG';
+					$country_name = 'CHINA';
+				break;				
+				// 東干話 SanMing: http://www.sm.gov.cn/ | Sha River (沙溪)
+				case 'dng': 	//Ding  Chinese 
+					$lang_name = 'DING_CHINESE';
+					$country_name = 'CHINA';
+				break;				
+				//	贛語
+				case 'gan': 	//Gan Chinese  
+					$lang_name = 'GAN_CHINESE';
+					$country_name = 'CHINA';
+				break;
+				// 客家話
+				case 'hak': 	//Chinese  Hakka 
+					$lang_name = 'CHINESE_HAKKA';
+					$country_name = 'CHINA';
+				break;
+				
+				case 'hsn': 	//Xiang Chinese 湘語/湘语	
+					$lang_name = 'XIANG_CHINESE';
+					$country_name = 'CHINA';
+				break;				
+				//	文言
+				case 'lzh': 	//Literary Chinese 	
+					$lang_name = 'LITERARY_CHINESE';
+					$country_name = 'CHINA';
+				break;
+				// 閩北片
+				case 'mnp': 	//Min Bei Chinese 
+					$lang_name = 'MIN_BEI_CHINESE';
+					$country_name = 'CHINA';
+				break;
+				// 閩南語
+				case 'nan': 	//Min Nan Chinese 	
+					$lang_name = 'MIN_NAN_CHINESE';
+					$country_name = 'CHINA';
+				break;			 
+				 // 吴语
+				case 'wuu': 	//Wu Chinese 
+					$lang_name = 'WU_CHINESE';
+					$country_name = 'CHINA';
+				break;
+				// 粵語
+				case 'yue': 	//Yue or Cartonese Chinese
+					$lang_name = 'YUE_CHINESE';
 					$country_name = 'CHINA';
 				break;
 				
 				case 'co':
-					$lang_name = 'corsican'; // Corsica
+					$lang_name = 'CORSICAN'; // Corsica
 					$country_name = 'COLUMBIA';
 				break;
-				
+				//Eeyou Istchee ᐄᔨᔨᐤ ᐊᔅᒌ
 				case 'cr':
-					$lang_name = 'cree';
+					$lang_name = 'CREE';
 					$country_name = 'COSTA_RICA';
 				break;
 
 				case 'cs':
-					$lang_name = 'czech';
+					$lang_name = 'CZECH';
 					$country_name = 'CZECH_REPUBLIC';
 				break;
 
 				case 'cu':
-					$lang_name = 'slavonic';
+					$lang_name = 'SLAVONIC';
 					$country_name = 'CUBA'; //langs: 
 				break;
 
 				case 'cv':
-					$country_name = 'Cape Verde';
+					$country_name = 'CAPE_VERDE';
 					$lang_name = 'CHUVASH';
 				break;
 				
@@ -671,171 +833,383 @@ else
 				break;
 				
 				case 'cy':
-					$lang_name = 'Cyprus';
+					$lang_name = 'CYPRUS';
 					$country_name = 'CYPRUS';
 				break;
 				
 				case 'cz':
-					$lang_name = 'czech';
+					$lang_name = 'CZECH';
 					$country_name = 'CZECH_REPUBLIC';
 				break;
 				
 				case 'cw':
-					$lang_name = 'papiamentu';   // Papiamentu (Portuguese-based Creole), Dutch, English
+					$lang_name = 'PAPIAMENTU';   // Papiamentu (Portuguese-based Creole), Dutch, English
 					$country_name = 'CURAÇÃO'; // Ilha da Curação (Island of Healing)
 				break;
 				
 				case 'da':
-					$lang_name = 'danish';
+					$lang_name = 'DANISH';
 					$country_name = 'DENMARK';
 				break;
 
 				case 'de':
-					$lang_name = 'german';
-					$country_name = 'Germany';
+					$lang_name = 'GERMAN';
+					$country_name = 'GERMANY';
 				break;
 				
 				case 'dk':
-					$lang_name = 'danish';
-					$country_name = 'Denmark';
+					$lang_name = 'DANISH';
+					$country_name = 'DENMARK';
 				break;
 
 
 				case 'dm':
-					$lang_name = 'Dominica';
-					$country_name = 'Dominica';
+				case 'en_dm':
+				case 'en-DM':
+				case 'fr_dm':
+				case 'fr-DM':
+					$lang_name = 'DOMINICA'; //Roseau
+					$country_name = 'DOMINICA';
 				break;
 
 				case 'do':
-					$lang_name = 'Dominican Republic';
-					$country_name = 'Dominican Republic';
+				case 'en_do':
+				case 'en-DO':
+					$lang_name = 'SPANISH'; //Santo Domingo
+					$country_name = 'DOMINICAN_REPUBLIC';
 				break;
 
 				case 'dj':
-					$lang_name = 'Djibouti';
-					$country_name = 'Djibouti';
+				case 'aa-DJ':
+				case 'aa_dj':
+					$lang_name = 'DJIBOUTI'; //Yibuti, Afar
+					$country_name = 'REPUBLIC_OF_DJIBOUTI'; //République de Djibouti
 				break;
 
 				case 'dv':
-					$lang_name = 'divehi';
-					$country_name = '';
+					$lang_name = 'DIVEHI'; //Maldivian
+					$country_name = 'MALDIVIA';
+				break;
+				
+				//Berbera Taghelmustă (limba oamenilor albaștri), zisă și Tuaregă, este vorbită în Sahara occidentală.
+				//Berbera Tamazigtă este vorbită în masivul Atlas din Maroc, la sud de orașul Meknes.
+				//Berbera Zenatică zisă și Rifană, este vorbită în masivul Rif din Maroc, în nord-estul țării.
+				//Berbera Șenuană zisă și Telică, este vorbită în masivul Tell din Algeria, în nordul țării.
+				//Berbera Cabilică este vorbită în jurul masivelor Mitigea și Ores din Algeria, în nordul țării.
+				//Berbera Șauiană este vorbită în jurul orașului Batna din Algeria.
+				//Berbera Tahelhită, zisă și Șlănuană (în limba franceză Chleuh) este vorbită în jurul masivului Tubkal din Maroc, în sud-vestul țării.
+				//Berbera Tamașekă, zisă și Sahariană, este vorbită în Sahara de nord, în Algeria, Libia și Egipt.
+				//Berber:				Tacawit (@ city Batna from Chaoui, Algery), Shawiya (Shauian)
+				case 'shy':
+					$lang_name = 'SHAWIYA_BERBER';
+					$country_name = 'ALGERIA'; 
 				break;
 
 				case 'dz':
-					$lang_name = 'dzongkha';
-					$country_name = 'Algeria';
-				break;
-
-				case 'tl':
-					$country_name = 'East Timor';
-					$lang_name = 'East Timor';
+					$lang_name = 'DZONGKHA';
+					$country_name = 'ALGERIA'; //http://www.el-mouradia.dz/
 				break;
 
 				case 'ec':
-					$country_name = 'Ecuador';
-					$lang_name = 'Ecuador';
+					$country_name = 'ECUADOR';
+					$lang_name = 'ECUADOR';
 				break;
 
 				case 'eg':
-					$country_name = 'Egypt';
-					$lang_name = 'Egypt';
+					$country_name = 'EGYPT';
+					$lang_name = 'EGYPT';
 				break;
 
 
 				case 'eh':
-					$lang_name = 'Western Sahara';
-					$country_name = 'Western Sahara';
+					$lang_name = 'WESTERN_SAHARA';
+					$country_name = 'WESTERN_SAHARA';
 				break;
 
 
 				case 'ee':
-					$lang_name = 'Estonia';
-					$country_name = 'Estonia';
+					//Kɔsiɖagbe (Sunday)
+					//Dzoɖagbe (Monday) 	
+					//Braɖagbe, Blaɖagbe (Tuesday) 	
+					//Kuɖagbe (Wednesday)
+					//Yawoɖagbe (Thursday)
+					//Fiɖagbe (Friday)
+					//Memliɖagbe (Saturday)
+					$lang_name = 'EWE'; //Èʋegbe Native to Ghana, Togo
+					$country_name = 'ESTONIA';
 				break;
-
+				
+				case 'en_uk':
+				case 'en-UK':
+				case 'uk':
+					$lang_name = 'BRITISH_ENGLISH'; //used in United Kingdom
+					$country_name = 'GREAT_BRITAIN';
+				break;
+						
+				case 'en_fj':
+				case 'en-FJ':
+					$lang_name = 'FIJIAN_ENGLISH';
+					$country_name = 'FIJI';
+				break;
+				
+				case 'GibE':			
+				case 'en_gb':
+				case 'en-GB':
+				case 'gb':
+					$lang_name = 'GIBRALTARIAN _ENGLISH'; //used in Gibraltar
+					$country_name = 'GIBRALTAR';
+				break;
+				
 				case 'en_us':
-					$lang_name = 'en-us';
-					$country_name = 'United States of America';
+				case 'en-US':
+					$lang_name = 'AMERICAN-ENGLISH';
+					$country_name = 'UNITED_STATES_OF_AMERICA';
 				break;
-
+				
+				case 'en_ie':
+				case 'en-IE':
+				case 'USEng':
+					$lang_name = 'HIBERNO-ENGLISH'; //Irish English
+					$country_name = 'IRELAND';
+				break;
+				
+				case 'en_ca':
+				case 'en-CA':
+				case 'CanE':
+					$lang_name = 'CANADIAN_ENGLISH'; 
+					$country_name = 'CANADA';
+				break;	
+				
+				case 'en_in':
+				case 'en-IN':
+					$lang_name = 'INDIAN_ENGLISH'; 
+					$country_name = 'REPUBLIC_OF_INDIA';
+				break;
+				
+				case 'en_au':
+				case 'en-AU':
+				case 'AuE': 
+					$lang_name = 'AUSTRALIAN_ENGLISH'; 
+					$country_name = 'AUSTRALIA';
+				break;	
+				
+				case 'en_nz':
+				case 'en-NZ':
+				case 'NZE': 
+					$lang_name = 'NEW_ZEALAND_ENGLISH'; 
+					$country_name = 'NEW_ZEALAND';
+				break;	
+				
 				case 'eo':
-					$lang_name = 'esperanto';
-					$country_name = '';
+					$lang_name = 'ESPERANTO'; //created in the late 19th century by L. L. Zamenhof, a Polish-Jewish ophthalmologist. In 1887
+					$country_name = 'EUROPE';
 				break;
 
 				case 'er':
-					$lang_name = 'Eritrea';
-					$country_name = 'Eritrea';
+					$lang_name = 'ERITREA';
+					$country_name = 'ERITREA';
 				break;
 
 				case 'es':
-					$lang_name = 'spanish';
-					$country_name = 'Spain';
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
 				break;
 
 				case 'et':
-					$lang_name = 'Amharic'; //Amharic - federal
-					$country_name = 'ETHIOPIA';
+					$lang_name = 'ESTONIAN';
+					$country_name = 'ESTONIA';
 				break;
 
 				case 'eu':
-					$lang_name = 'basque';
+					$lang_name = 'BASQUE';
 					$country_name = '';
 				break;
 
 				case 'fa':
-					$lang_name = 'persian';
+					$lang_name = 'PERSIAN';
 					$country_name = '';
 				break;
 
 				case 'ff':
-					$lang_name = 'fulah';
+					$lang_name = 'FULAH';
 					$country_name = '';
 				break;
 
 				case 'fi':
-					$lang_name = 'finnish';
+				case 'fin':
+					$lang_name = 'FINNISH';
 					$country_name = 'FINLAND';
 				break;
-
+				
+				case 'fkv':
+					$lang_name = 'KVEN';
+					$country_name = 'NORWAY';
+				break;
+				
+				case 'fit':
+					$lang_name = 'KVEN';
+					$country_name = 'SWEDEN';
+				break;
+				
 				case 'fj':
-					$lang_name = 'fijian';
+					$lang_name = 'FIJIAN';
 					$country_name = 'FIJI';
 				break;
 
 				case 'fk':
-					$lang_name = 'falklandian';
+					$lang_name = 'FALKLANDIAN';
 					$country_name = 'FALKLAND_ISLANDS';
 				break;
 
 				case 'fm':
-					$lang_name = 'Micronesia';
+					$lang_name = 'MICRONESIA';
 					$country_name = 'MICRONESIA';
 				break;
 
 				case 'fo':
-					$lang_name = 'faroese';
+					$lang_name = 'FAROESE';
 					$country_name = 'FAROE_ISLANDS';
 				break;
 
 				case 'fr':
-					$lang_name = 'french';
+					$lang_name = 'FRENCH';
 					$country_name = 'FRANCE';
 				break;
-
+				//Acadian French
+				case 'fr_ac':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//African French including sub-branch Maghreb French (North African French)
+				case 'fr-ma':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Aostan French
+				case 'fr_ao':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Belgian French
+				case 'fr_bl':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Cambodian French
+				case 'fr_cb':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Cajun French
+				case 'fr_cj':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Canadian French
+				case 'fr_ca':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Guianese French
+				case 'fr_gu':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Haitian French
+				case 'fr_ha':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Indian French
+				case 'fr-id':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Jersey Legal French
+				case 'fr_je':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Lao French
+				case 'fr_la':
+					$lang_name = 'FRENCH';
+					$country_name = 'UNITED_STATES';
+				break;
+				//Louisiana French
+				case 'frc':
+				case 'fr_lu':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Meridional French
+				case 'fr_mr':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Metropolitan French
+				case 'fr_me':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Missouri French
+				case 'fr_mi':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//New Caledonian French
+				case 'fr_nc':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Newfoundland French
+				case 'fr_nf':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//New England French
+				case 'fr_ne':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Quebec French
+				case 'fr_qb':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//South East Asian French
+				case 'fr_sa':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Swiss French
+				case 'fr_sw':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//Vietnamese French
+				case 'fr_vt':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				//West Indian French
+				case 'fr_if':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
+				break;
+				
 				case 'fy':
-					$lang_name = 'frisian';
+					$lang_name = 'FRISIAN';
 					$country_name = '';
 				break;
 
 				case 'ga':
-					$lang_name = 'irish';
+					$lang_name = 'IRISH';
 					$country_name = 'GABON';
 				break;
-
-				case 'gb':
-					$lang_name = 'Great Britain';
-					$country_name = 'GREAT_BRITAIN';
+				
+				case 'GenAm':
+					$lang_name = 'General American';
+					$country_name = 'United States';
 				break;
 				
 				case 'gd':
@@ -862,7 +1236,7 @@ else
 					$lang_name = 'Ghana';
 					$country_name = 'GHANA';
 				break;
-
+				
 				case 'gr':
 					$lang_name = 'Greece';
 					$country_name = 'GREECE';
@@ -884,7 +1258,7 @@ else
 				break;
 				
 				case 'gs':
-					$lang_name = 'english';
+					$lang_name = 'ENGLISH';
 					$country_name = 'SOUTH_GEORGIA_AND_THE_SOUTH_SANDWICH_ISLANDS';
 				break;
 				
@@ -899,7 +1273,7 @@ else
 				break;
 
 				case 'gu':
-					$lang_name = 'gujarati';
+					$lang_name = 'GUJARATI';
 					$country_name = 'GUAM';
 				break;
 
@@ -920,13 +1294,13 @@ else
 
 				case 'ha':
 					$country_name = '';
-					$lang_name = 'hausa';
+					$lang_name = 'HAUSA';
 				break;
 
 
 				case 'he':
 					$country_name = 'ISRAEL';
-					$lang_name = 'hebrew';
+					$lang_name = 'HEBREW';
 				break;
 
 				case 'hi':
@@ -970,17 +1344,24 @@ else
 				break;
 				
 				case 'hy':
-					$lang_name = 'armenian';
+				case 'hy-am':
+					$lang_name = 'ARMENIAN';
 					$country_name = '';
 				break;
-				
+
+				case 'hy-AT':
+				case 'hy_at':
+					$lang_name = 'ARMENIAN-ARTSAKH';
+					$country_name = 'REPUBLIC_OF_ARTSAKH';
+				break;
+
 				case 'hz':
-					$lang_name = 'herero';
+					$lang_name = 'HERERO';
 					$country_name = '';
 				break;
 				
 				case 'ia':
-					$lang_name = 'interlingua';
+					$lang_name = 'INTERLINGUA';
 					$country_name = '';
 				break;
 				
@@ -990,7 +1371,7 @@ else
 				break;
 				
 				case 'id':
-					$lang_name = 'indonesian';
+					$lang_name = 'INDONESIAN';
 					$country_name = 'INDONESIA';
 				break;
 				
@@ -1041,7 +1422,7 @@ else
 				break;
 				
 				case 'it':
-					$lang_name = 'italian';
+					$lang_name = 'ITALIAN';
 					$country_name = 'ITALY';
 				break;
 				
@@ -1138,7 +1519,8 @@ else
 				break;
 
 				case 'kw':
-					$lang_name = 'Kuwait';
+					//endonim: Kernewek
+					$lang_name = 'Cornish';
 					$country_name = 'KUWAIT';
 				break;
 
@@ -1208,12 +1590,12 @@ else
 				break;
 				
 				case 'me':
-					$lang_name = 'montenegrin'; //Serbo-Croatian, Cyrillic, Latin
+					$lang_name = 'MONTENEGRIN'; //Serbo-Croatian, Cyrillic, Latin
 					$country_name = 'MONTENEGRO'; //Црна Гора
 				break;
 				
 				case 'mf':
-					$lang_name = 'french'; //
+					$lang_name = 'FRENCH'; //
 					$country_name = 'SAINT_MARTIN_(FRENCH_PART)'; 
 				break;
 				
@@ -1233,7 +1615,7 @@ else
 				break;
 
 				case 'my':
-					$lang_name = ' Myanmar';
+					$lang_name = 'Myanmar';
 					$country_name = 'MALAYSIA';
 				break;
 
@@ -1327,6 +1709,7 @@ else
 					$country_name = 'NICARAGUA';
 				break;
 				
+				//Barber: Targuí, tuareg
 				case 'ne':
 					$lang_name = 'Niger';
 					$country_name = 'NIGER';
@@ -1353,7 +1736,7 @@ else
 				break;
 				
 				case 'nl':
-					$lang_name = 'Netherlands';
+					$lang_name = 'DUTCH'; //Netherlands, Flemish.
 					$country_name = 'NETHERLANDS';
 				break;
 				
@@ -1429,7 +1812,7 @@ else
 				break;
 				
 				case 'pf':
-					$country_name = 'FRENCH_POLYNESIA';
+					$country_name = 'French Polynesia';
 					$lang_name = 'tahitian'; //Polynésie française
 				break;
 				
@@ -1487,10 +1870,12 @@ else
 					$lang_name = 'Qatar';
 					$country_name = 'QATAR';
 				break;
+				
 				case 'ri':
 					$country_name = 'EASTEN_EUROPE';
 					$lang_name = 'romani';
 				break;
+				
 				case 'ro':
 					$country_name = 'ROMANIA';
 					$lang_name = 'romanian';
@@ -1537,18 +1922,23 @@ else
 					$country_name = 'SEYCHELLES';
 				break;
 				
+				case 'sco':
+					$lang_name = 'SCOTS';
+					$country_name = 'Scotland';
+				break;
+				
 				case 'sd':
 					$lang_name = 'Sudan';
 					$country_name = 'SUDAN';
 				break;
 				
 				case 'si':
-					$lang_name = 'slovenian';
+					$lang_name = 'SLOVENIAN';
 					$country_name = 'SLOVENIA';
 				break;
 				
 				case 'sh':
-					$lang_name = 'St Helena';
+					$lang_name = 'SH';
 					$country_name = 'ST_HELENA';
 				break;
 				
@@ -1572,6 +1962,11 @@ else
 					$country_name = 'SAN_MARINO';
 				break;
 				
+				case 'smi':
+					$lang_name = 'Sami';
+					$country_name = 'Norway'; //Native to	Finland, Norway, Russia, and Sweden
+				break;
+				
 				case 'sn':
 					$lang_name = 'Senegal';
 					$country_name = 'SENEGAL';
@@ -1582,6 +1977,11 @@ else
 					$country_name = 'SOMALIA';
 				break;
 				
+				case 'sq':
+					$lang_name = 'ALBANIAN';
+					$country_name = 'Albania';
+				break;
+				
 				case 'sr':
 					$lang_name = 'Suriname';
 					$country_name = 'SURINAME';
@@ -1590,6 +1990,11 @@ else
 				case 'ss':
 					$lang_name = ''; //Bari [Karo or Kutuk ('mother tongue', Beri)], Dinka, Luo, Murle, Nuer, Zande
 					$country_name = 'REPUBLIC_OF_SOUTH_SUDAN';
+				break;
+				
+				case 'sse':
+					$lang_name = 'STANDARD_SCOTTISH_ENGLISH';
+					$country_name = 'Scotland';
 				break;
 				
 				case 'st':
@@ -1607,6 +2012,7 @@ else
 					$country_name = 'SINT_MAARTEN_(DUTCH_PART)';
 				break;
 				
+				
 				case 'sz':
 					$lang_name = 'Swaziland';
 					$country_name = 'SWAZILAND';
@@ -1618,10 +2024,11 @@ else
 				break;
 
 				case 'sy':
-					$lang_name = 'arabic syrian';
+					$lang_name = 'SYRIAC'; //arabic syrian
 					$country_name = 'SYRIA';
 				break;
 				
+
 				case 'tc':
 					$lang_name = 'Turks &amp; Caicos Is';
 					$country_name = 'TURKS_&AMP;_CAICOS_IS';
@@ -1659,7 +2066,12 @@ else
 					$lang_name = 'Tokelauan'; // /toʊkəˈlaʊən/ Tokelauans or Polynesians
 					$country_name = 'TOKELAUAU'; //Dependent territory of New Zealand
 				break;
-					
+				
+				case 'tl':
+					$country_name = 'East Timor';
+					$lang_name = 'East Timor';
+				break;	
+				
 				case 'to':
 					$country_name = 'Tonga';
 					$lang_name = 'TONGA';
@@ -1691,7 +2103,7 @@ else
 				break;
 				
 				case 'tw':
-					$lang_name = 'Taiwan';
+					$lang_name = 'TAIWANESE_HOKKIEN'; //Taibei Hokkien
 					$country_name = 'TAIWAN';
 				break;
 				
@@ -1726,7 +2138,7 @@ else
 				break;
 				
 				case 'va':
-					$country_name = 'VATICAN_CITY'; //
+					$country_name = 'VATICAN_CITY'; //Holy See
 					$lang_name = 'latin';
 				break;
 				

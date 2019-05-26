@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
- *                              admin_country_flags.php
+ *                              admin_language_flags.php
  *                            -------------------
  *   begin                : Thursday, February 6, 2003
  *   written by Nuttzy
@@ -19,15 +19,15 @@
  
  /**
  * Modifications:
- *		26.11.2018 - ported for indexing flags in ../images/flags/country/ subfolder - by OryNider
+ *		26.11.2018 - ported for indexing flags in ../images/flags/language/ subfolder - by OryNider
  */
 
 @define('IN_PHPBB', 1);
 
-if( !empty($setmodules) )
+if (!empty($setmodules))
 {
 	$file = basename(__FILE__);
-	$module['Forum_Display']['Country_Flags'] = "admin/$file";
+	$module['Forum_Display']['Language_Flags'] = "admin/$file";
 	return;
 }
 
@@ -41,7 +41,7 @@ if (!defined('PHP_EXT')) define('PHP_EXT', $phpEx);
 if (!defined('MX_ROOT_PATH')) define('MX_ROOT_PATH', './../');
 require('./pagestart.' . PHP_EXT);
 /* FLAG-start * /
-@define('FLAG_TABLE', $table_prefix.'flags');
+@define('LANG_FLAGS_TABLE', $table_prefix.'flags');
 /* FLAG-end */
 if( isset($_GET['mode']) || isset($_POST['mode']) )
 {
@@ -106,7 +106,7 @@ if( $mode != "" )
 				mx_message_die(GENERAL_MESSAGE, $lang['Must_select_flag']);
 			}
 
-			$sql = "SELECT * FROM " . FLAG_TABLE . "
+			$sql = "SELECT * FROM " . LANG_FLAGS_TABLE . "
 				WHERE flag_id = $flag_id";
 			if(!$result = $db->sql_query($sql))
 			{
@@ -122,14 +122,14 @@ if( $mode != "" )
 			"body" => "admin/flags_edit_body.tpl")
 		);
 
-		if (!is_file($phpbb_root_path . '/images/flags/country/'.$flag_info['flag_image']))
+		if (!is_file($phpbb_root_path . '/images/flags/language/'.$flag_info['flag_image']))
 		{
 			$flag_dir = $phpbb_root_path . '/images/flags/';
 		}
 		else
 		{
 			// 
-			$flag_dir = $phpbb_root_path . '/images/flags/country/';
+			$flag_dir = $phpbb_root_path . '/images/flags/language/';
 		}
 
 		$template->assign_vars(array(
@@ -147,7 +147,7 @@ if( $mode != "" )
 			"L_SUBMIT" => $lang['Submit'],
 			"L_RESET" => $lang['Reset'],
 
-			"S_FLAG_ACTION" => mx_append_sid("admin_country_flags.$phpEx"),
+			"S_FLAG_ACTION" => mx_append_sid("admin_language_flags.$phpEx"),
 			"S_HIDDEN_FIELDS" => $s_hidden_fields)
 		);
 	}
@@ -178,7 +178,7 @@ if( $mode != "" )
 
 		if ($flag_id)
 		{
-			$sql = "UPDATE " . FLAG_TABLE . "
+			$sql = "UPDATE " . LANG_FLAGS_TABLE . "
 				SET flag_name = '" . str_replace("\'", "''", $flag_name) . "', flag_image = '" . str_replace("\'", "''", $flag_image) . "'
 				WHERE flag_id = $flag_id";
 
@@ -186,7 +186,7 @@ if( $mode != "" )
 		}
 		else
 		{
-			$sql = "INSERT INTO " . FLAG_TABLE . " (flag_name, flag_image)
+			$sql = "INSERT INTO " . LANG_FLAGS_TABLE . " (flag_name, flag_image)
 				VALUES ('" . str_replace("\'", "''", $flag_name) . "', '" . str_replace("\'", "''", $flag_image) . "')";
 
 			$message = $lang['Flag_added'];
@@ -197,7 +197,7 @@ if( $mode != "" )
 			mx_message_die(GENERAL_ERROR, "Couldn't update/insert into flags table", "", __LINE__, __FILE__, $sql);
 		}
 
-		$message .= "<br /><br />" . sprintf($lang['Click_return_flagadmin'], "<a href=\"" . mx_append_sid("admin_country_flags.$phpEx") . "\">", "</a>") . "<br /><br />" . sprintf($lang['Click_return_admin_index'], "<a href=\"" . mx_append_sid("index.$phpEx?pane=right") . "\">", "</a>");
+		$message .= "<br /><br />" . sprintf($lang['Click_return_flagadmin'], "<a href=\"" . mx_append_sid("admin_language_flags.$phpEx") . "\">", "</a>") . "<br /><br />" . sprintf($lang['Click_return_admin_index'], "<a href=\"" . mx_append_sid("index.$phpEx?pane=right") . "\">", "</a>");
 
 		mx_message_die(GENERAL_MESSAGE, $message);
 
@@ -228,7 +228,7 @@ if( $mode != "" )
 			'L_YES' => $lang['Yes'],
 			'L_NO' => $lang['No'],
 
-			'S_CONFIRM_ACTION' => mx_append_sid("admin_country_flags.$phpEx"),
+			'S_CONFIRM_ACTION' => mx_append_sid("admin_language_flags.$phpEx"),
 			'S_HIDDEN_FIELDS' => $hidden_fields)
 		);
 
@@ -250,7 +250,7 @@ if( $mode != "" )
 		if( $flag_id )
 		{
 			// get the doomed flag's info
-			$sql = "SELECT * FROM " . FLAG_TABLE . " 
+			$sql = "SELECT * FROM " . LANG_FLAGS_TABLE . " 
 				WHERE flag_id = $flag_id" ;
 			if( !$result = $db->sql_query($sql) )
 			{
@@ -261,7 +261,7 @@ if( $mode != "" )
 
 
 			// delete the flag
-			$sql = "DELETE FROM " . FLAG_TABLE . "
+			$sql = "DELETE FROM " . LANG_FLAGS_TABLE . "
 				WHERE flag_id = $flag_id";
 			if( !$result = $db->sql_query($sql) )
 			{
@@ -277,8 +277,7 @@ if( $mode != "" )
 				mx_message_die(GENERAL_ERROR, $lang['No_update_flags'], "", __LINE__, __FILE__, $sql);
 			}
 
-			$message = $lang['Flag_removed'] . "<br /><br />" . sprintf($lang['Click_return_flagadmin'], "<a href=\"" . mx_append_sid("admin_country_flags.$phpEx") . "\">", "</a>") . "<br /><br />" . sprintf($lang['Click_return_admin_index'], "<a href=\"" . mx_append_sid("index.$phpEx?pane=right") . "\">", "</a>");
-
+			$message = $lang['Flag_removed'] . "<br /><br />" . sprintf($lang['Click_return_flagadmin'], "<a href=\"" . mx_append_sid("admin_language_flags.$phpEx") . "\">", "</a>") . "<br /><br />" . sprintf($lang['Click_return_admin_index'], "<a href=\"" . mx_append_sid("index.$phpEx?pane=right") . "\">", "</a>");
 			mx_message_die(GENERAL_MESSAGE, $message);
 
 		}
@@ -297,8 +296,8 @@ if( $mode != "" )
 			"body" => "admin/flags_list_body.tpl")
 		);
 
-		$sql = "SELECT * FROM " . FLAG_TABLE . "
-			ORDER BY flag_id ASC";
+		$sql = "SELECT * FROM " . LANG_FLAGS_TABLE . "
+			ORDER BY flag_name";
 		if( !$result = $db->sql_query($sql) )
 		{
 			mx_message_die(GENERAL_ERROR, "Couldn't obtain flags data", "", __LINE__, __FILE__, $sql);
@@ -316,19 +315,19 @@ if( $mode != "" )
 			"L_DELETE" => $lang['Delete'],
 			"L_ADD_FLAG" => $lang['Add_new_flag'],
 			"L_ACTION" => $lang['Action'],
-
-			"S_FLAGS_ACTION" => mx_append_sid("admin_country_flags.$phpEx"))
+			
+			"S_FLAGS_ACTION" => mx_append_sid("admin_language_flags.$phpEx"))
 		);
-		
-		if (!file_exists($phpbb_root_path . '/images/flags/country/'.$flag_rows[$i]['flag_image']))
+
+		if (!file_exists('../images/flags/language/'.$flag_rows[$i]['flag_image']))
 		{
-			$flag_dir = $phpbb_root_path . '/images/flags/';
+			$flag_dir = '../images/flags/';
 		}
 		else
 		{
-			$flag_dir = $phpbb_root_path . '/images/flags/country/';
+			$flag_dir = '../images/flags/language/';
 		}
-		
+
 		for( $i = 0; $i < $flag_count; $i++)
 		{
 			$flag = $flag_rows[$i]['flag_name'];
@@ -340,13 +339,13 @@ if( $mode != "" )
 			$template->assign_block_vars("flags", array(
 				"ROW_COLOR" => "#" . $row_color,
 				"ROW_CLASS" => $row_class,
-				
-				"FLAG" => isset($lang[$flag]) ? $lang[$flag] : $flag,
+
+				"FLAG" => isset($lang[strtoupper($flag)]) ? $lang[strtoupper($flag)] : $flag,
 				//"FLAG" => $flag,
 				"IMAGE_DISPLAY" => ( $flag_rows[$i]['flag_image'] != "" ) ? '<img src="' . $flag_dir . $flag_rows[$i]['flag_image'] . '" />' : "",
 
-				"U_FLAG_EDIT" => mx_append_sid("admin_country_flags.$phpEx?mode=edit&amp;id=$flag_id"),
-				"U_FLAG_DELETE" => mx_append_sid("admin_country_flags.$phpEx?mode=delete&amp;id=$flag_id"))
+				"U_FLAG_EDIT" => mx_append_sid("admin_language_flags.$phpEx?mode=edit&amp;id=$flag_id"),
+				"U_FLAG_DELETE" => mx_append_sid("admin_language_flags.$phpEx?mode=delete&amp;id=$flag_id"))
 			);
 		}
 
@@ -458,8 +457,13 @@ else
 				break;
 
 				case 'ary':
-					$lang_name = 'ALGERIAN_ARABIC'; //known as Moroccan Arabic or Moroccan Darija or Algerian Saharan Arabic
+					$lang_name = 'MOROCCAN_ARABIC'; //known as Moroccan Arabic or Moroccan Darija or Algerian Saharan Arabic
 					$country_name = 'MOROCCO';
+				break;
+				
+				case 'kab':
+					$lang_name = 'KABYLE'; //known as Kabyle (Tamazight)
+					$country_name = 'ALGERIA';
 				break;
 				
 				case 'aq':
@@ -990,6 +994,12 @@ else
 					$country_name = 'REPUBLIC_OF_INDIA';
 				break;
 				
+				case 'en_ai':
+				case 'en-AI':
+					$lang_name = 'ANGUILLAN_ENGLISH'; 
+					$country_name = 'ANGUILLA';
+				break;
+				
 				case 'en_au':
 				case 'en-AU':
 				case 'AuE': 
@@ -1081,124 +1091,134 @@ else
 				break;
 				//Acadian French
 				case 'fr_ac':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'ACADIAN_FRENCH';
+					$country_name = 'ACADIA';
 				break;
-				//African French including sub-branch Maghreb French (North African French)
-				case 'fr-ma':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+				//al-dîzāyīr
+				case 'fr_dz':
+					$lang_name = 'ALGERIAN_FRENCH';
+					$country_name = 'ALGERIA';
 				break;
-				//Aostan French
+				//Aostan French (French: français valdôtain)
+				//Seventy:		septante[a] [sɛp.tɑ̃t]
+				//Eighty:		huitante[b] [ɥi.tɑ̃t]
+				//Ninety:		nonante[c] [nɔ.nɑ̃t]
 				case 'fr_ao':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'AOSTAN_FRENCH';
+					$country_name = 'ITALY';
 				break;
 				//Belgian French
 				case 'fr_bl':
-					$lang_name = 'FRENCH';
+					$lang_name = 'BELGIAN_FRENCH';
 					$country_name = 'FRANCE';
 				break;
 				//Cambodian French
 				case 'fr_cb':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'CAMBODIAN_FRENCH';
+					$country_name = 'CAMBODIA';
 				break;
 				//Cajun French
 				case 'fr_cj':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'CAJUN_FRENCH';
+					$country_name = 'UNITED_STATES';
 				break;
 				//Canadian French
 				case 'fr_ca':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'CANADIAN_FRENCH';
+					$country_name = 'CANADA';
 				break;
 				//Guianese French
 				case 'fr_gu':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'GUIANESE_FRENCH';
+					$country_name = 'GUIANESE';
 				break;
 				//Haitian French
 				case 'fr_ha':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'HAITIAN_FRENCH';
+					$country_name = 'HAITI'; //UNITED_STATES
 				break;
+				
 				//Indian French
-				case 'fr-id':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+				case 'fr_id':
+					$lang_name = 'INDIAN_FRENCH';
+					$country_name = 'INDIA';
 				break;
 				//Jersey Legal French
 				case 'fr_je':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'JERSEY_LEGAL_FRENCH';
+					$country_name = 'UNITED_STATES';
 				break;
 				//Lao French
 				case 'fr_la':
-					$lang_name = 'FRENCH';
+					$lang_name = 'LAO_FRENCH';
 					$country_name = 'UNITED_STATES';
 				break;
 				//Louisiana French
 				case 'frc':
 				case 'fr_lu':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'LOUISIANIAN_FRENCH';
+					$country_name = 'UNITED_STATES'; //LOUISIANA
 				break;
-				//Meridional French
+				//Meridional French (French: Français Méridional)
 				case 'fr_mr':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'MERIDIONAL_FRENCH'; //or Francitan
+					$country_name = 'OCCITANIA';
 				break;
 				//Metropolitan French
 				case 'fr_me':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'METROPOLITAN_FRENCH';
+					$country_name = 'UNITED_STATES';
 				break;
 				//Missouri French
 				case 'fr_mi':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'MISSOURI_FRENCH';
+					$country_name = 'UNITED_STATES';
 				break;
 				//New Caledonian French
 				case 'fr_nc':
-					$lang_name = 'FRENCH';
+					$lang_name = 'NEW_CALEDONIAN_FRENCH';
 					$country_name = 'FRANCE';
 				break;
 				//Newfoundland French
 				case 'fr_nf':
-					$lang_name = 'FRENCH';
+					$lang_name = 'NEWFOUNDLAND_FRENCH';
 					$country_name = 'FRANCE';
 				break;
 				//New England French
 				case 'fr_ne':
-					$lang_name = 'FRENCH';
+					$lang_name = 'NEW_ENGLAND_FRENCH';
 					$country_name = 'FRANCE';
 				break;
 				//Quebec French
 				case 'fr_qb':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'QUEBEC_FRENCH';
+					$country_name = 'CANADA';
 				break;
 				//South East Asian French
 				case 'fr_sa':
-					$lang_name = 'FRENCH';
+					$lang_name = 'SOUTH_EAST_ASIAN_FRENCH';
 					$country_name = 'FRANCE';
 				break;
 				//Swiss French
 				case 'fr_sw':
-					$lang_name = 'FRENCH';
+					$lang_name = 'SWISS_FRENCH';
 					$country_name = 'FRANCE';
+				break;
+				//French Southern and Antarctic Lands
+				case 'fr_tf':				
+				case 'tf':
+					$lang_name = 'FRENCH_SOUTHERN_TERRITORIES'; //
+					$country_name = 'FRENCH_SOUTHERN_TERRITORIES'; //Terres australes françaises
 				break;
 				//Vietnamese French
 				case 'fr_vt':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'VIETNAMESE_FRENCH';
+					$country_name = 'VIETNAM';
 				break;
 				//West Indian French
 				case 'fr_if':
-					$lang_name = 'FRENCH';
-					$country_name = 'FRANCE';
+					$lang_name = 'WEST_INDIAN_FRENCH';
+					$country_name = 'INDIA';
 				break;
 				
 				case 'fy':
@@ -1695,7 +1715,7 @@ else
 				
 				case 'mp':
 					$lang_name = 'chamorro'; //Carolinian
-					$country_name = 'Northern Mariana Islands';
+					$country_name = 'NORTHERN_MARIANA_ISLANDS';
 				break;
 				
 				case 'mq':
@@ -1773,10 +1793,10 @@ else
 					$lang_name = 'Chewa';
 					$country_name = 'Nyanja';
 				break;
-				
+				//langue d'oc
 				case 'oc':
-					$lang_name = 'occitan';
-					$country_name = '';
+					$lang_name = 'OCCITAN';
+					$country_name = 'OCCITANIA';
 				break;
 
 				case 'oj':
@@ -2223,11 +2243,10 @@ else
 					$lang_name = $file_dir;
 					$country_name = $file_dir;
 				break;
-		}
-		$return = ($lang_country == 'country') ? $country_name : $lang_name;
-		$return = ($langs_countries == true) ? $lang_name[$country_name] : $return;
-		return $return ;
-	}
+			}
+			$return = ($lang_country == 'country') ? $country_name : $lang_name;
+			$return = ($langs_countries == true) ? $lang_name[$country_name] : $return;
+			return $return ;	}
 	
 	/**
 	 * Returns flag files list from an specific directory path
@@ -2247,7 +2266,7 @@ else
 	{
 		$db_tools = new tools($db);
 	}
-	
+
 	$template->assign_vars(array(
 		"L_FLAGS_TITLE" => $lang['Flags_title'],
 		"L_FLAGS_TEXT" => $lang['Flags_explain'],
@@ -2258,8 +2277,8 @@ else
 		"L_ADD_FLAG" => $lang['Add_new_flag'],
 		"L_ACTION" => $lang['Action'],
 		
-		"S_FLAGS_ACTION" => mx_append_sid("admin_country_flags.$phpEx"))
-	);	 
+		"S_FLAGS_ACTION" => mx_append_sid("admin_language_flags.$phpEx"))
+	);
 
 	//
 	// Show the default page
@@ -2272,12 +2291,12 @@ else
 	$countries = array();
 	$flag_rows = array();
 	$flag_count = 0;
-	//if (!is_object($db_tools) || (is_object($db_tools) && $db_tools->sql_table_exists($table_prefix . 'flags')))
-	if (!is_object($db_tools) || (is_object($db_tools) && $db_tools->sql_table_exists(FLAG_TABLE)))
+	//if (!is_object($db_tools) || (is_object($db_tools) && $db_tools->sql_table_exists($table_prefix . 'language_flags')))
+	if (!is_object($db_tools) || (is_object($db_tools) && $db_tools->sql_table_exists(LANG_FLAGS_TABLE)))
 	{
-		$sql = "SELECT * FROM " . FLAG_TABLE . "
+		$sql = "SELECT * FROM " . LANG_FLAGS_TABLE . "
 			ORDER BY flag_id ASC";
-		//$sql = "SELECT * FROM " . FLAG_TABLE;
+		//$sql = "SELECT * FROM " . LANG_FLAGS_TABLE;
 		if( !$result = $db->sql_query($sql) )
 		{
 			mx_message_die(GENERAL_ERROR, "Couldn't obtain flags data", "", __LINE__, __FILE__, $sql);
@@ -2287,7 +2306,7 @@ else
 		$flag_rows = $db->sql_fetchrowset($result);
 	}
 
-	if (!is_object($db_tools) || (is_object($db_tools) && $db_tools->sql_table_exists(FLAG_TABLE) && $flag_count > 1))
+	if (!is_object($db_tools) || (is_object($db_tools) && $db_tools->sql_table_exists(LANG_FLAGS_TABLE) && $flag_count > 1))
 	{
 		for ($i = 0; $i < $flag_count; $i++)
 		{
@@ -2302,13 +2321,12 @@ else
 				"ROW_CLASS" => $row_class,
 
 				//We need multilanguage traslation for each flag
-				"FLAG" => isset($lang[$flag]) ? $lang[$flag] : $flag,
+				"FLAG" => isset($lang[strtoupper($flag)]) ? $lang[strtoupper($flag)] : $flag,
 				//"FLAG" => $flag,
+				"IMAGE_DISPLAY" => '<img src="' . $phpbb_root_path . 'images/flags/' . $flag_rows[$i]['flag_image'] . '" />',
 
-				"IMAGE_DISPLAY" => '<img src="' . $phpbb_root_path . '/images/flags/' . $flag_rows[$i]['flag_image'] . '" />',
-
-				"U_FLAG_EDIT" => mx_append_sid("admin_country_flags.$phpEx?mode=edit&amp;id=$flag_id"),
-				"U_FLAG_DELETE" => mx_append_sid("admin_country_flags.$phpEx?mode=delete&amp;id=$flag_id"))
+				"U_FLAG_EDIT" => mx_append_sid("admin_language_flags.$phpEx?mode=edit&amp;id=$flag_id"),
+				"U_FLAG_DELETE" => mx_append_sid("admin_language_flags.$phpEx?mode=delete&amp;id=$flag_id"))
 			);
 		}
 	}
@@ -2318,13 +2336,13 @@ else
 		$sql_ary[] = array();
 
 		//$flag_count = (bool) count(glob($phpbb_root_path . '/images/flags', GLOB_BRACE));
-		if (!is_dir($phpbb_root_path . 'images/flags/country'))
+		if (!is_dir($phpbb_root_path . '/images/flags/language'))
 		{
 			$dir = @opendir($phpbb_root_path . '/images/flags');
 		}
 		else
 		{
-			$dir = @opendir($phpbb_root_path . '/images/flags/country/');
+			$dir = @opendir($phpbb_root_path . '/images/flags/language/');
 		}
 
 		while ($flag = @readdir($dir))
@@ -2369,911 +2387,42 @@ else
 			$filename = basename($flag);
 			$displayname = substr($filename, 0, strrpos($filename, '.'));
 
-			//$lang_name = decode_country_name($displayname, 'language');
-			$country_name = decode_country_name($displayname, 'country');
+			$lang_name = decode_country_name($displayname, 'language');
+			//$country_name = decode_country_name($displayname, 'country');
 
-			if (!is_dir($phpbb_root_path . '/images/flags/'))
+			if (!is_dir('../images/flags/'))
 			{
 				// create the directory flags
 				$result = mkdir($phpbb_root_path . '/images/flags/');
-				chmod($phpbb_root_path . '/images/flags/', 777);
-				chdir($phpbb_root_path . '/images/flags/');
+				chmod($phpbb_root_path . 'images/flags/', 777);
+				chdir($phpbb_root_path . 'images/flags/');
 			}
 
-			if (!is_dir($phpbb_root_path . '/images/flags/country/'))
+			if (!is_dir($phpbb_root_path . '/images/flags/language/'))
 			{
-				// create the directory country
-				$result = mkdir($phpbb_root_path . '/images/flags/country/');
-				chmod($phpbb_root_path . '/images/flags/country/', 777);
-				chdir($phpbb_root_path . '/images/flags/country/');
+				// create the directory language
+				$result = mkdir($phpbb_root_path . '/images/flags/language/');
+				chmod($phpbb_root_path . '/images/flags/language/', 777);
+				chdir($phpbb_root_path . '/images/flags/language/');
 
 				$flag_dir = $phpbb_root_path . '/images/flags/';
 			}
 			else
 			{
 				// 
-				$flag_dir = $phpbb_root_path . '/images/flags/country/';
+				$flag_dir = $phpbb_root_path . '/images/flags/language/';
 			}
-
-			/** /
-			$sql_ary = array(
-				array(
-					'flag_name'		=> 'Afghanistan',
-					'flag_image'	=> 'AF.png',
-				),
-				array(
-					'flag_name'		=> 'Albania',
-					'flag_image'	=> 'AL.png',
-				),
-				array(
-					'flag_name'		=> 'Algeria',
-					'flag_image'	=> 'DZ.png',
-				),
-				array(
-					'flag_name'		=> 'American Samoa',
-					'flag_image'	=> 'AS.png',
-				),
-				array(
-					'flag_name'		=> 'Andorra',
-					'flag_image'	=> 'AD.png',
-				),
-				array(
-					'flag_name'		=> 'Angola',
-					'flag_image'	=> 'AO.png',
-				),
-				array(
-					'flag_name'		=> 'Anguilla',
-					'flag_image'	=> 'AI.png',
-				),
-				array(
-					'flag_name'		=> 'Antigua &amp; Barbuda',
-					'flag_image'	=> 'AG.png',
-				),
-				array(
-					'flag_name'		=> 'Argentina',
-					'flag_image'	=> 'AR.png',
-				),
-				array(
-					'flag_name'		=> 'Armenia',
-					'flag_image'	=> 'AM.png',
-				),
-				array(
-					'flag_name'		=> 'Aruba',
-					'flag_image'	=> 'AW.png',
-				),
-				array(
-					'flag_name'		=> 'Australia',
-					'flag_image'	=> 'AU.png',
-				),
-				array(
-					'flag_name'		=> 'Austria',
-					'flag_image'	=> 'AT.png',
-				),
-				array(
-					'flag_name'		=> 'Azerbaijan',
-					'flag_image'	=> 'AZ.png',
-				),
-				array(
-					'flag_name'		=> 'Bahamas',
-					'flag_image'	=> 'BS.png',
-				),
-				array(
-					'flag_name'		=> 'Bahrain',
-					'flag_image'	=> 'BH.png',
-				),
-				array(
-					'flag_name'		=> 'Bangladesh',
-					'flag_image'	=> 'BD.png',
-				),
-				array(
-					'flag_name'		=> 'Barbados',
-					'flag_image'	=> 'BB.png',
-				),
-				array(
-					'flag_name'		=> 'Belarus',
-					'flag_image'	=> 'BY.png',
-				),
-				array(
-					'flag_name'		=> 'Belgium',
-					'flag_image'	=> 'BE.png',
-				),
-				array(
-					'flag_name'		=> 'Belize',
-					'flag_image'	=> 'BZ.png',
-				),
-				array(
-					'flag_name'		=> 'Benin',
-					'flag_image'	=> 'BJ.png',
-				),
-				array(
-					'flag_name'		=> 'Bermuda',
-					'flag_image'	=> 'BM.png',
-				),
-				array(
-					'flag_name'		=> 'Bhutan',
-					'flag_image'	=> 'BT.png',
-				),
-				array(
-					'flag_name'		=> 'Bolivia',
-					'flag_image'	=> 'BO.png',
-				),
-				array(
-					'flag_name'		=> 'Bonaire',
-					'flag_image'	=> 'BL.png',
-				),
-				array(
-					'flag_name'		=> 'Bosnia &amp; Herzegovina',
-					'flag_image'	=> 'BA.png',
-				),
-				array(
-					'flag_name'		=> 'Botswana',
-					'flag_image'	=> 'BW.png',
-				),
-				array(
-					'flag_name'		=> 'Brazil',
-					'flag_image'	=> 'BR.png',
-				),
-				array(
-					'flag_name'		=> 'Brunei',
-					'flag_image'	=> 'BN.png',
-				),
-				array(
-					'flag_name'		=> 'Bulgaria',
-					'flag_image'	=> 'BG.png',
-				),
-				array(
-					'flag_name'		=> 'Burkina Faso',
-					'flag_image'	=> 'BF.png',
-				),
-				array(
-					'flag_name'		=> 'Burundi',
-					'flag_image'	=> 'BI.png',
-				),
-				array(
-					'flag_name'		=> 'Cambodia',
-					'flag_image'	=> 'KH.png',
-				),
-				array(
-					'flag_name'		=> 'Cameroon',
-					'flag_image'	=> 'CM.png',
-				),
-				array(
-					'flag_name'		=> 'Canada',
-					'flag_image'	=> 'CA.png',
-				),
-				array(
-					'flag_name'		=> 'Cape Verde',
-					'flag_image'	=> 'CV.png',
-				),
-				array(
-					'flag_name'		=> 'Cayman Islands',
-					'flag_image'	=> 'KY.png',
-				),
-				array(
-					'flag_name'		=> 'Central African Republic',
-					'flag_image'	=> 'CF.png',
-				),
-				array(
-					'flag_name'		=> 'Chad',
-					'flag_image'	=> 'TD.png',
-				),
-				array(
-					'flag_name'		=> 'Chile',
-					'flag_image'	=> 'CL.png',
-				),
-				array(
-					'flag_name'		=> 'China',
-					'flag_image'	=> 'CN.png',
-				),
-				array(
-					'flag_name'		=> 'Columbia',
-					'flag_image'	=> 'CO.png',
-				),
-				array(
-					'flag_name'		=> 'Comoros',
-					'flag_image'	=> 'KM.png',
-				),
-				array(
-					'flag_name'		=> 'Congo',
-					'flag_image'	=> 'CG.png',
-				),
-				array(
-					'flag_name'		=> 'Congo Democratic Republic',
-					'flag_image'	=> 'CD.png',
-				),
-				array(
-					'flag_name'		=> 'Costa Rica',
-					'flag_image'	=> 'CR.png',
-				),
-				array(
-					'flag_name'		=> 'Cote D-Ivoire',
-					'flag_image'	=> 'CI.png',
-				),
-				array(
-					'flag_name'		=> 'Croatia',
-					'flag_image'	=> 'HR.png',
-				),
-				array(
-					'flag_name'		=> 'Cuba',
-					'flag_image'	=> 'CU.png',
-				),
-				array(
-					'flag_name'		=> 'Cyprus',
-					'flag_image'	=> 'CY.png',
-				),
-				array(
-					'flag_name'		=> 'Czech Republic',
-					'flag_image'	=> 'CZ.png',
-				),
-				array(
-					'flag_name'		=> 'Denmark',
-					'flag_image'	=> 'DK.png',
-				),
-				array(
-					'flag_name'		=> 'Djibouti',
-					'flag_image'	=> 'DJ.png',
-				),
-				array(
-					'flag_name'		=> 'Dominica',
-					'flag_image'	=> 'DM.png',
-				),
-				array(
-					'flag_name'		=> 'Dominican Republic',
-					'flag_image'	=> 'DO.png',
-				),
-				array(
-					'flag_name'		=> 'East Timor',
-					'flag_image'	=> 'TL.png',
-				),
-				array(
-					'flag_name'		=> 'Ecuador',
-					'flag_image'	=> 'EC.png',
-				),
-				array(
-					'flag_name'		=> 'Egypt',
-					'flag_image'	=> 'EG.png',
-				),
-				array(
-					'flag_name'		=> 'El Salvador',
-					'flag_image'	=> 'SV.png',
-				),
-				array(
-					'flag_name'		=> 'Equatorial Guinea',
-					'flag_image'	=> 'GQ.png',
-				),
-				array(
-					'flag_name'		=> 'Eritrea',
-					'flag_image'	=> 'ER.png',
-				),
-				array(
-					'flag_name'		=> 'Estonia',
-					'flag_image'	=> 'EE.png',
-				),
-				array(
-					'flag_name'		=> 'Ethiopia',
-					'flag_image'	=> 'ET.png',
-				),
-				array(
-					'flag_name'		=> 'Falkland Islands',
-					'flag_image'	=> 'FK.png',
-				),
-				array(
-					'flag_name'		=> 'Faroe Islands',
-					'flag_image'	=> 'FO.png',
-				),
-				array(
-					'flag_name'		=> 'Fiji',
-					'flag_image'	=> 'FJ.png',
-				),
-				array(
-					'flag_name'		=> 'Finland',
-					'flag_image'	=> 'FI.png',
-				),
-				array(
-					'flag_name'		=> 'France',
-					'flag_image'	=> 'FR.png',
-				),
-				array(
-					'flag_name'		=> 'Gabon',
-					'flag_image'	=> 'GA.png',
-				),
-				array(
-					'flag_name'		=> 'Gambia',
-					'flag_image'	=> 'GM.png',
-				),
-				array(
-					'flag_name'		=> 'Georgia',
-					'flag_image'	=> 'GE.png',
-				),
-				array(
-					'flag_name'		=> 'Germany',
-					'flag_image'	=> 'DE.png',
-				),
-				array(
-					'flag_name'		=> 'Ghana',
-					'flag_image'	=> 'GH.png',
-				),
-				array(
-					'flag_name'		=> 'Great Britain',
-					'flag_image'	=> 'GB.png',
-				),
-				array(
-					'flag_name'		=> 'Greece',
-					'flag_image'	=> 'GR.png',
-				),
-				array(
-					'flag_name'		=> 'Greenland',
-					'flag_image'	=> 'GL.png',
-				),
-				array(
-					'flag_name'		=> 'Grenada',
-					'flag_image'	=> 'GD.png',
-				),
-				array(
-					'flag_name'		=> 'Guam',
-					'flag_image'	=> 'GU.png',
-				),
-				array(
-					'flag_name'		=> 'Guatemala',
-					'flag_image'	=> 'GT.png',
-				),
-				array(
-					'flag_name'		=> 'Guinea',
-					'flag_image'	=> 'GN.png',
-				),
-				array(
-					'flag_name'		=> 'Guinea Bissau',
-					'flag_image'	=> 'GW.png',
-				),
-				array(
-					'flag_name'		=> 'Guyana',
-					'flag_image'	=> 'GY.png',
-				),
-				array(
-					'flag_name'		=> 'Haiti',
-					'flag_image'	=> 'HT.png',
-				),
-				array(
-					'flag_name'		=> 'Honduras',
-					'flag_image'	=> 'HN.png',
-				),
-				array(
-					'flag_name'		=> 'Hong Kong',
-					'flag_image'	=> 'HK.png',
-				),
-				array(
-					'flag_name'		=> 'Hungary',
-					'flag_image'	=> 'HU.png',
-				),
-				array(
-					'flag_name'		=> 'Iceland',
-					'flag_image'	=> 'IS.png',
-				),
-				array(
-					'flag_name'		=> 'India',
-					'flag_image'	=> 'IN.png',
-				),
-				array(
-					'flag_name'		=> 'Indonesia',
-					'flag_image'	=> 'ID.png',
-				),
-				array(
-					'flag_name'		=> 'Iran',
-					'flag_image'	=> 'IR.png',
-				),
-				array(
-					'flag_name'		=> 'Iraq',
-					'flag_image'	=> 'IQ.png',
-				),
-				array(
-					'flag_name'		=> 'Ireland',
-					'flag_image'	=> 'IE.png',
-				),
-				array(
-					'flag_name'		=> 'Isle of Man',
-					'flag_image'	=> 'IM.png',
-				),
-				array(
-					'flag_name'		=> 'Israel',
-					'flag_image'	=> 'IL.png',
-				),
-				array(
-					'flag_name'		=> 'Italy',
-					'flag_image'	=> 'IT.png',
-				),
-				array(
-					'flag_name'		=> 'Jamaica',
-					'flag_image'	=> 'JM.png',
-				),
-				array(
-					'flag_name'		=> 'Japan',
-					'flag_image'	=> 'JP.png',
-				),
-				array(
-					'flag_name'		=> 'Jordan',
-					'flag_image'	=> 'JO.png',
-				),
-				array(
-					'flag_name'		=> 'Kazakhstan',
-					'flag_image'	=> 'KZ.png',
-				),
-				array(
-					'flag_name'		=> 'Kenya',
-					'flag_image'	=> 'KE.png',
-				),
-				array(
-					'flag_name'		=> 'Kiribati',
-					'flag_image'	=> 'KI.png',
-				),
-				array(
-					'flag_name'		=> 'Korea North',
-					'flag_image'	=> 'NK.png',
-				),
-				array(
-					'flag_name'		=> 'Korea South',
-					'flag_image'	=> 'KS.png',
-				),
-				array(
-					'flag_name'		=> 'Kuwait',
-					'flag_image'	=> 'KW.png',
-				),
-				array(
-					'flag_name'		=> 'Kyrgyzstan',
-					'flag_image'	=> 'KG.png',
-				),
-				array(
-					'flag_name'		=> 'Laos',
-					'flag_image'	=> 'LA.png',
-				),
-				array(
-					'flag_name'		=> 'Latvia',
-					'flag_image'	=> 'LV.png',
-				),
-				array(
-					'flag_name'		=> 'Lebanon',
-					'flag_image'	=> 'LB.png',
-				),
-				array(
-					'flag_name'		=> 'Lesotho',
-					'flag_image'	=> 'LS.png',
-				),
-				array(
-					'flag_name'		=> 'Liberia',
-					'flag_image'	=> 'LR.png',
-				),
-				array(
-					'flag_name'		=> 'Libya',
-					'flag_image'	=> 'LY.png',
-				),
-				array(
-					'flag_name'		=> 'Liechtenstein',
-					'flag_image'	=> 'LI.png',
-				),
-				array(
-					'flag_name'		=> 'Lithuania',
-					'flag_image'	=> 'LT.png',
-				),
-				array(
-					'flag_name'		=> 'Luxembourg',
-					'flag_image'	=> 'LU.png',
-				),
-				array(
-					'flag_name'		=> 'Macau',
-					'flag_image'	=> 'MO.png',
-				),
-				array(
-					'flag_name'		=> 'Macedonia',
-					'flag_image'	=> 'MK.png',
-				),
-				array(
-					'flag_name'		=> 'Madagascar',
-					'flag_image'	=> 'MG.png',
-				),
-				array(
-					'flag_name'		=> 'Malawi',
-					'flag_image'	=> 'MW.png',
-				),
-				array(
-					'flag_name'		=> 'Malaysia',
-					'flag_image'	=> 'MY.png',
-				),
-				array(
-					'flag_name'		=> 'Maldives',
-					'flag_image'	=> 'MV.png',
-				),
-				array(
-					'flag_name'		=> 'Mali',
-					'flag_image'	=> 'ML.png',
-				),
-				array(
-					'flag_name'		=> 'Malta',
-					'flag_image'	=> 'MT.png',
-				),
-				array(
-					'flag_name'		=> 'Marshall Islands',
-					'flag_image'	=> 'MH.png',
-				),
-				array(
-					'flag_name'		=> 'Mauritania',
-					'flag_image'	=> 'MR.png',
-				),
-				array(
-					'flag_name'		=> 'Mauritius',
-					'flag_image'	=> 'MU.png',
-				),
-				array(
-					'flag_name'		=> 'Mexico',
-					'flag_image'	=> 'MX.png',
-				),
-				array(
-					'flag_name'		=> 'Micronesia',
-					'flag_image'	=> 'FM.png',
-				),
-				array(
-					'flag_name'		=> 'Moldova',
-					'flag_image'	=> 'MD.png',
-				),
-				array(
-					'flag_name'		=> 'Monaco',
-					'flag_image'	=> 'MC.png',
-				),
-				array(
-					'flag_name'		=> 'Mongolia',
-					'flag_image'	=> 'MN.png',
-				),
-				array(
-					'flag_name'		=> 'Montserrat',
-					'flag_image'	=> 'MS.png',
-				),
-				array(
-					'flag_name'		=> 'Morocco',
-					'flag_image'	=> 'MA.png',
-				),
-				array(
-					'flag_name'		=> 'Mozambique',
-					'flag_image'	=> 'MZ.png',
-				),
-				array(
-					'flag_name'		=> 'Myanmar',
-					'flag_image'	=> 'MM.png',
-				),
-				array(
-					'flag_name'		=> 'Nambia',
-					'flag_image'	=> 'NA.png',
-				),
-				array(
-					'flag_name'		=> 'Nauru',
-					'flag_image'	=> 'NR.png',
-				),
-				array(
-					'flag_name'		=> 'Nepal',
-					'flag_image'	=> 'NP.png',
-				),
-				array(
-					'flag_name'		=> 'Netherland Antilles',
-					'flag_image'	=> 'AN.png',
-				),
-				array(
-					'flag_name'		=> 'Netherlands',
-					'flag_image'	=> 'NL.png',
-				),
-				array(
-					'flag_name'		=> 'New Zealand',
-					'flag_image'	=> 'NZ.png',
-				),
-				array(
-					'flag_name'		=> 'Nicaragua',
-					'flag_image'	=> 'NI.png',
-				),
-				array(
-					'flag_name'		=> 'Niger',
-					'flag_image'	=> 'NE.png',
-				),
-				array(
-					'flag_name'		=> 'Nigeria',
-					'flag_image'	=> 'NG.png',
-				),
-				array(
-					'flag_name'		=> 'Norfolk Island',
-					'flag_image'	=> 'NF.png',
-				),
-				array(
-					'flag_name'		=> 'Norway',
-					'flag_image'	=> 'NO.png',
-				),
-				array(
-					'flag_name'		=> 'Oman',
-					'flag_image'	=> 'OM.png',
-				),
-				array(
-					'flag_name'		=> 'Pakistan',
-					'flag_image'	=> 'PK.png',
-				),
-				array(
-					'flag_name'		=> 'Palau Island',
-					'flag_image'	=> 'PW.png',
-				),
-				array(
-					'flag_name'		=> 'Palestine',
-					'flag_image'	=> 'PS.png',
-				),
-				array(
-					'flag_name'		=> 'Panama',
-					'flag_image'	=> 'PA.png',
-				),
-				array(
-					'flag_name'		=> 'Papua New Guinea',
-					'flag_image'	=> 'PG.png',
-				),
-				array(
-					'flag_name'		=> 'Paraguay',
-					'flag_image'	=> 'PY.png',
-				),
-				array(
-					'flag_name'		=> 'Peru',
-					'flag_image'	=> 'PE.png',
-				),
-				array(
-					'flag_name'		=> 'Philippines',
-					'flag_image'	=> 'PH.png',
-				),
-				array(
-					'flag_name'		=> 'Pitcairn Island',
-					'flag_image'	=> 'PN.png',
-				),
-				array(
-					'flag_name'		=> 'Poland',
-					'flag_image'	=> 'PL.png',
-				),
-				array(
-					'flag_name'		=> 'Portugal',
-					'flag_image'	=> 'PT.png',
-				),
-				array(
-					'flag_name'		=> 'Puerto Rico',
-					'flag_image'	=> 'PR.png',
-				),
-				array(
-					'flag_name'		=> 'Qatar',
-					'flag_image'	=> 'QA.png',
-				),
-				array(
-					'flag_name'		=> 'Romania',
-					'flag_image'	=> 'RO.png',
-				),
-				array(
-					'flag_name'		=> 'Russia',
-					'flag_image'	=> 'RU.png',
-				),
-				array(
-					'flag_name'		=> 'Rwanda',
-					'flag_image'	=> 'RW.png',
-				),
-				array(
-					'flag_name'		=> 'Samoa',
-					'flag_image'	=> 'WS.png',
-				),
-				array(
-					'flag_name'		=> 'San Marino',
-					'flag_image'	=> 'SM.png',
-				),
-				array(
-					'flag_name'		=> 'Sao Tome &amp; Principe',
-					'flag_image'	=> 'ST.png',
-				),
-				array(
-					'flag_name'		=> 'Saudi Arabia',
-					'flag_image'	=> 'SA.png',
-				),
-				array(
-					'flag_name'		=> 'Senegal',
-					'flag_image'	=> 'SN.png',
-				),
-				array(
-					'flag_name'		=> 'Seychelles',
-					'flag_image'	=> 'SC.png',
-				),
-				array(
-					'flag_name'		=> 'Sierra Leone',
-					'flag_image'	=> 'SL.png',
-				),
-				array(
-					'flag_name'		=> 'Singapore',
-					'flag_image'	=> 'SG.png',
-				),
-				array(
-					'flag_name'		=> 'Slovakia',
-					'flag_image'	=> 'SK.png',
-				),
-				array(
-					'flag_name'		=> 'Slovenia',
-					'flag_image'	=> 'SI.png',
-				),
-				array(
-					'flag_name'		=> 'Solomon Islands',
-					'flag_image'	=> 'SB.png',
-				),
-				array(
-					'flag_name'		=> 'Somalia',
-					'flag_image'	=> 'SO.png',
-				),
-				array(
-					'flag_name'		=> 'South Africa',
-					'flag_image'	=> 'ZA.png',
-				),
-				array(
-					'flag_name'		=> 'Spain',
-					'flag_image'	=> 'ES.png',
-				),
-				array(
-					'flag_name'		=> 'Sri Lanka',
-					'flag_image'	=> 'LK.png',
-				),
-				array(
-					'flag_name'		=> 'St Helena',
-					'flag_image'	=> 'SH.png',
-				),
-				array(
-					'flag_name'		=> 'St Kitts-Nevis',
-					'flag_image'	=> 'KN.png',
-				),
-				array(
-					'flag_name'		=> 'St Lucia',
-					'flag_image'	=> 'LC.png',
-				),
-				array(
-					'flag_name'		=> 'St Vincent &amp; Grenadines',
-					'flag_image'	=> 'VC.png',
-				),
-				array(
-					'flag_name'		=> 'Sudan',
-					'flag_image'	=> 'SD.png',
-				),
-				array(
-					'flag_name'		=> 'Suriname',
-					'flag_image'	=> 'SR.png',
-				),
-				array(
-					'flag_name'		=> 'Swaziland',
-					'flag_image'	=> 'SZ.png',
-				),
-				array(
-					'flag_name'		=> 'Sweden',
-					'flag_image'	=> 'SE.png',
-				),
-					array(
-					'flag_name'		=> 'Switzerland',
-					'flag_image'	=> 'CH.png',
-				),
-				array(
-					'flag_name'		=> 'Syria',
-					'flag_image'	=> 'SY.png',
-				),
-				array(
-					'flag_name'		=> 'Taiwan',
-					'flag_image'	=> 'TW.png',
-				),
-				array(
-					'flag_name'		=> 'Tajikistan',
-					'flag_image'	=> 'TJ.png',
-				),
-				array(
-					'flag_name'		=> 'Tanzania',
-					'flag_image'	=> 'TZ.png',
-				),
-				array(
-					'flag_name'		=> 'Thailand',
-					'flag_image'	=> 'TH.png',
-				),
-				array(
-					'flag_name'		=> 'Togo',
-					'flag_image'	=> 'TG.png',
-				),
-				array(
-					'flag_name'		=> 'Tonga',
-					'flag_image'	=> 'TO.png',
-				),
-				array(
-					'flag_name'		=> 'Trinidad &amp; Tobago',
-					'flag_image'	=> 'TT.png',
-				),
-				array(
-					'flag_name'		=> 'Tunisia',
-					'flag_image'	=> 'TN.png',
-				),
-				array(
-					'flag_name'		=> 'Turkey',
-					'flag_image'	=> 'TR.png',
-				),
-				array(
-					'flag_name'		=> 'Turkmenistan',
-					'flag_image'	=> 'TM.png',
-				),
-				array(
-					'flag_name'		=> 'Turks &amp; Caicos Is',
-					'flag_image'	=> 'TC.png',
-				),
-				array(
-					'flag_name'		=> 'Tuvalu',
-					'flag_image'	=> 'TV.png',
-				),
-				array(
-					'flag_name'		=> 'Uganda',
-					'flag_image'	=> 'UG.png',
-				),
-				array(
-					'flag_name'		=> 'Ukraine',
-					'flag_image'	=> 'UA.png',
-				),
-				array(
-					'flag_name'		=> 'United Arab Emirates',
-					'flag_image'	=> 'AE.png',
-				),
-				array(
-					'flag_name'		=> 'United States of America',
-					'flag_image'	=> 'US.png',
-				),
-				array(
-					'flag_name'		=> 'Uruguay',
-					'flag_image'	=> 'UY.png',
-				),
-				array(
-					'flag_name'		=> 'Uzbekistan',
-					'flag_image'	=> 'UZ.png',
-				),
-				array(
-					'flag_name'		=> 'Vanuatu',
-					'flag_image'	=> 'VU.png',
-				),
-				array(
-					'flag_name'		=> 'Venezuela',
-					'flag_image'	=> 'VE.png',
-				),
-				array(
-					'flag_name'		=> 'Vietnam',
-					'flag_image'	=> 'VN.png',
-				),
-				array(
-					'flag_name'		=> 'Virgin Islands (Brit)',
-					'flag_image'	=> 'VG.png',
-				),
-				array(
-					'flag_name'		=> 'Virgin Islands (USA)',
-					'flag_image'	=> 'VI.png',
-				),
-				array(
-					'flag_name'		=> 'Wales',
-					'flag_image'	=> 'WLS.png',
-				),
-				array(
-					'flag_name'		=> 'Western Sahara',
-					'flag_image'	=> 'EH.png',
-				),
-				array(
-					'flag_name'		=> 'Yemen',
-					'flag_image'	=> 'YE.png',
-				),
-				array(
-					'flag_name'		=> 'Zambia',
-					'flag_image'	=> 'ZM.png',
-				),
-				array(
-					'flag_name'		=> 'Zimbabwe',
-					'flag_image'	=> 'ZW.png',
-				),
-			); 
-			/**/
 
 			$ary = array(
 				'flag_id'			=> $flag_id,
-				'flag_name'		=> strtoupper(str_replace(array(" ","_"), "_", $country_name)), //lang_name
+				'flag_name'		=> strtolower(str_replace(array(" ","_"), "_", $lang_name)), //country_name
 				'flag_image'		=> $flag
 			);
 			
-			if ($db_tools->sql_table_exists(FLAG_TABLE) && !is_request('add_table'))
+			if ($db_tools->sql_table_exists(LANG_FLAGS_TABLE) && !is_request('add_table'))
 			{
-				$sql_flags = 'INSERT INTO ' . FLAG_TABLE . ' ' . $db->sql_build_array('INSERT', $ary);
-				print('<div><span style="color: red;">This flags are now added to the country flags DB table..</div>');
+				$sql_flags = 'INSERT INTO ' . LANG_FLAGS_TABLE . ' ' . $db->sql_build_array('INSERT', $ary);
+				print('<div><span style="color: red;">This flags are now added to the language flags DB table..</div>');
 				print($sql_flags . "</br>");
 				$db->sql_query($sql_flags);
 			}
@@ -3285,13 +2434,13 @@ else
 					mx_message_die(CRITICAL_ERROR, "Could not add flags table to the DB", '', __LINE__, __FILE__, print_r($sql_ary, true));
 				}
 				
-				$message = $lang['Virtual_Go'] . "<br /><br />" . sprintf($lang['Click_return_flagadmin'], "<a href=\"" . mx_append_sid("admin_country_flags.$phpEx") . "\">", "</a>") . "<br /><br />" . sprintf($lang['Click_return_admin_index'], "<a href=\"" . mx_append_sid($phpbb_root_path . "admin/index.$phpEx?pane=right") . "\">", "</a>");
+				$message = $lang['Virtual_Go'] . "<br /><br />" . sprintf($lang['Click_return_flagadmin'], "<a href=\"" . mx_append_sid("admin_language_flags.$phpEx") . "\">", "</a>") . "<br /><br />" . sprintf($lang['Click_return_admin_index'], "<a href=\"" . mx_append_sid($phpbb_root_path . "admin/index.$phpEx?pane=right") . "\">", "</a>");
 				mx_message_die(GENERAL_MESSAGE, $message);
 			}
-			elseif (is_request('add_table') && !$db_tools->sql_table_exists(FLAG_TABLE))
+			elseif (is_request('add_table') && !$db_tools->sql_table_exists(LANG_FLAGS_TABLE))
 			{
 				//$sql = "DROP TABLE " . $table_prefix . "flags";
-				$sql = "CREATE TABLE " . FLAG_TABLE . " (
+				$sql = "CREATE TABLE " . LANG_FLAGS_TABLE . " (
 					flag_id int(10) NOT NULL auto_increment,
 					flag_name varchar(25) default NULL,
 					flag_image varchar(25) default NULL,
@@ -3309,30 +2458,29 @@ else
 			$template->assign_block_vars("flags", array(
 				"ROW_COLOR" => "#" . $row_color,
 				"ROW_CLASS" => $row_class,
-				"FLAG" => isset($lang[$country_name]) ? $lang[$country_name] : $country_name,
-				"IMAGE_DISPLAY" => ($flag) ? '<img title="' . $country_name . '" alt="' . $displayname . '" src="' . $flag_dir . $flag . '" />' : "",
+				"FLAG" => isset($lang[$lang_name]) ? $lang[$lang_name] : $lang_name,
+				"IMAGE_DISPLAY" => ($flag) ? '<img title="' . $lang_name . '" alt="' . $displayname . '" src="' . $flag_dir . $flag . '" />' : "",
 
-				"U_FLAG_EDIT" => mx_append_sid("admin_country_flags.$phpEx?mode=edit&amp;id=$flag_id"),
-				"U_FLAG_DELETE" => mx_append_sid("admin_country_flags.$phpEx?mode=delete&amp;id=$flag_id"))
+				"U_FLAG_EDIT" => mx_append_sid("admin_language_flags.$phpEx?mode=edit&amp;id=$flag_id"),
+				"U_FLAG_DELETE" => mx_append_sid("admin_language_flags.$phpEx?mode=delete&amp;id=$flag_id"))
 			);
 			$flag_id++;
 		}
 		
-		if ($db_tools->sql_table_exists(FLAG_TABLE))
+		if ($db_tools->sql_table_exists(LANG_FLAGS_TABLE))
 		{
-			$redirect_url = mx_append_sid("admin_country_flags.$phpEx?add_flags=add_lang_flags", true);
-			$message_info = '<div><span style="color: red;">Your flags are not added to the country flags DB table and so You will not be able to enable all features that come in this pannel...</div><i><div>Adding the flags to the is reversible from this pannel! You will be able to edit or remove each flag. If you are aware of that, please click this link to proceed:</i></span> <a href="' . $redirect_url . '">click here to begin</a></div>'; 
+			$redirect_url = mx_append_sid("admin_language_flags.$phpEx?add_flags=add_lang_flags", true);
+			$message_info = '<div><span style="color: red;">Your flags are not added to the language flags DB table and so You will not be able to enable all features that come in this pannel...</div><i><div>Adding the flags to the is reversible from this pannel! You will be able to edit or remove each flag. If you are aware of that, please click this link to proceed:</i></span> <a href="' . $redirect_url . '">click here to begin</a></div>'; 
 			print($message_info);
 		}
 		else
 		{
-			$redirect_url = mx_append_sid("admin_country_flags.$phpEx?add_table=create_table", true);
+			$redirect_url = mx_append_sid("admin_language_flags.$phpEx?add_table=create_table", true);
 			$message_info = '<div><span style="color: red;">Your flags table is not added to the DB and so You will not be able to enable all features that come in this pannel...</div><i><div>Adding the table is not reversible from this pannel! If you are aware of that, please click this link to proceed:</i></span> <a href="' . $redirect_url . '">click here to begin</a></div>'; 
 			print($message_info);
 		}
 	}
 }
-
 $template->pparse("body");
 
 include('./page_footer_admin.'.$phpEx);
