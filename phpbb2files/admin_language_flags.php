@@ -454,13 +454,8 @@ else
 				break;
 
 				case 'ary':
-					$lang_name = 'MOROCCAN_ARABIC'; //known as Moroccan Arabic or Moroccan Darija or Algerian Saharan Arabic
+					$lang_name = 'ALGERIAN_ARABIC'; //known as Moroccan Arabic or Moroccan Darija or Algerian Saharan Arabic
 					$country_name = 'MOROCCO';
-				break;
-				
-				case 'kab':
-					$lang_name = 'KABYLE'; //known as Kabyle (Tamazight)
-					$country_name = 'ALGERIA';
 				break;
 				
 				case 'aq':
@@ -1082,21 +1077,18 @@ else
 				break;
 				//Acadian French
 				case 'fr_ac':
-					$lang_name = 'ACADIAN_FRENCH';
-					$country_name = 'ACADIA';
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
 				break;
-				//al-dîzāyīr
-				case 'fr_dz':
-					$lang_name = 'ALGERIAN_FRENCH';
-					$country_name = 'ALGERIA';
+				//African French including sub-branch Maghreb French (North African French)
+				case 'fr-ma':
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
 				break;
-				//Aostan French (French: français valdôtain)
-				//Seventy:		septante[a] [sɛp.tɑ̃t]
-				//Eighty:		huitante[b] [ɥi.tɑ̃t]
-				//Ninety:		nonante[c] [nɔ.nɑ̃t]
+				//Aostan French
 				case 'fr_ao':
-					$lang_name = 'AOSTAN_FRENCH';
-					$country_name = 'ITALY';
+					$lang_name = 'FRENCH';
+					$country_name = 'FRANCE';
 				break;
 				//Belgian French
 				case 'fr_bl':
@@ -1128,9 +1120,8 @@ else
 					$lang_name = 'FRENCH';
 					$country_name = 'FRANCE';
 				break;
-				
 				//Indian French
-				case 'fr_id':
+				case 'fr-id':
 					$lang_name = 'FRENCH';
 					$country_name = 'FRANCE';
 				break;
@@ -1194,12 +1185,6 @@ else
 				case 'fr_sw':
 					$lang_name = 'FRENCH';
 					$country_name = 'FRANCE';
-				break;
-				//French Southern and Antarctic Lands
-				case 'fr_tf':				
-				case 'tf':
-					$lang_name = 'FRENCH_SOUTHERN_TERRITORIES'; //
-					$country_name = 'FRENCH_SOUTHERN_TERRITORIES'; //Terres australes françaises
 				break;
 				//Vietnamese French
 				case 'fr_vt':

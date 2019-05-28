@@ -245,18 +245,17 @@ To Do:
 					$lang_name = 'BENGALI';
 
 				break;
+				
 				case 'bo':
 					$lang_name = 'TIBETAN';
 					$country_name = 'BOLIVIA';
 				break;
-
-
+				
 				case 'br':
 					$lang_name = 'BRETON';
 					$country_name = 'BRAZIL'; //pt
 				break;
-
-
+				
 				case 'bs':
 					$lang_name = 'BOSNIAN';
 					$country_name = 'BAHAMAS';
@@ -312,6 +311,7 @@ To Do:
 					$lang_name = 'Congo Democratic Republic';
 					$country_name = 'CONGO_DEMOCRATIC_REPUBLIC';
 				break;
+				
 				//нохчийн мотт
 				case 'ce':
 					$lang_name = 'CHECHEN';
@@ -536,18 +536,20 @@ To Do:
 				case 'dk':
 					$lang_name = 'DANISH';
 					$country_name = 'DENMARK';
-				break;
-
-
-				case 'dm':
-				case 'en_dm':
-				case 'en-DM':
-				case 'fr_dm':
-				case 'fr-DM':
-					$lang_name = 'DOMINICA'; //Roseau
+				break;				
+				
+				//acf – Saint Lucian / Dominican Creole French		
+				case 'acf':
+					$lang_name = 'DOMINICAN_CREOLE_FRENCH'; //ROSEAU 
 					$country_name = 'DOMINICA';
 				break;
-
+				
+				case 'en_dm':
+				case 'en-DM':
+					$lang_name = 'DOMINICA_ENGLISH'; 
+					$country_name = 'DOMINICA';
+				break;
+				
 				case 'do':
 				case 'en_do':
 				case 'en-DO':
@@ -575,7 +577,7 @@ To Do:
 				//Berbera Șauiană este vorbită în jurul orașului Batna din Algeria.
 				//Berbera Tahelhită, zisă și Șlănuană (în limba franceză Chleuh) este vorbită în jurul masivului Tubkal din Maroc, în sud-vestul țării.
 				//Berbera Tamașekă, zisă și Sahariană, este vorbită în Sahara de nord, în Algeria, Libia și Egipt.
-				//Berber:				Tacawit (@ city Batna from Chaoui, Algery), Shawiya (Shauian)
+				//Berber: Tacawit (@ city Batna from Chaoui, Algery), Shawiya (Shauian)
 				case 'shy':
 					$lang_name = 'SHAWIYA_BERBER';
 					$country_name = 'ALGERIA'; 
@@ -596,12 +598,10 @@ To Do:
 					$lang_name = 'EGYPT';
 				break;
 
-
 				case 'eh':
 					$lang_name = 'WESTERN_SAHARA';
 					$country_name = 'WESTERN_SAHARA';
 				break;
-
 
 				case 'ee':
 					//Kɔsiɖagbe (Sunday)
@@ -638,15 +638,24 @@ To Do:
 				
 				case 'en_us':
 				case 'en-US':
-					$lang_name = 'AMERICAN-ENGLISH';
+					$lang_name = 'AMERICAN_ENGLISH';
 					$country_name = 'UNITED_STATES_OF_AMERICA';
 				break;
 				
 				case 'en_ie':
 				case 'en-IE':
 				case 'USEng':
-					$lang_name = 'HIBERNO-ENGLISH'; //Irish English
+					$lang_name = 'HIBERNO_ENGLISH'; //Irish English
 					$country_name = 'IRELAND';
+				break;
+				
+				case 'en_il':
+				case 'en-IL':
+				case 'ILEng':
+				case 'heblish':
+				case 'engbrew':
+					$lang_name = 'ISRAELY_ENGLISH'; 
+					$country_name = 'ISRAEL';
 				break;
 				
 				case 'en_ca':
@@ -654,6 +663,11 @@ To Do:
 				case 'CanE':
 					$lang_name = 'CANADIAN_ENGLISH'; 
 					$country_name = 'CANADA';
+				break;	
+				
+				case 'en_ck':
+					$lang_name = 'COOK_ISLANDS_ENGLISH';
+					$country_name = 'COOK_ISLANDS'; //CK 	Cook Islands
 				break;	
 				
 				case 'en_in':
@@ -681,6 +695,36 @@ To Do:
 					$lang_name = 'NEW_ZEALAND_ENGLISH'; 
 					$country_name = 'NEW_ZEALAND';
 				break;	
+				
+				case 'en_nu':
+					$lang_name = 'NIUEAN_ENGLISH'; //Niuean (official) 46% (a Polynesian language closely related to Tongan and Samoan)
+					$country_name = 'NIUE'; // Niuean: Niuē
+				break;
+				
+				case 'en_ms':
+					$lang_name = 'MONTSERRAT_ENGLISH';
+					$country_name = 'MONTSERRAT';
+				break;	
+				
+				case 'en_pn':
+					$lang_name = 'PITCAIRN_ISLAND_ENGLISH';
+					$country_name = 'PITCAIRN_ISLAND';
+				break;
+								
+				case 'en_sh':
+					$lang_name = 'ST_HELENA_ENGLISH';
+					$country_name = 'ST_HELENA';
+				break;
+				
+				case 'en_tc':
+					$lang_name = 'TURKS_&AMP;_CAICOS_IS_ENGLISH';
+					$country_name = 'TURKS_&AMP;_CAICOS_IS';
+				break;	
+
+				case 'en_vg':
+					$lang_name = 'VIRGIN_ISLANDS_ENGLISH';
+					$country_name = 'VIRGIN_ISLANDS_(BRIT)';
+				break;
 				
 				case 'eo':
 					$lang_name = 'ESPERANTO'; //created in the late 19th century by L. L. Zamenhof, a Polish-Jewish ophthalmologist. In 1887
@@ -752,7 +796,8 @@ To Do:
 					$lang_name = 'FAROESE';
 					$country_name = 'FAROE_ISLANDS';
 				break;
-
+				
+				//Frenc
 				case 'fr':
 					$lang_name = 'FRENCH';
 					$country_name = 'FRANCE';
@@ -762,6 +807,13 @@ To Do:
 					$lang_name = 'ACADIAN_FRENCH';
 					$country_name = 'ACADIA';
 				break;
+				
+				case 'fr_dm':
+				case 'fr-DM':
+					$lang_name = 'DOMINICA_FRENCH'; 
+					$country_name = 'DOMINICA';
+				break;
+				
 				//al-dîzāyīr
 				case 'fr_dz':
 					$lang_name = 'ALGERIAN_FRENCH';
@@ -778,54 +830,86 @@ To Do:
 				//Belgian French
 				case 'fr_bl':
 					$lang_name = 'BELGIAN_FRENCH';
-					$country_name = 'FRANCE';
+					$country_name = 'BELGIUM';
 				break;
-				//Cambodian French
+				//Cambodian French -  French Indochina
 				case 'fr_cb':
 					$lang_name = 'CAMBODIAN_FRENCH';
 					$country_name = 'CAMBODIA';
 				break;
-				//Cajun French
+				//Cajun French - Le Français Cajun - New Orleans
 				case 'fr_cj':
 					$lang_name = 'CAJUN_FRENCH';
 					$country_name = 'UNITED_STATES';
 				break;
-				//Canadian French
+				//Canadian French  (French: Français Canadien)
+				//Official language in Canada,  New Brunswick, Northwest Territories, Nunavut, Quebec, Yukon, 
+				//Official language in United States, Maine (de facto),  New Hampshire
 				case 'fr_ca':
+				case 'fr-CA':
 					$lang_name = 'CANADIAN_FRENCH';
 					$country_name = 'CANADA';
 				break;
 				//Guianese French
+				case 'gcr':
 				case 'fr_gu':
 					$lang_name = 'GUIANESE_FRENCH';
-					$country_name = 'GUIANESE';
+					$country_name = 'FRENCH_GUIANA';
+				break;
+				//Guianese English
+				case 'gyn':
+				case 'en_gy':
+					$lang_name = 'GUYANESE_CREOLE';
+					$country_name = 'ENGLISH_GUIANA';
 				break;
 				//Haitian French
-				case 'fr_ha':
+				case 'fr-HT':
+				case 'fr_ht':
 					$lang_name = 'HAITIAN_FRENCH';
 					$country_name = 'HAITI'; //UNITED_STATES
 				break;
-				
+				//Haitian English
+				case 'en-HT':
+				case 'en_ht':
+					$lang_name = 'HAITIAN_CREOLE';
+					$country_name = 'HAITI'; //UNITED_STATES
+				break;				
 				//Indian French
 				case 'fr_id':
 					$lang_name = 'INDIAN_FRENCH';
 					$country_name = 'INDIA';
 				break;
-				//Jersey Legal French
+				case 'en_id':
+					$lang_name = 'INDIAN_ENGLISH';
+					$country_name = 'INDIA';
+				break;
+				//Jersey Legal French - Anglo-Norman French 
+				case 'xno':
 				case 'fr_je':
 					$lang_name = 'JERSEY_LEGAL_FRENCH';
 					$country_name = 'UNITED_STATES';
 				break;
+				
+				case 'fr_kh':
+					$lang_name = 'CAMBODIAN_FRENCH';
+					$country_name = 'CAMBODIA';
+				break;
+				
 				//Lao French
 				case 'fr_la':
 					$lang_name = 'LAO_FRENCH';
-					$country_name = 'UNITED_STATES';
+					$country_name = 'LAOS';
 				break;
-				//Louisiana French
+				//Louisiana French (French: Français de la Louisiane, Louisiana Creole: Françé la Lwizyàn)
 				case 'frc':
 				case 'fr_lu':
 					$lang_name = 'LOUISIANIAN_FRENCH';
-					$country_name = 'UNITED_STATES'; //LOUISIANA
+					$country_name = 'LOUISIANA'; 
+				break;
+				//Louisiana Creole
+				case 'lou':
+					$lang_name = 'LOUISIANA_CREOLE';
+					$country_name = 'LOUISIANA'; 
 				break;
 				//Meridional French (French: Français Méridional)
 				case 'fr_mr':
@@ -845,17 +929,17 @@ To Do:
 				//New Caledonian French
 				case 'fr_nc':
 					$lang_name = 'NEW_CALEDONIAN_FRENCH';
-					$country_name = 'FRANCE';
+					$country_name = 'NEW_CALEDONIA';
 				break;
 				//Newfoundland French
 				case 'fr_nf':
 					$lang_name = 'NEWFOUNDLAND_FRENCH';
-					$country_name = 'FRANCE';
+					$country_name = 'NEWFOUNDLAND';
 				break;
 				//New England French
 				case 'fr_ne':
 					$lang_name = 'NEW_ENGLAND_FRENCH';
-					$country_name = 'FRANCE';
+					$country_name = 'NEW_ENGLAND';
 				break;
 				//Quebec French
 				case 'fr_qb':
@@ -865,7 +949,7 @@ To Do:
 				//South East Asian French
 				case 'fr_sa':
 					$lang_name = 'SOUTH_EAST_ASIAN_FRENCH';
-					$country_name = 'FRANCE';
+					$country_name = 'SOUTH_EAST_ASIA';
 				break;
 				//Swiss French
 				case 'fr_sw':
@@ -876,7 +960,7 @@ To Do:
 				case 'fr_tf':				
 				case 'tf':
 					$lang_name = 'FRENCH_SOUTHERN_TERRITORIES'; //
-					$country_name = 'FRENCH_SOUTHERN_TERRITORIES'; //Terres australes françaises
+					$country_name = 'SOUTHERN_TERRITORIES'; //Terres australes françaises
 				break;
 				//Vietnamese French
 				case 'fr_vt':
@@ -902,6 +986,12 @@ To Do:
 				case 'GenAm':
 					$lang_name = 'General American';
 					$country_name = 'United States';
+				break;
+
+				//gcf – Guadeloupean Creole		
+				case 'gcf':
+					$lang_name = 'GUADELOUPEAN_CREOLE_FRENCH'; 
+					$country_name = 'GUADELOUPE';
 				break;
 				
 				case 'gd':
@@ -1142,13 +1232,14 @@ To Do:
 					$lang_name = 'japanese';
 					$country_name = 'JAPAN';
 				break;
+				
 				case 'jv':
 					$lang_name = 'javanese';
 					$country_name = '';
 				break;
 				
 				case 'kh':
-					$lang_name = 'Cambodia';
+					$lang_name = 'KH';
 					$country_name = 'CAMBODIA';
 				break;
 				
@@ -1162,10 +1253,32 @@ To Do:
 					$country_name = 'KIRIBATI';
 				break;
 				
-				case 'km':
-					$lang_name = 'Comoros';
+				//Bantu languages 
+				//zdj – Ngazidja Comorian
+				case 'zdj':
+					$lang_name = 'Ngazidja Comorian';
 					$country_name = 'COMOROS';
 				break;
+				//wni – Ndzwani  Comorian (Anjouani) dialect
+				case 'wni':
+					$lang_name = 'Ndzwani Comorian';
+					$country_name = 'COMOROS';
+				break;
+				//swb – Maore Comorian dialect
+				case 'swb':
+					$lang_name = 'Maore Comorian';
+					$country_name = 'COMOROS';
+				break;
+				//wlc – Mwali Comorian dialect				
+				case 'wlc':
+					$lang_name = 'Mwali Comorian';
+					$country_name = 'COMOROS';
+				break;
+				
+				case 'km':
+					$lang_name = 'KHMER';
+					$country_name = 'COMOROS';
+				break;			
 				
 				case 'kn':
 					$lang_name = 'kannada';
@@ -1250,7 +1363,12 @@ To Do:
 					$lang_name = 'Lesotho';
 					$country_name = 'LESOTHO';
 				break;
-
+				
+				case 'lo':
+					$lang_name = 'LAO';
+					$country_name = 'LAOS'; 
+				break;
+				
 				case 'lr':
 					$lang_name = 'Liberia';
 					$country_name = 'LIBERIA';
@@ -1275,16 +1393,31 @@ To Do:
 					$lang_name = 'Luxembourg';
 					$country_name = 'LUXEMBOURG';
 				break;
-
-				case 'mo':
-					$lang_name = 'Macau';
-					$country_name = 'MACAU';
+				
+				case 'ma':
+					$lang_name = 'Morocco';
+					$country_name = 'MOROCCO';
+				break;
+				
+				case 'mc':
+					$country_name = 'MONACO';
+					$lang_name = 'Monaco';
 				break;
 				
 				case 'me':
 					$lang_name = 'MONTENEGRIN'; //Serbo-Croatian, Cyrillic, Latin
 					$country_name = 'MONTENEGRO'; //Црна Гора
 				break;
+				
+				case 'md':
+					$country_name = 'MOLDOVA';
+					$lang_name = 'romanian';
+				break;	
+				
+				case 'mi':
+					$lang_name = 'MAORI';
+					$country_name = 'Maori';
+				break;	
 				
 				case 'mf':
 					$lang_name = 'FRENCH'; //
@@ -1301,6 +1434,51 @@ To Do:
 					$country_name = 'MADAGASCAR';
 				break;
 
+				case 'mh':
+					$lang_name = 'Marshall Islands';
+					$country_name = 'MARSHALL_ISLANDS';
+				break;
+
+				case 'mr':
+					$lang_name = 'Mauritania';
+					$country_name = 'Mauritania';
+				break;
+
+				case 'mu':
+					$lang_name = 'Mauritius';
+					$country_name = 'MAURITIUS';
+				break;
+				
+				case 'mo':
+					$lang_name = 'Macau';
+					$country_name = 'MACAU';
+				break;
+				
+				case 'mn':
+					$lang_name = 'Mongolia';
+					$country_name = 'MONGOLIA';
+				break;
+
+				case 'ms':
+					$lang_name = 'Montserrat';
+					$country_name = 'MONTSERRAT';
+				break;
+				
+				case 'mz':
+					$lang_name = 'Mozambique';
+					$country_name = 'MOZAMBIQUE';
+				break;
+				
+				case 'mm':
+					$lang_name = 'Myanmar';
+					$country_name = 'MYANMAR';
+				break;
+				
+				case 'mp':
+					$lang_name = 'chamorro'; //Carolinian
+					$country_name = 'NORTHERN_MARIANA_ISLANDS';
+				break;
+				
 				case 'mw':
 					$country_name = 'Malawi';
 					$lang_name = 'MALAWI';
@@ -1325,65 +1503,10 @@ To Do:
 					$lang_name = 'Malta';
 					$country_name = 'MALTA';
 				break;
-
-				case 'mh':
-					$lang_name = 'Marshall Islands';
-					$country_name = 'MARSHALL_ISLANDS';
-				break;
-
-				case 'mr':
-					$lang_name = 'Mauritania';
-					$country_name = 'Mauritania';
-				break;
-
-				case 'mu':
-					$lang_name = 'Mauritius';
-					$country_name = 'MAURITIUS';
-				break;
-
+				
 				case 'mx':
 					$lang_name = 'Mexico';
 					$country_name = 'MEXICO';
-				break;
-
-				case 'md':
-					$country_name = 'MOLDOVA';
-					$lang_name = 'romanian';
-				break;
-
-				case 'mc':
-					$country_name = 'MONACO';
-					$lang_name = 'Monaco';
-				break;
-
-				case 'mn':
-					$lang_name = 'Mongolia';
-					$country_name = 'MONGOLIA';
-				break;
-
-				case 'ms':
-					$lang_name = 'Montserrat';
-					$country_name = 'MONTSERRAT';
-				break;
-
-				case 'ma':
-					$lang_name = 'Morocco';
-					$country_name = 'MOROCCO';
-				break;
-				
-				case 'mz':
-					$lang_name = 'Mozambique';
-					$country_name = 'MOZAMBIQUE';
-				break;
-				
-				case 'mm':
-					$lang_name = 'Myanmar';
-					$country_name = 'MYANMAR';
-				break;
-				
-				case 'mp':
-					$lang_name = 'chamorro'; //Carolinian
-					$country_name = 'NORTHERN_MARIANA_ISLANDS';
 				break;
 				
 				case 'mq':
@@ -1406,6 +1529,11 @@ To Do:
 					$lang_name = 'Niger';
 					$country_name = 'NIGER';
 				break;
+				
+				case 'new':
+					$lang_name = 'NEW_LANGUAGE'; 
+					$country_name = 'NEW_COUNTRY';
+				break;	
 				
 				case 'nc':
 					$lang_name = 'paicî'; //French, Nengone, Paicî, Ajië, Drehu
@@ -1447,8 +1575,13 @@ To Do:
 					$country_name = 'NAURU';
 				break;
 				
+				case 'niu':
+					$lang_name = 'NIUEAN'; //Niuean (official) 46% (a Polynesian language closely related to Tongan and Samoan)
+					$country_name = 'NIUE'; // Niuean: Niuē
+				break;
+				
 				case 'nu':
-					$lang_name = 'niuean'; //Niuean (official) 46% (a Polynesian language closely related to Tongan and Samoan)
+					$lang_name = 'NU'; //Niuean (official) 46% (a Polynesian language closely related to Tongan and Samoan)
 					$country_name = 'NIUE'; // Niuean: Niuē
 				break;
 				
@@ -1615,9 +1748,15 @@ To Do:
 				break;
 				
 				case 'sco':
-					$lang_name = 'SCOTS';
+					$lang_name = 'SCOTISH';
 					$country_name = 'Scotland';
 				break;
+
+				//scf – San Miguel Creole French (Panama)		
+				case 'scf':
+					$lang_name = 'SAN_MIGUEL_CREOLE_FRENCH';  
+					$country_name = 'SAN_MIGUEL';
+				break;	
 				
 				case 'sd':
 					$lang_name = 'Sudan';
@@ -1914,7 +2053,7 @@ To Do:
 			}
 			$return = ($lang_country == 'country') ? $country_name : $lang_name;
 			$return = ($langs_countries == true) ? $lang_name[$country_name] : $return;
-			return $return;	}
+			return $return ;	}
 	
 	
 
