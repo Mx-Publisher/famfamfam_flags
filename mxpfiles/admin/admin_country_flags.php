@@ -882,7 +882,7 @@ else
 					$lang_name = 'DOMINICA_ENGLISH'; 
 					$country_name = 'DOMINICA';
 				break;
-				
+
 				case 'do':
 				case 'en_do':
 				case 'en-DO':
@@ -1244,12 +1244,12 @@ else
 					$lang_name = 'LOUISIANA_CREOLE';
 					$country_name = 'LOUISIANA'; 
 				break;
-				//Meridional French (French: Français Méridional)
+				//Meridional French (French: Français Méridional, also referred to as Francitan)
 				case 'fr_mr':
-					$lang_name = 'MERIDIONAL_FRENCH'; //or Francitan
+					$lang_name = 'MERIDIONAL_FRENCH'; 
 					$country_name = 'OCCITANIA';
 				break;
-				//Metropolitan French
+				//Metropolitan French (French: France Métropolitaine or la Métropole)
 				case 'fr_me':
 					$lang_name = 'METROPOLITAN_FRENCH';
 					$country_name = 'UNITED_STATES';

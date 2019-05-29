@@ -527,10 +527,41 @@ To Do:
 					$lang_name = 'DANISH';
 					$country_name = 'DENMARK';
 				break;
-
+				
+				//Geman (Deutsch)
+				/*	deu – German
+					gmh – Middle High German
+					goh – Old High German
+					gct – Colonia Tovar German
+					bar – Bavarian
+					cim – Cimbrian
+					geh – Hutterite German
+					ksh – Kölsch
+					nds – Low German[note 1]
+					sli – Lower Silesian
+					ltz – Luxembourgish[note 2]
+					vmf – Mainfränkisch
+					mhn – Mòcheno
+					pfl – Palatinate German
+					pdc – Pennsylvania German
+					pdt – Plautdietsch[note 3]
+					swg – Swabian German
+					gsw – Swiss German
+					uln – Unserdeutsch
+					sxu – Upper Saxon
+					wae – Walser German
+					wep – Westphalian
+					hrx – Riograndenser Hunsrückisch
+					yec – Yenish	*/
 				case 'de':
 					$lang_name = 'GERMAN';
 					$country_name = 'GERMANY';
+				break;
+				
+				//mostly spoken on Lifou Island, Loyalty Islands, New Caledonia. 
+				case 'dhv':
+					$lang_name = 'DREHU';
+					$country_name = 'NEW_CALEDONIA';
 				break;
 				
 				case 'dk':
@@ -549,7 +580,7 @@ To Do:
 					$lang_name = 'DOMINICA_ENGLISH'; 
 					$country_name = 'DOMINICA';
 				break;
-				
+
 				case 'do':
 				case 'en_do':
 				case 'en-DO':
@@ -696,6 +727,12 @@ To Do:
 					$country_name = 'NEW_ZEALAND';
 				break;	
 				
+				//New England English
+				case 'en_ne':
+					$lang_name = 'NEW_ENGLAND_ENGLISH';
+					$country_name = 'NEW_ENGLAND';
+				break;
+				
 				case 'en_nu':
 					$lang_name = 'NIUEAN_ENGLISH'; //Niuean (official) 46% (a Polynesian language closely related to Tongan and Samoan)
 					$country_name = 'NIUE'; // Niuean: Niuē
@@ -797,8 +834,9 @@ To Do:
 					$country_name = 'FAROE_ISLANDS';
 				break;
 				
-				//Frenc
+				//Metropolitan French (French: France Métropolitaine or la Métropole)
 				case 'fr':
+				case 'fr_me':
 					$lang_name = 'FRENCH';
 					$country_name = 'FRANCE';
 				break;
@@ -911,50 +949,40 @@ To Do:
 					$lang_name = 'LOUISIANA_CREOLE';
 					$country_name = 'LOUISIANA'; 
 				break;
-				//Meridional French (French: Français Méridional)
+				//Meridional French (French: Français Méridional, also referred to as Francitan)
 				case 'fr_mr':
-					$lang_name = 'MERIDIONAL_FRENCH'; //or Francitan
+					$lang_name = 'MERIDIONAL_FRENCH'; 
 					$country_name = 'OCCITANIA';
-				break;
-				//Metropolitan French
-				case 'fr_me':
-					$lang_name = 'METROPOLITAN_FRENCH';
-					$country_name = 'UNITED_STATES';
 				break;
 				//Missouri French
 				case 'fr_mi':
 					$lang_name = 'MISSOURI_FRENCH';
-					$country_name = 'UNITED_STATES';
+					$country_name = 'MISSOURI‎';
 				break;
-				//New Caledonian French
+				//New Caledonian French vs New Caledonian Pidgin French
 				case 'fr_nc':
 					$lang_name = 'NEW_CALEDONIAN_FRENCH';
 					$country_name = 'NEW_CALEDONIA';
 				break;
-				//Newfoundland French
+				//Newfoundland French (French: Français Terre-Neuvien),
 				case 'fr_nf':
 					$lang_name = 'NEWFOUNDLAND_FRENCH';
-					$country_name = 'NEWFOUNDLAND';
+					$country_name = 'CANADA';
 				break;
 				//New England French
 				case 'fr_ne':
 					$lang_name = 'NEW_ENGLAND_FRENCH';
 					$country_name = 'NEW_ENGLAND';
 				break;
-				//Quebec French
+				//Quebec French (French: français québécois; also known as Québécois French or simply Québécois)
 				case 'fr_qb':
 					$lang_name = 'QUEBEC_FRENCH';
 					$country_name = 'CANADA';
 				break;
-				//South East Asian French
-				case 'fr_sa':
-					$lang_name = 'SOUTH_EAST_ASIAN_FRENCH';
-					$country_name = 'SOUTH_EAST_ASIA';
-				break;
 				//Swiss French
 				case 'fr_sw':
 					$lang_name = 'SWISS_FRENCH';
-					$country_name = 'FRANCE';
+					$country_name = 'SWITZERLAND';
 				break;
 				//French Southern and Antarctic Lands
 				case 'fr_tf':				
@@ -973,11 +1001,16 @@ To Do:
 					$country_name = 'INDIA';
 				break;
 				
+				case 'fr_wf':
+					$country_name = 'TERRITORY_OF_THE_WALLIS_AND_FUTUNA_ISLANDS';
+					$lang_name = 'WALLISIAN_FRENCH'; 
+				break;	
+				
 				case 'fy':
-					$lang_name = 'FRISIAN';
-					$country_name = '';
+					$lang_name = 'WESTERN_FRISIAN';
+					$country_name = 'FRYSK';
 				break;
-
+				
 				case 'ga':
 					$lang_name = 'IRISH';
 					$country_name = 'GABON';
@@ -985,7 +1018,7 @@ To Do:
 				
 				case 'GenAm':
 					$lang_name = 'General American';
-					$country_name = 'United States';
+					$country_name = 'UNITED_STATES';
 				break;
 
 				//gcf – Guadeloupean Creole		
@@ -995,22 +1028,22 @@ To Do:
 				break;
 				
 				case 'gd':
-					$lang_name = 'scottish';
+					$lang_name = 'SCOTTISH';
 					$country_name = 'GRENADA';
 				break;
 				
 				case 'ge':
-					$lang_name = 'Georgia';
+					$lang_name = 'GEORGIAN';
 					$country_name = 'GEORGIA';
 				break;
 				
 				case 'gi':
-					$lang_name = 'Llanito'; //Llanito or Yanito
+					$lang_name = 'LLANITO'; //Llanito or Yanito
 					$country_name = 'GIBRALTAR';
 				break;
 				
 				case 'gg':
-					$lang_name = 'guernesiais'; //English, Guernésiais, Sercquiais, Auregnais
+					$lang_name = 'GUERNESIAIS'; //English, Guernésiais, Sercquiais, Auregnais
 					$country_name = 'GUERNSEY';
 				break;
 				
@@ -1023,9 +1056,10 @@ To Do:
 					$lang_name = 'Greece';
 					$country_name = 'GREECE';
 				break;
-
+				//Galician is spoken by some 2.4 million people, mainly in Galicia, 
+				//an autonomous community located in northwestern Spain.
 				case 'gl':
-					$lang_name = 'galician';
+					$lang_name = 'GALICIAN'; //Galicia
 					$country_name = 'GREENLAND';
 				break;
 				
@@ -1175,6 +1209,12 @@ To Do:
 				case 'ik':
 					$lang_name = 'inupiaq';
 					$country_name = '';
+				break;
+				
+				//Mostly spoken on  Ouvéa Island or Uvea Island of the Loyalty Islands, New Caledonia. 
+				case 'iai':
+					$lang_name = 'IAAI';
+					$country_name = 'NEW_CALEDONIA';
 				break;
 				
 				case 'il':
@@ -1403,30 +1443,20 @@ To Do:
 					$country_name = 'MONACO';
 					$lang_name = 'Monaco';
 				break;
+		
+				case 'md':
+					$country_name = 'MOLDOVA';
+					$lang_name = 'romanian';
+				break;	
 				
 				case 'me':
 					$lang_name = 'MONTENEGRIN'; //Serbo-Croatian, Cyrillic, Latin
 					$country_name = 'MONTENEGRO'; //Црна Гора
 				break;
 				
-				case 'md':
-					$country_name = 'MOLDOVA';
-					$lang_name = 'romanian';
-				break;	
-				
-				case 'mi':
-					$lang_name = 'MAORI';
-					$country_name = 'Maori';
-				break;	
-				
 				case 'mf':
 					$lang_name = 'FRENCH'; //
 					$country_name = 'SAINT_MARTIN_(FRENCH_PART)'; 
-				break;
-				
-				case 'mk':
-					$lang_name = 'Macedonia';
-					$country_name = 'MACEDONIA';
 				break;
 				
 				case 'mg':
@@ -1437,6 +1467,23 @@ To Do:
 				case 'mh':
 					$lang_name = 'Marshall Islands';
 					$country_name = 'MARSHALL_ISLANDS';
+				break;
+				
+				case 'mi':
+					$lang_name = 'MAORI';
+					$country_name = 'Maori';
+				break;
+				
+				//Mi'kmaq hieroglyphic writing was a writing system and memory aid used by the Mi'kmaq, 
+				//a First Nations people of the east coast of Canada, Mostly spoken in Nova Scotia and Newfoundland.
+				case 'mic':
+					$lang_name = 'MIKMAQ';
+					$country_name = 'CANADA';
+				break;	
+				
+				case 'mk':
+					$lang_name = 'Macedonia';
+					$country_name = 'MACEDONIA';
 				break;
 
 				case 'mr':
@@ -1529,6 +1576,12 @@ To Do:
 					$lang_name = 'Niger';
 					$country_name = 'NIGER';
 				break;
+				
+				//Mostly spoken on  Maré Island of the Loyalty Islands, New Caledonia. 
+				case 'nen':
+					$lang_name = 'NENGONE';
+					$country_name = 'NEW_CALEDONIA';
+				break;	
 				
 				case 'new':
 					$lang_name = 'NEW_LANGUAGE'; 
@@ -2004,13 +2057,13 @@ To Do:
 				break;
 				
 				case 'wls':
-					$lang_name = 'Wales';
+					$lang_name = 'WALLISIAN';
 					$country_name = 'WALES';
 				break;
 				
 				case 'wf':
 					$country_name = 'TERRITORY_OF_THE_WALLIS_AND_FUTUNA_ISLANDS';
-					$lang_name = 'Wallisian'; 
+					$lang_name = 'WF'; 
 					//Wallisian, or ʻUvean 
 					//Futunan - Austronesian, Malayo-Polynesian
 				break;
