@@ -188,7 +188,14 @@ To Do:
 					$lang_name = 'BASHKIR'; //Baskortostán (Rusia)
 					$country_name = 'BOSNIA_&AMP;_HERZEGOVINA'; //Bosnian, Croatian, Serbian
 				break;
-
+				
+				//Bavarian (also known as Bavarian Austrian or Austro-Bavarian; Boarisch [ˈbɔɑrɪʃ] or Bairisch; 
+				//German: Bairisch [ˈbaɪʁɪʃ] (About this soundlisten); Hungarian: bajor.
+				case 'bar':
+					$lang_name = 'BAVARIAN';
+					$country_name = 'BAVARIA'; //Germany
+				break;
+				
 				case 'bb':
 					$lang_name = 'Barbados';
 					$country_name = 'BARBADOS';
@@ -289,11 +296,11 @@ To Do:
 				
 				case 'wes':
 					$lang_name = 'CAMEROONIAN'; //Kamtok
-					$country_name = 'Cameroon'; //Wes Cos
+					$country_name = 'CAMEROON'; //Wes Cos
 				break;
 
 				case 'cm':
-					$lang_name = 'Cameroon';
+					$lang_name = 'CAMEROON';
 					$country_name = 'CAMEROON';
 				break;
 
@@ -537,14 +544,14 @@ To Do:
 					cim – Cimbrian
 					geh – Hutterite German
 					ksh – Kölsch
-					nds – Low German[note 1]
+					nds – Low German
 					sli – Lower Silesian
-					ltz – Luxembourgish[note 2]
+					ltz – Luxembourgish
 					vmf – Mainfränkisch
 					mhn – Mòcheno
 					pfl – Palatinate German
 					pdc – Pennsylvania German
-					pdt – Plautdietsch[note 3]
+					pdt – Plautdietsch
 					swg – Swabian German
 					gsw – Swiss German
 					uln – Unserdeutsch
@@ -553,10 +560,52 @@ To Do:
 					wep – Westphalian
 					hrx – Riograndenser Hunsrückisch
 					yec – Yenish	*/
+
+				
+				//Germany 	84,900,000 	75,101,421 (91.8%) 	5,600,000 (6.9%) 	De facto sole nationwide official language
 				case 'de':
+				case 'de-DE':
+				case 'de_de':
+				case 'deu':
 					$lang_name = 'GERMAN';
 					$country_name = 'GERMANY';
-				break;
+				break;				
+				//Belgium 	11,420,163 	73,000 (0.6%) 	2,472,746 (22%) 	De jure official language in the German speaking community
+				case 'de_be':
+				case 'de-BE':
+					$lang_name = 'BELGIUM_GERMAN';
+					$country_name = 'BELGIUM';
+				break;				 
+				 //Austria 	8,838,171 	8,040,960 (93%) 	516,000 (6%) 	De jure sole nationwide official language
+				case 'de_at':
+				case 'de-AT':
+					$lang_name = 'AUSTRIAN_GERMAN';
+					$country_name = 'AUSTRIA';
+				break;						 
+				 // Switzerland 	8,508,904 	5,329,393 (64.6%) 	395,000 (5%) 	Co-official language at federal level; de jure sole official language in 17, co-official in 4 cantons (out of 26)
+				case 'de_sw':
+				case 'de-SW':
+					$lang_name = 'SWISS_GERMAN';
+					$country_name = 'SWITZERLAND';
+				break;	
+				case 'gsw':
+					$lang_name = 'Alemannic_German';
+					$country_name = 'SWITZERLAND';
+				break;						
+				 //Luxembourg 	602,000 	11,000 (2%) 	380,000 (67.5%) 	De jure nationwide co-official language
+				case 'de_lu':
+				case 'de-LU':
+				case 'ltz':
+					$lang_name = 'SWISS_GERMAN';
+					$country_name = 'SWITZERLAND';
+				break;					 
+				 //Liechtenstein 	37,370 	32,075 (85.8%) 	5,200 (13.9%) 	De jure sole nationwide official language	
+				//Alemannic, or rarely Alemmanish
+				case 'de_li':
+				case 'de-LI':
+					$lang_name = 'LIECHTENSTEIN_GERMAN';
+					$country_name = 'LIECHTENSTEIN';
+				break;	
 				
 				//mostly spoken on Lifou Island, Loyalty Islands, New Caledonia. 
 				case 'dhv':
@@ -646,6 +695,42 @@ To Do:
 					$country_name = 'ESTONIA';
 				break;
 				
+				//Greek Language:
+				//ell – Modern Greek
+				//grc – Ancient Greek
+				//cpg – Cappadocian Greek
+				//gmy – Mycenaean Greek
+				//pnt – Pontic
+				//tsd – Tsakonian
+				//yej – Yevanic				
+				
+				case 'el':
+					$lang_name = 'GREEK'; 
+					$country_name = 'GREECE';
+				break;				
+				
+				case 'cpg':
+					$lang_name = 'CAPPADOCIAN_GREEK';
+					$country_name = 'GREECE';					
+				break;	
+				case 'gmy':
+					$lang_name = 'MYCENAEAN_GREEK';
+					$country_name = 'GREECE';					
+				break;	
+				case 'pnt':
+					$lang_name = 'PONTIC';
+					$country_name = 'GREECE';					
+				break;	
+				case 'tsd':
+					$lang_name = 'TSAKONIAN';
+					$country_name = 'GREECE';					
+				break;	
+				//Albanian: Janina or Janinë, Aromanian: Ianina, Enina, Turkish: Yanya;
+				case 'yej':
+					$lang_name = 'YEVANIC';	
+					$country_name = 'GREECE';					
+				break;					
+				
 				case 'en_uk':
 				case 'en-UK':
 				case 'uk':
@@ -733,6 +818,12 @@ To Do:
 					$country_name = 'NEW_ENGLAND';
 				break;
 				
+				//
+				case 'en_bm':
+					$lang_name = 'BERMUDIAN ENGLISH.';
+					$country_name = 'BERMUDA';
+				break;
+								
 				case 'en_nu':
 					$lang_name = 'NIUEAN_ENGLISH'; //Niuean (official) 46% (a Polynesian language closely related to Tongan and Samoan)
 					$country_name = 'NIUE'; // Niuean: Niuē
@@ -792,13 +883,69 @@ To Do:
 					$lang_name = 'PERSIAN';
 					$country_name = '';
 				break;
-
+				
+				//for Fulah (also spelled Fula) the ISO 639-1 code is ff.
+			    //fub – Adamawa Fulfulde
+			    //fui – Bagirmi Fulfulde
+			    //fue – Borgu Fulfulde
+			    //fuq – Central-Eastern Niger Fulfulde
+			    //ffm – Maasina Fulfulde
+			    //fuv – Nigerian Fulfulde
+			    //fuc – Pulaar
+			    //fuf – Pular
+			    //fuh – Western Niger Fulfulde			
+			
+				case 'fub':
+					$lang_name = 'ADAMAWA_FULFULDE';
+					$country_name = '';
+				break;
+				
+				case 'fui':
+					$lang_name = 'BAGIRMI_FULFULDE';
+					$country_name = '';
+				break;
+				
+				case 'fue':
+					$lang_name = 'BORGU_FULFULDE';
+					$country_name = '';
+				break;
+				
+				case 'fuq':
+					$lang_name = 'CENTRAL-EASTERN_NIGER_FULFULDE';
+					$country_name = '';
+				break;
+				
+				case 'ffm':
+					$lang_name = 'MAASINA_FULFULDE';
+					$country_name = '';
+				break;
+				
+				case 'fuv':
+					$lang_name = 'NIGERIAN_FULFULDE';
+					$country_name = '';
+				break;
+				
+				case 'fuc':
+					$lang_name = 'PULAAR';
+					$country_name = 'SENEGAMBIA_CONFEDERATION'; //sn //gm
+				break;
+				
+				case 'fuf':
+					$lang_name = 'PULAR';
+					$country_name = '';
+				break;
+				
+				case 'fuh':
+					$lang_name = 'WESTERN_NIGER_FULFULDE';
+					$country_name = '';
+				break;
+				
 				case 'ff':
 					$lang_name = 'FULAH';
 					$country_name = '';
-				break;
-
-				case 'fi':
+				break;	
+				
+				case 'fi':		
 				case 'fin':
 					$lang_name = 'FINNISH';
 					$country_name = 'FINLAND';
@@ -1052,10 +1199,22 @@ To Do:
 					$country_name = 'GHANA';
 				break;
 				
-				case 'gr':
-					$lang_name = 'Greece';
+				case 'ell':
+					$lang_name = 'MODERN_GREEK'; 
 					$country_name = 'GREECE';
 				break;
+				
+				case 'gr':
+				case 'gre':
+					$lang_name = 'MODERN_GREEK'; 
+					$country_name = 'GREECE';
+				break;
+				
+				case 'grc':
+					$lang_name = 'ANCIENT_GREEK'; 
+					$country_name = 'GREECE';
+				break;				
+				
 				//Galician is spoken by some 2.4 million people, mainly in Galicia, 
 				//an autonomous community located in northwestern Spain.
 				case 'gl':
@@ -1067,11 +1226,40 @@ To Do:
 					$lang_name = 'Gambia';
 					$country_name = 'GAMBIA';
 				break;
-				
+				 
+				//grn is the ISO 639-3 language code for Guarani. Its ISO 639-1 code is gn. 
+				//    nhd – Chiripá
+				//    gui – Eastern Bolivian Guaraní
+				//    gun – Mbyá Guaraní
+				//    gug – Paraguayan Guaraní
+				//    gnw – Western Bolivian Guaraní
 				case 'gn':
-					$lang_name = 'Guinea';
+					$lang_name = 'GUARANI';
 					$country_name = 'GUINEA';
 				break;
+				//Nhandéva is also known as Chiripá. 
+				//The Spanish spelling, Ñandeva, is used in the Paraguayan Chaco 
+				// to refer to the local variety of Eastern Bolivian, a subdialect of Avá.
+				case 'nhd':
+					$lang_name = 'Chiripa';
+					$country_name = 'PARAGUAY';
+				break;	
+				case 'gui':
+					$lang_name = 'EASTERN_BOLIVIAN_GUARANI';
+					$country_name = 'BOLIVIA';
+				break;				
+				case 'gun':
+					$lang_name = 'MBYA_GUARANI';
+					$country_name = 'PARAGUAY';
+				break;
+				case 'gug':
+					$lang_name = 'PARAGUAYAN_GUARANI';
+					$country_name = 'PARAGUAY';
+				break;
+				case 'gnw':
+					$lang_name = 'WESTERN_BOLIVIAN_GUARANI';
+					$country_name = 'BOLIVIA';
+				break;				
 				
 				case 'gs':
 					$lang_name = 'ENGLISH';
@@ -1388,9 +1576,9 @@ To Do:
 					$lang_name = 'Latvia';
 					$country_name = 'LATVIA';
 				break;
-
+				
 				case 'lb':
-					$lang_name = 'Lebanon';
+					$lang_name = 'LUXEMBOURGISH';
 					$country_name = 'LEBANON';
 				break;
 				
@@ -1420,7 +1608,7 @@ To Do:
 				break;
 
 				case 'li':
-					$lang_name = 'Liechtenstein';
+					$lang_name = 'LIMBURGISH';
 					$country_name = 'LIECHTENSTEIN';
 				break;
 
@@ -1430,7 +1618,7 @@ To Do:
 				break;
 
 				case 'lu':
-					$lang_name = 'Luxembourg';
+					$lang_name = 'LUXEMBOURGISH';
 					$country_name = 'LUXEMBOURG';
 				break;
 				
@@ -1740,7 +1928,7 @@ To Do:
 				break;
 				
 				case 'py':
-					$country_name = 'Paraguay';
+					$country_name = 'PARAGUAY';
 					$lang_name = 'PARAGUAY';
 				break;
 				
@@ -1749,15 +1937,35 @@ To Do:
 					$country_name = 'QATAR';
 				break;
 				
+				//    rmn – Balkan Romani
+				//    rml – Baltic Romani
+				//    rmc – Carpathian Romani
+				//    rmf – Kalo Finnish Romani
+				//    rmo – Sinte Romani
+				//    rmy – Vlax Romani
+				//    rmw – Welsh Romani				
 				case 'ri':
+				case 'rom':
 					$country_name = 'EASTEN_EUROPE';
-					$lang_name = 'romani';
+					$lang_name = 'ROMANI';
 				break;
 				
 				case 'ro':
 					$country_name = 'ROMANIA';
-					$lang_name = 'romanian';
+					$lang_name = 'ROMANIAN';
 				break;
+				
+				case 'ro_md':
+				case 'ro_MD':
+					$country_name = 'ROMANIA';
+					$lang_name = 'ROMANIAN_MOLDAVIA';
+				break;
+				
+				case 'ro_ro':
+				case 'ro_RO':
+					$country_name = 'ROMANIA';
+					$lang_name = 'ROMANIAN_ROMANIA';
+				break;				
 				
 				case 'rn':
 					$lang_name = 'kirundi';
