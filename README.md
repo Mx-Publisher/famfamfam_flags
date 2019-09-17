@@ -16,6 +16,7 @@ If you find these flag icons for languages useful, please donate via paypal to o
 
 For country flag icons - http://www.famfamfam.com
 
+ 
 To Do:
 1. Move country flags to country\ folder.
 2. Move language flags to language\ folder.
@@ -129,6 +130,17 @@ To Do:
 					$country_name = 'MOROCCO';
 				break;
 				
+				//jrb – Judeo-Arabic
+				//yhd – Judeo-Iraqi Arabic
+				//aju – Judeo-Moroccan Arabic
+				//yud – Judeo-Tripolitanian Arabic
+				//ajt – Judeo-Tunisian Arabic
+				//jye – Judeo-Yemeni Arabic	
+				case 'jrb':
+					$lang_name = 'JUDEO-ARABIC';
+					$country_name = 'JUDEA';
+				break;
+				
 				case 'kab':
 					$lang_name = 'KABYLE'; //known as Kabyle (Tamazight)
 					$country_name = 'ALGERIA';
@@ -155,6 +167,8 @@ To Do:
 				break;
 
 				case 'av-da':
+				case 'av_da':
+				case 'av_DA':
 					$lang_name = 'AVARIAN_KHANATE';
 					$country_name = 'Daghestanian';
 				break;
@@ -588,16 +602,13 @@ To Do:
 					$lang_name = 'SWISS_GERMAN';
 					$country_name = 'SWITZERLAND';
 				break;	
-				case 'gsw':
-					$lang_name = 'Alemannic_German';
-					$country_name = 'SWITZERLAND';
-				break;						
+						
 				 //Luxembourg 	602,000 	11,000 (2%) 	380,000 (67.5%) 	De jure nationwide co-official language
 				case 'de_lu':
 				case 'de-LU':
 				case 'ltz':
-					$lang_name = 'SWISS_GERMAN';
-					$country_name = 'SWITZERLAND';
+					$lang_name = 'LUXEMBOURG_GERMAN';
+					$country_name = 'LUXEMBOURG';
 				break;					 
 				 //Liechtenstein 	37,370 	32,075 (85.8%) 	5,200 (13.9%) 	De jure sole nationwide official language	
 				//Alemannic, or rarely Alemmanish
@@ -606,7 +617,10 @@ To Do:
 					$lang_name = 'LIECHTENSTEIN_GERMAN';
 					$country_name = 'LIECHTENSTEIN';
 				break;	
-				
+				case 'gsw':
+					$lang_name = 'Alemannic_German';
+					$country_name = 'SWITZERLAND';
+				break;						
 				//mostly spoken on Lifou Island, Loyalty Islands, New Caledonia. 
 				case 'dhv':
 					$lang_name = 'DREHU';
@@ -864,9 +878,163 @@ To Do:
 					$country_name = 'ERITREA';
 				break;
 
-				case 'es':
+				//See: 
+				// http://www.webapps-online.com/online-tools/languages-and-locales
+				// https://www.ibm.com/support/knowledgecenter/ko/SSS28S_3.0.0/com.ibm.help.forms.doc/locale_spec/i_xfdl_r_locale_quick_reference.html
+				case 'es':	
+				//Spanish Main	
 					$lang_name = 'SPANISH';
 					$country_name = 'SPAIN';
+				break;
+				case 'es_MX':
+				case 'es_mx':
+				//Spanish (Mexico) (es-MX)
+					$lang_name = 'SPANISH_MEXICO';
+					$country_name = 'MEXICO';
+				break;				
+				case 'es_US':
+				case 'es_us':
+					$lang_name = 'SPANISH_UNITED_STATES';
+					$country_name = 'UNITED_STATES';
+				break;				
+				case 'es-419':	
+				//Spanish	Latin America and the Caribbean
+					$lang_name = 'SPANISH_CARIBBEAN';
+					$country_name = 'CARIBBE';
+				break;
+				case 'es-ar':	
+				//		Spanish	Argentina
+					$lang_name = 'SPANISH_ARGENTINIAN';
+					$country_name = 'ARGENTINA';
+				break;
+				case 'es-BO':
+				case 'es-bo':
+					$lang_name = 'SPANISH_BOLIVIAN';
+					$country_name = 'BOLIVIA';
+				break;				
+				case 'es-BR':
+				case 'es-br':
+					$lang_name = 'SPANISH_BRAZILIAN';
+					$country_name = 'BRAZIL';
+				break;				
+				case 'es-cl':	
+				//		Spanish	Chile
+					$lang_name = 'SPANISH_CHILEAN';
+					$country_name = 'CHILE';
+				break;
+				case 'es-CO':	
+				case 'es-co':	
+				//	Spanish (Colombia) (es-CO)
+					$lang_name = 'SPANISH_COLOMBIAN';
+					$country_name = 'COLOMBIA';
+				break;
+				case 'es-CR':
+				case 'es-cr':
+					$lang_name = 'SPANISH_COSTA_RICA';
+					$country_name = 'COSTA_RICA';
+				break;				
+				case 'es-DO':	
+				case 'es-do':
+				//Spanish (Dominican Republic) (es-DO)
+					$lang_name = 'SPANISH_DOMINICAN_REPUBLIC';
+					$country_name = 'DOMINICAN_REPUBLIC';
+				break;		
+				case 'es-ec':	
+				//		Spanish (Ecuador) (es-EC)
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;
+				case 'es-es':	
+				//		Spanish	Spain
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;
+				case 'es-ES_tradnl':	
+				case 'es-es_tradnl':	
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;	
+				case 'es-EU':	
+				case 'es-eu':	
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;	
+				case 'es-gt':	
+				//	Spanish (Guatemala) (es-GT)
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;
+				case 'es-HN':	
+				case 'es-hn':	
+				//Spanish (Honduras) (es-HN)
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;		
+				case 'es-la':	
+				//		Spanish	Lao
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;
+				case 'es-mx':	
+				//		Spanish	Mexico
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;
+				case 'es-NI':
+				case 'es-ni':
+				//		Spanish (Nicaragua) (es-NI)
+					$lang_name = 'SPANISH_NICARAGUAN';
+					$country_name = 'NICARAGUA';
+				break;
+				case 'es-PA':	
+				case 'es-pa':	
+				//Spanish (Panama) (es-PA)
+					$lang_name = 'SPANISH_PANAMIAN';
+					$country_name = 'PANAMA';
+				break;		
+				case 'es-pe':	
+				case 'es-PE':					
+				//Spanish (Peru) (es-PE)
+					$lang_name = 'SPANISH_PERU';
+					$country_name = 'PERU';
+				break;
+				case 'es-PR':	
+				//Spanish (Puerto Rico) (es-PR)
+					$lang_name = 'SPANISH_PUERTO_RICO';
+					$country_name = 'PUERTO_RICO';
+				break;	
+				case 'es-PY':	
+				case 'es-py':	
+				//Spanish (Paraguay) (es-PY)
+					$lang_name = 'SPANISH_PARAGUAY';
+					$country_name = 'PARAGUAY';
+				break;	
+				case 'es-SV':	
+				case 'es-sv':	
+				//Spanish (El Salvador) (es-SV)
+					$lang_name = 'SPANISH_EL_SALVADOR';
+					$country_name = 'EL_SALVADOR';
+				break;	
+				case 'es-us':	
+				//	Spanish (United States) (es-US)
+					$lang_name = 'SPANISH_UNITED_STATES';
+					$country_name = 'UNITED_STATES';
+				break;
+				case 'es-UY':	
+				case 'es-uy':
+				//Spanish (Uruguay) (es-UY)
+					$lang_name = 'SPANISH_URUGUAY';
+					$country_name = 'URUGUAY';
+				break;	
+				case 'es-ve':	
+				//	Spanish (Venezuela) (es-VE)
+					$lang_name = 'SPANISH_VENEZUELA';
+					$country_name = 'BOLIVARIAN_REPUBLIC_OF_VENEZUELA';
+				break;
+				case 'es-xl':	
+				//	Spanish	Latin America	
+					$lang_name = 'SPANISH_LATIN_AMERICA';
+					$country_name = 'LATIN_AMERICA';
 				break;
 
 				case 'et':
@@ -1301,12 +1469,36 @@ To Do:
 					$lang_name = 'HAUSA';
 				break;
 
-
+				//heb – Modern Hebrew
+				//hbo – Classical Hebrew (liturgical)
+				//smp – Samaritan Hebrew (liturgical)
+				//obm – Moabite (extinct)
+				//xdm – Edomite (extinct)
 				case 'he':
+				case 'heb':
 					$country_name = 'ISRAEL';
 					$lang_name = 'HEBREW';
 				break;
-
+				case 'hbo':
+					$country_name = 'ISRAEL';
+					$lang_name = 'CLASSICAL_HEBREW';
+				break;
+				case 'sam':
+					$country_name = 'SAMARIA';
+					$lang_name = 'SAMARITAN_ARAMEIC';
+				break;
+				case 'smp':
+					$country_name = 'SAMARIA';
+					$lang_name = 'SAMARITAN_HEBREW';
+				break;
+				case 'obm':
+					$country_name = 'MOAB';
+					$lang_name = 'MOABITE';
+				break;
+				case 'xdm':
+					$country_name = 'EDOMITE';
+					$lang_name = 'EDOM';
+				break;
 				case 'hi':
 					$lang_name = 'hindi';
 					$country_name = '';
@@ -1983,8 +2175,10 @@ To Do:
 				break;
 				
 				case 'ru':
+				case 'ru_ru':
+				case 'ru_RU':
 					$country_name = 'RUSSIA';
-					$lang_name = 'Russia';
+					$lang_name = 'RUSSIAN';
 				break;
 				
 				case 'rw':
@@ -2111,6 +2305,9 @@ To Do:
 				break;
 				
 				case 'se':
+				case 'sv-SE':
+				case 'sv-se':
+				//Swedish (Sweden) (sv-SE)
 					$lang_name = 'Sweden';
 					$country_name = 'SWEDEN';
 				break;
@@ -2248,6 +2445,11 @@ To Do:
 					$lang_name = 'Virgin Islands (USA)';
 					$country_name = 'VIRGIN_ISLANDS_(USA)';
 				break;
+				
+				case 'fr_vn':
+					$lang_name = 'FRENCH_VIETNAM';
+					$country_name = 'VIETNAM';
+				break;				
 				
 				case 'vn':
 					$lang_name = 'Vietnam';

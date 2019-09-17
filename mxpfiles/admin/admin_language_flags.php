@@ -365,6 +365,7 @@ else
 	 */
 	function decode_country_name($file_dir, $lang_country = 'country', $langs_countries = false)
 	{
+		
 		/* known languages */
 		switch ($file_dir)
 		{
@@ -461,6 +462,17 @@ else
 					$country_name = 'MOROCCO';
 				break;
 				
+				//jrb – Judeo-Arabic
+				//yhd – Judeo-Iraqi Arabic
+				//aju – Judeo-Moroccan Arabic
+				//yud – Judeo-Tripolitanian Arabic
+				//ajt – Judeo-Tunisian Arabic
+				//jye – Judeo-Yemeni Arabic	
+				case 'jrb':
+					$lang_name = 'JUDEO-ARABIC';
+					$country_name = 'JUDEA';
+				break;
+				
 				case 'kab':
 					$lang_name = 'KABYLE'; //known as Kabyle (Tamazight)
 					$country_name = 'ALGERIA';
@@ -487,6 +499,8 @@ else
 				break;
 
 				case 'av-da':
+				case 'av_da':
+				case 'av_DA':
 					$lang_name = 'AVARIAN_KHANATE';
 					$country_name = 'Daghestanian';
 				break;
@@ -520,7 +534,14 @@ else
 					$lang_name = 'BASHKIR'; //Baskortostán (Rusia)
 					$country_name = 'BOSNIA_&AMP;_HERZEGOVINA'; //Bosnian, Croatian, Serbian
 				break;
-
+				
+				//Bavarian (also known as Bavarian Austrian or Austro-Bavarian; Boarisch [ˈbɔɑrɪʃ] or Bairisch; 
+				//German: Bairisch [ˈbaɪʁɪʃ] (About this soundlisten); Hungarian: bajor.
+				case 'bar':
+					$lang_name = 'BAVARIAN';
+					$country_name = 'BAVARIA'; //Germany
+				break;
+				
 				case 'bb':
 					$lang_name = 'Barbados';
 					$country_name = 'BARBADOS';
@@ -621,11 +642,11 @@ else
 				
 				case 'wes':
 					$lang_name = 'CAMEROONIAN'; //Kamtok
-					$country_name = 'Cameroon'; //Wes Cos
+					$country_name = 'CAMEROON'; //Wes Cos
 				break;
 
 				case 'cm':
-					$lang_name = 'Cameroon';
+					$lang_name = 'CAMEROON';
 					$country_name = 'CAMEROON';
 				break;
 
@@ -869,14 +890,14 @@ else
 					cim – Cimbrian
 					geh – Hutterite German
 					ksh – Kölsch
-					nds – Low German[note 1]
+					nds – Low German
 					sli – Lower Silesian
-					ltz – Luxembourgish[note 2]
+					ltz – Luxembourgish
 					vmf – Mainfränkisch
 					mhn – Mòcheno
 					pfl – Palatinate German
 					pdc – Pennsylvania German
-					pdt – Plautdietsch[note 3]
+					pdt – Plautdietsch
 					swg – Swabian German
 					gsw – Swiss German
 					uln – Unserdeutsch
@@ -885,11 +906,53 @@ else
 					wep – Westphalian
 					hrx – Riograndenser Hunsrückisch
 					yec – Yenish	*/
+
+				
+				//Germany 	84,900,000 	75,101,421 (91.8%) 	5,600,000 (6.9%) 	De facto sole nationwide official language
 				case 'de':
+				case 'de-DE':
+				case 'de_de':
+				case 'deu':
 					$lang_name = 'GERMAN';
 					$country_name = 'GERMANY';
-				break;
-				
+				break;				
+				//Belgium 	11,420,163 	73,000 (0.6%) 	2,472,746 (22%) 	De jure official language in the German speaking community
+				case 'de_be':
+				case 'de-BE':
+					$lang_name = 'BELGIUM_GERMAN';
+					$country_name = 'BELGIUM';
+				break;				 
+				 //Austria 	8,838,171 	8,040,960 (93%) 	516,000 (6%) 	De jure sole nationwide official language
+				case 'de_at':
+				case 'de-AT':
+					$lang_name = 'AUSTRIAN_GERMAN';
+					$country_name = 'AUSTRIA';
+				break;						 
+				 // Switzerland 	8,508,904 	5,329,393 (64.6%) 	395,000 (5%) 	Co-official language at federal level; de jure sole official language in 17, co-official in 4 cantons (out of 26)
+				case 'de_sw':
+				case 'de-SW':
+					$lang_name = 'SWISS_GERMAN';
+					$country_name = 'SWITZERLAND';
+				break;	
+						
+				 //Luxembourg 	602,000 	11,000 (2%) 	380,000 (67.5%) 	De jure nationwide co-official language
+				case 'de_lu':
+				case 'de-LU':
+				case 'ltz':
+					$lang_name = 'LUXEMBOURG_GERMAN';
+					$country_name = 'LUXEMBOURG';
+				break;					 
+				 //Liechtenstein 	37,370 	32,075 (85.8%) 	5,200 (13.9%) 	De jure sole nationwide official language	
+				//Alemannic, or rarely Alemmanish
+				case 'de_li':
+				case 'de-LI':
+					$lang_name = 'LIECHTENSTEIN_GERMAN';
+					$country_name = 'LIECHTENSTEIN';
+				break;	
+				case 'gsw':
+					$lang_name = 'Alemannic_German';
+					$country_name = 'SWITZERLAND';
+				break;						
 				//mostly spoken on Lifou Island, Loyalty Islands, New Caledonia. 
 				case 'dhv':
 					$lang_name = 'DREHU';
@@ -978,6 +1041,42 @@ else
 					$country_name = 'ESTONIA';
 				break;
 				
+				//Greek Language:
+				//ell – Modern Greek
+				//grc – Ancient Greek
+				//cpg – Cappadocian Greek
+				//gmy – Mycenaean Greek
+				//pnt – Pontic
+				//tsd – Tsakonian
+				//yej – Yevanic				
+				
+				case 'el':
+					$lang_name = 'GREEK'; 
+					$country_name = 'GREECE';
+				break;				
+				
+				case 'cpg':
+					$lang_name = 'CAPPADOCIAN_GREEK';
+					$country_name = 'GREECE';					
+				break;	
+				case 'gmy':
+					$lang_name = 'MYCENAEAN_GREEK';
+					$country_name = 'GREECE';					
+				break;	
+				case 'pnt':
+					$lang_name = 'PONTIC';
+					$country_name = 'GREECE';					
+				break;	
+				case 'tsd':
+					$lang_name = 'TSAKONIAN';
+					$country_name = 'GREECE';					
+				break;	
+				//Albanian: Janina or Janinë, Aromanian: Ianina, Enina, Turkish: Yanya;
+				case 'yej':
+					$lang_name = 'YEVANIC';	
+					$country_name = 'GREECE';					
+				break;					
+				
 				case 'en_uk':
 				case 'en-UK':
 				case 'uk':
@@ -1065,6 +1164,12 @@ else
 					$country_name = 'NEW_ENGLAND';
 				break;
 				
+				//
+				case 'en_bm':
+					$lang_name = 'BERMUDIAN ENGLISH.';
+					$country_name = 'BERMUDA';
+				break;
+								
 				case 'en_nu':
 					$lang_name = 'NIUEAN_ENGLISH'; //Niuean (official) 46% (a Polynesian language closely related to Tongan and Samoan)
 					$country_name = 'NIUE'; // Niuean: Niuē
@@ -1105,9 +1210,165 @@ else
 					$country_name = 'ERITREA';
 				break;
 
-				case 'es':
+				//See: 
+				// http://www.webapps-online.com/online-tools/languages-and-locales
+				// https://www.ibm.com/support/knowledgecenter/ko/SSS28S_3.0.0/com.ibm.help.forms.doc/locale_spec/i_xfdl_r_locale_quick_reference.html
+				case 'es':	
+				//Spanish Main	
 					$lang_name = 'SPANISH';
 					$country_name = 'SPAIN';
+				break;
+				case 'es_MX':
+				case 'es_mx':
+				//Spanish (Mexico) (es-MX)
+					$lang_name = 'SPANISH_MEXICO';
+					$country_name = 'MEXICO';
+				break;				
+				case 'es_US':
+				case 'es_us':
+					$lang_name = 'SPANISH_UNITED_STATES';
+					$country_name = 'UNITED_STATES';
+				break;				
+				case 'es-419':	
+				//Spanish	Latin America and the Caribbean
+					$lang_name = 'SPANISH_CARIBBEAN';
+					$country_name = 'CARIBBE';
+				break;
+				case 'es-ar':	
+				//		Spanish	Argentina
+					$lang_name = 'SPANISH_ARGENTINIAN';
+					$country_name = 'ARGENTINA';
+				break;
+				case 'es-BO':
+				case 'es-bo':
+					$lang_name = 'SPANISH_BOLIVIAN';
+					$country_name = 'BOLIVIA';
+				break;				
+				case 'es-BR':
+				case 'es-br':
+					$lang_name = 'SPANISH_BRAZILIAN';
+					$country_name = 'BRAZIL';
+				break;				
+				case 'es-cl':	
+				//		Spanish	Chile
+					$lang_name = 'SPANISH_CHILEAN';
+					$country_name = 'CHILE';
+				break;
+				case 'es-CO':	
+				case 'es-co':	
+				//	Spanish (Colombia) (es-CO)
+					$lang_name = 'SPANISH_COLOMBIAN';
+					$country_name = 'COLOMBIA';
+				break;
+				case 'es-CR':
+				case 'es-cr':
+					$lang_name = 'SPANISH_COSTA_RICA';
+					$country_name = 'COSTA_RICA';
+				break;				
+				case 'es-DO':	
+				case 'es-do':
+				//Spanish (Dominican Republic) (es-DO)
+					$lang_name = 'SPANISH_DOMINICAN_REPUBLIC';
+					$country_name = 'DOMINICAN_REPUBLIC';
+				break;		
+				case 'es-ec':	
+				//		Spanish (Ecuador) (es-EC)
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;
+				case 'es-es':	
+				case 'es-ES':	
+				//		Spanish	Spain
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;
+				case 'es-ES_tradnl':	
+				case 'es-es_tradnl':	
+					$lang_name = 'SPANISH_NL';
+					$country_name = 'NL';
+				break;	
+				case 'es-EU':	
+				case 'es-eu':	
+					$lang_name = 'SPANISH_EUROPE';
+					$country_name = 'EUROPE';
+				break;	
+				case 'es-gt':
+				case 'es-GT':				
+				//	Spanish (Guatemala) (es-GT)
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;
+				case 'es-HN':	
+				case 'es-hn':	
+				//Spanish (Honduras) (es-HN)
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;		
+				case 'es-la':
+				case 'es-LA':					
+				//		Spanish	Lao
+					$lang_name = 'SPANISH';
+					$country_name = 'SPAIN';
+				break;
+				case 'es-NI':
+				case 'es-ni':
+				//		Spanish (Nicaragua) (es-NI)
+					$lang_name = 'SPANISH_NICARAGUAN';
+					$country_name = 'NICARAGUA';
+				break;
+				case 'es-PA':	
+				case 'es-pa':	
+				//Spanish (Panama) (es-PA)
+					$lang_name = 'SPANISH_PANAMIAN';
+					$country_name = 'PANAMA';
+				break;		
+				case 'es-pe':	
+				case 'es-PE':					
+				//Spanish (Peru) (es-PE)
+					$lang_name = 'SPANISH_PERU';
+					$country_name = 'PERU';
+				break;
+				case 'es-PR':	
+				case 'es-pr':	
+				//Spanish (Puerto Rico) (es-PR)
+					$lang_name = 'SPANISH_PUERTO_RICO';
+					$country_name = 'PUERTO_RICO';
+				break;	
+				case 'es-PY':	
+				case 'es-py':	
+				//Spanish (Paraguay) (es-PY)
+					$lang_name = 'SPANISH_PARAGUAY';
+					$country_name = 'PARAGUAY';
+				break;	
+				case 'es-SV':	
+				case 'es-sv':	
+				//Spanish (El Salvador) (es-SV)
+					$lang_name = 'SPANISH_EL_SALVADOR';
+					$country_name = 'EL_SALVADOR';
+				break;	
+				case 'es-US':	
+				case 'es-us':	
+				//	Spanish (United States) (es-US)
+					$lang_name = 'SPANISH_UNITED_STATES';
+					$country_name = 'UNITED_STATES';
+				break;
+				case 'es-UY':	
+				case 'es-uy':
+				//Spanish (Uruguay) (es-UY)
+					$lang_name = 'SPANISH_URUGUAY';
+					$country_name = 'URUGUAY';
+				break;	
+				case 'es-ve':	
+				case 'es-VE':	
+				//	Spanish (Venezuela) (es-VE)
+					$lang_name = 'SPANISH_VENEZUELA';
+					$country_name = 'BOLIVARIAN_REPUBLIC_OF_VENEZUELA';
+				break;
+				case 'es-xl':
+				case 'es-XL':					
+				//	Spanish	Latin America	
+					$lang_name = 'SPANISH_LATIN_AMERICA';
+					$country_name = 'LATIN_AMERICA';
 				break;
 
 				case 'et':
@@ -1124,13 +1385,69 @@ else
 					$lang_name = 'PERSIAN';
 					$country_name = '';
 				break;
-
+				
+				//for Fulah (also spelled Fula) the ISO 639-1 code is ff.
+			    //fub – Adamawa Fulfulde
+			    //fui – Bagirmi Fulfulde
+			    //fue – Borgu Fulfulde
+			    //fuq – Central-Eastern Niger Fulfulde
+			    //ffm – Maasina Fulfulde
+			    //fuv – Nigerian Fulfulde
+			    //fuc – Pulaar
+			    //fuf – Pular
+			    //fuh – Western Niger Fulfulde			
+			
+				case 'fub':
+					$lang_name = 'ADAMAWA_FULFULDE';
+					$country_name = '';
+				break;
+				
+				case 'fui':
+					$lang_name = 'BAGIRMI_FULFULDE';
+					$country_name = '';
+				break;
+				
+				case 'fue':
+					$lang_name = 'BORGU_FULFULDE';
+					$country_name = '';
+				break;
+				
+				case 'fuq':
+					$lang_name = 'CENTRAL-EASTERN_NIGER_FULFULDE';
+					$country_name = '';
+				break;
+				
+				case 'ffm':
+					$lang_name = 'MAASINA_FULFULDE';
+					$country_name = '';
+				break;
+				
+				case 'fuv':
+					$lang_name = 'NIGERIAN_FULFULDE';
+					$country_name = '';
+				break;
+				
+				case 'fuc':
+					$lang_name = 'PULAAR';
+					$country_name = 'SENEGAMBIA_CONFEDERATION'; //sn //gm
+				break;
+				
+				case 'fuf':
+					$lang_name = 'PULAR';
+					$country_name = '';
+				break;
+				
+				case 'fuh':
+					$lang_name = 'WESTERN_NIGER_FULFULDE';
+					$country_name = '';
+				break;
+				
 				case 'ff':
 					$lang_name = 'FULAH';
 					$country_name = '';
-				break;
-
-				case 'fi':
+				break;	
+				
+				case 'fi':		
 				case 'fin':
 					$lang_name = 'FINNISH';
 					$country_name = 'FINLAND';
@@ -1384,10 +1701,22 @@ else
 					$country_name = 'GHANA';
 				break;
 				
-				case 'gr':
-					$lang_name = 'Greece';
+				case 'ell':
+					$lang_name = 'MODERN_GREEK'; 
 					$country_name = 'GREECE';
 				break;
+				
+				case 'gr':
+				case 'gre':
+					$lang_name = 'MODERN_GREEK'; 
+					$country_name = 'GREECE';
+				break;
+				
+				case 'grc':
+					$lang_name = 'ANCIENT_GREEK'; 
+					$country_name = 'GREECE';
+				break;				
+				
 				//Galician is spoken by some 2.4 million people, mainly in Galicia, 
 				//an autonomous community located in northwestern Spain.
 				case 'gl':
@@ -1399,11 +1728,40 @@ else
 					$lang_name = 'Gambia';
 					$country_name = 'GAMBIA';
 				break;
-				
+				 
+				//grn is the ISO 639-3 language code for Guarani. Its ISO 639-1 code is gn. 
+				//    nhd – Chiripá
+				//    gui – Eastern Bolivian Guaraní
+				//    gun – Mbyá Guaraní
+				//    gug – Paraguayan Guaraní
+				//    gnw – Western Bolivian Guaraní
 				case 'gn':
-					$lang_name = 'Guinea';
+					$lang_name = 'GUARANI';
 					$country_name = 'GUINEA';
 				break;
+				//Nhandéva is also known as Chiripá. 
+				//The Spanish spelling, Ñandeva, is used in the Paraguayan Chaco 
+				// to refer to the local variety of Eastern Bolivian, a subdialect of Avá.
+				case 'nhd':
+					$lang_name = 'Chiripa';
+					$country_name = 'PARAGUAY';
+				break;	
+				case 'gui':
+					$lang_name = 'EASTERN_BOLIVIAN_GUARANI';
+					$country_name = 'BOLIVIA';
+				break;				
+				case 'gun':
+					$lang_name = 'MBYA_GUARANI';
+					$country_name = 'PARAGUAY';
+				break;
+				case 'gug':
+					$lang_name = 'PARAGUAYAN_GUARANI';
+					$country_name = 'PARAGUAY';
+				break;
+				case 'gnw':
+					$lang_name = 'WESTERN_BOLIVIAN_GUARANI';
+					$country_name = 'BOLIVIA';
+				break;				
 				
 				case 'gs':
 					$lang_name = 'ENGLISH';
@@ -1445,12 +1803,36 @@ else
 					$lang_name = 'HAUSA';
 				break;
 
-
+				//heb – Modern Hebrew
+				//hbo – Classical Hebrew (liturgical)
+				//smp – Samaritan Hebrew (liturgical)
+				//obm – Moabite (extinct)
+				//xdm – Edomite (extinct)
 				case 'he':
+				case 'heb':
 					$country_name = 'ISRAEL';
 					$lang_name = 'HEBREW';
 				break;
-
+				case 'hbo':
+					$country_name = 'ISRAEL';
+					$lang_name = 'CLASSICAL_HEBREW';
+				break;
+				case 'sam':
+					$country_name = 'SAMARIA';
+					$lang_name = 'SAMARITAN_ARAMEIC';
+				break;
+				case 'smp':
+					$country_name = 'SAMARIA';
+					$lang_name = 'SAMARITAN_HEBREW';
+				break;
+				case 'obm':
+					$country_name = 'MOAB';
+					$lang_name = 'MOABITE';
+				break;
+				case 'xdm':
+					$country_name = 'EDOMITE';
+					$lang_name = 'EDOM';
+				break;
 				case 'hi':
 					$lang_name = 'hindi';
 					$country_name = '';
@@ -1720,9 +2102,9 @@ else
 					$lang_name = 'Latvia';
 					$country_name = 'LATVIA';
 				break;
-
+				
 				case 'lb':
-					$lang_name = 'Lebanon';
+					$lang_name = 'LUXEMBOURGISH';
 					$country_name = 'LEBANON';
 				break;
 				
@@ -1752,7 +2134,7 @@ else
 				break;
 
 				case 'li':
-					$lang_name = 'Liechtenstein';
+					$lang_name = 'LIMBURGISH';
 					$country_name = 'LIECHTENSTEIN';
 				break;
 
@@ -1762,7 +2144,7 @@ else
 				break;
 
 				case 'lu':
-					$lang_name = 'Luxembourg';
+					$lang_name = 'LUXEMBOURGISH';
 					$country_name = 'LUXEMBOURG';
 				break;
 				
@@ -2072,7 +2454,7 @@ else
 				break;
 				
 				case 'py':
-					$country_name = 'Paraguay';
+					$country_name = 'PARAGUAY';
 					$lang_name = 'PARAGUAY';
 				break;
 				
@@ -2081,15 +2463,35 @@ else
 					$country_name = 'QATAR';
 				break;
 				
+				//    rmn – Balkan Romani
+				//    rml – Baltic Romani
+				//    rmc – Carpathian Romani
+				//    rmf – Kalo Finnish Romani
+				//    rmo – Sinte Romani
+				//    rmy – Vlax Romani
+				//    rmw – Welsh Romani				
 				case 'ri':
+				case 'rom':
 					$country_name = 'EASTEN_EUROPE';
-					$lang_name = 'romani';
+					$lang_name = 'ROMANI';
 				break;
 				
 				case 'ro':
 					$country_name = 'ROMANIA';
-					$lang_name = 'romanian';
+					$lang_name = 'ROMANIAN';
 				break;
+				
+				case 'ro_md':
+				case 'ro_MD':
+					$country_name = 'ROMANIA';
+					$lang_name = 'ROMANIAN_MOLDAVIA';
+				break;
+				
+				case 'ro_ro':
+				case 'ro_RO':
+					$country_name = 'ROMANIA';
+					$lang_name = 'ROMANIAN_ROMANIA';
+				break;				
 				
 				case 'rn':
 					$lang_name = 'kirundi';
@@ -2107,8 +2509,10 @@ else
 				break;
 				
 				case 'ru':
+				case 'ru_ru':
+				case 'ru_RU':
 					$country_name = 'RUSSIA';
-					$lang_name = 'Russia';
+					$lang_name = 'RUSSIAN';
 				break;
 				
 				case 'rw':
@@ -2235,6 +2639,9 @@ else
 				break;
 				
 				case 'se':
+				case 'sv-SE':
+				case 'sv-se':
+				//Swedish (Sweden) (sv-SE)
 					$lang_name = 'Sweden';
 					$country_name = 'SWEDEN';
 				break;
@@ -2373,6 +2780,11 @@ else
 					$country_name = 'VIRGIN_ISLANDS_(USA)';
 				break;
 				
+				case 'fr_vn':
+					$lang_name = 'FRENCH_VIETNAM';
+					$country_name = 'VIETNAM';
+				break;				
+				
 				case 'vn':
 					$lang_name = 'Vietnam';
 					$country_name = 'VIETNAM';
@@ -2447,7 +2859,7 @@ else
 	if (!class_exists('phpbb_db_tools') && !class_exists('tools'))
 	{
 		global $phpbb_root_path, $phpEx;
-		require($phpbb_root_path . 'includes/db/tools.' . $phpEx);
+		require($mx_root_path . 'includes/db/db_tools.' . $phpEx);
 	}
 
 	if (class_exists('phpbb_db_tools'))
@@ -2521,12 +2933,13 @@ else
 				"U_FLAG_DELETE" => mx_append_sid("admin_language_flags.$phpEx?mode=delete&amp;id=$flag_id"))
 			);
 		}
+		
 	}
 	else
 	{ 
 		$flag_id = 1;
 		$sql_ary[] = array();
-
+		
 		//$flag_count = (bool) count(glob($phpbb_root_path . '/images/flags', GLOB_BRACE));
 		if (!is_dir($phpbb_root_path . '/images/flags/language'))
 		{
