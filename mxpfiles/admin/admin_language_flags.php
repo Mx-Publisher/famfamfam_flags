@@ -27,19 +27,16 @@
 if (!empty($setmodules))
 {
 	$file = basename(__FILE__);
-	$module['Forum_Display']['Language_Flags'] = "admin/$file";
+	$module['Forum_Display']['Language_Flags'] = "$file";
 	return;
 }
 
 //
-// Security and Page header
+// Let's set the root dir for phpBB
 //
-@define('IN_PORTAL', 1);
-$mx_root_path = './../';
-$phpEx = substr(strrchr(__FILE__, '.'), 1);
-if (!defined('PHP_EXT')) define('PHP_EXT', $phpEx);
-if (!defined('MX_ROOT_PATH')) define('MX_ROOT_PATH', './../');
-require('./pagestart.' . PHP_EXT);
+$phpbb_root_path = "./../";
+require($phpbb_root_path . 'extension.inc');
+require('./pagestart.' . $phpEx);
 /* FLAG-start * /
 @define('LANG_FLAGS_TABLE', $table_prefix.'flags');
 /* FLAG-end */
@@ -77,13 +74,13 @@ if ( $mode == 'do_delete')
 }
 
 /* START Include language file */
-$language = ($mx_user->user_language_name) ? $mx_user->user_language_name : (($board_config['default_lang']) ? $board_config['default_lang'] : 'english');
+$language = ($user->user_language_name) ? $user->user_language_name : (($board_config['default_lang']) ? $board_config['default_lang'] : 'english');
 
-if ((@include $mx_root_path . "language/lang_" . $language . "/lang_admin_flags.$phpEx") === false)
+if ((@include $phpbb_root_path . "language/lang_" . $language . "/lang_admin_flags.$phpEx") === false)
 {
-	if ((@include $mx_root_path . "language/lang_english/lang_admin_flags.$phpEx") === false)
+	if ((@include $phpbb_root_path . "language/lang_english/lang_admin_flags.$phpEx") === false)
 	{
-		mx_message_die(CRITICAL_ERROR, 'Language file ' . $mx_root_path . "language/lang_" . $language . "/lang_admin_flags.$phpEx" . ' couldn\'t be opened.');
+		message_die(CRITICAL_ERROR, 'Language file ' . $phpbb_root_path . "language/lang_" . $language . "/lang_admin_flags.$phpEx" . ' couldn\'t be opened.');
 	}
 	$language = 'english'; 
 } 
@@ -103,14 +100,14 @@ if( $mode != "" )
 		{
 			if( empty($flag_id) )
 			{
-				mx_message_die(GENERAL_MESSAGE, $lang['Must_select_flag']);
+				message_die(GENERAL_MESSAGE, $lang['Must_select_flag']);
 			}
 
 			$sql = "SELECT * FROM " . LANG_FLAGS_TABLE . "
 				WHERE flag_id = $flag_id";
 			if(!$result = $db->sql_query($sql))
 			{
-				mx_message_die(GENERAL_ERROR, "Couldn't obtain flag data", "", __LINE__, __FILE__, $sql);
+				message_die(GENERAL_ERROR, "Couldn't obtain flag data", "", __LINE__, __FILE__, $sql);
 			}
 			
 			$flag_info = $db->sql_fetchrow($result);
@@ -122,14 +119,14 @@ if( $mode != "" )
 			"body" => "admin/flags_edit_body.tpl")
 		);
 
-		if (!is_file($phpbb_root_path . '/images/flags/language/'.$flag_info['flag_image']))
+		if (!is_file('../images/flags/language/'.$flag_info['flag_image']))
 		{
-			$flag_dir = $phpbb_root_path . '/images/flags/';
+			$flag_dir = '../images/flags/';
 		}
 		else
 		{
 			// 
-			$flag_dir = $phpbb_root_path . '/images/flags/language/';
+			$flag_dir = '../images/flags/language/';
 		}
 
 		$template->assign_vars(array(
@@ -147,7 +144,7 @@ if( $mode != "" )
 			"L_SUBMIT" => $lang['Submit'],
 			"L_RESET" => $lang['Reset'],
 
-			"S_FLAG_ACTION" => mx_append_sid("admin_language_flags.$phpEx"),
+			"S_FLAG_ACTION" => append_sid("admin_language_flags.$phpEx"),
 			"S_HIDDEN_FIELDS" => $s_hidden_fields)
 		);
 	}
@@ -162,7 +159,7 @@ if( $mode != "" )
 
 		if( $flag_name == "" )
 		{
-			mx_message_die(GENERAL_MESSAGE, $lang['Must_select_flag']);
+			message_die(GENERAL_MESSAGE, $lang['Must_select_flag']);
 		}
 
 		//
@@ -194,12 +191,12 @@ if( $mode != "" )
 		
 		if( !$result = $db->sql_query($sql) )
 		{
-			mx_message_die(GENERAL_ERROR, "Couldn't update/insert into flags table", "", __LINE__, __FILE__, $sql);
+			message_die(GENERAL_ERROR, "Couldn't update/insert into flags table", "", __LINE__, __FILE__, $sql);
 		}
 
-		$message .= "<br /><br />" . sprintf($lang['Click_return_flagadmin'], "<a href=\"" . mx_append_sid("admin_language_flags.$phpEx") . "\">", "</a>") . "<br /><br />" . sprintf($lang['Click_return_admin_index'], "<a href=\"" . mx_append_sid("index.$phpEx?pane=right") . "\">", "</a>");
+		$message .= "<br /><br />" . sprintf($lang['Click_return_flagadmin'], "<a href=\"" . append_sid("admin_language_flags.$phpEx") . "\">", "</a>") . "<br /><br />" . sprintf($lang['Click_return_admin_index'], "<a href=\"" . append_sid("index.$phpEx?pane=right") . "\">", "</a>");
 
-		mx_message_die(GENERAL_MESSAGE, $message);
+		message_die(GENERAL_MESSAGE, $message);
 
 	}
 	else if( $mode == 'delete' )
@@ -228,7 +225,7 @@ if( $mode != "" )
 			'L_YES' => $lang['Yes'],
 			'L_NO' => $lang['No'],
 
-			'S_CONFIRM_ACTION' => mx_append_sid("admin_language_flags.$phpEx"),
+			'S_CONFIRM_ACTION' => append_sid("admin_language_flags.$phpEx"),
 			'S_HIDDEN_FIELDS' => $hidden_fields)
 		);
 
@@ -254,7 +251,7 @@ if( $mode != "" )
 				WHERE flag_id = $flag_id" ;
 			if( !$result = $db->sql_query($sql) )
 			{
-				mx_message_die(GENERAL_ERROR, "Couldn't get flag data", "", __LINE__, __FILE__, $sql);
+				message_die(GENERAL_ERROR, "Couldn't get flag data", "", __LINE__, __FILE__, $sql);
 			}
 			$row = $db->sql_fetchrow($result);
 			$flag_image = $row['flag_image'] ;
@@ -265,7 +262,7 @@ if( $mode != "" )
 				WHERE flag_id = $flag_id";
 			if( !$result = $db->sql_query($sql) )
 			{
-				mx_message_die(GENERAL_ERROR, "Couldn't delete flag data", "", __LINE__, __FILE__, $sql);
+				message_die(GENERAL_ERROR, "Couldn't delete flag data", "", __LINE__, __FILE__, $sql);
 			}
 			
 			// update the users who where using this flag			
@@ -274,16 +271,16 @@ if( $mode != "" )
 				WHERE user_from_flag = '$flag_image'";
 			if( !$result = $db->sql_query($sql) ) 
 			{
-				mx_message_die(GENERAL_ERROR, $lang['No_update_flags'], "", __LINE__, __FILE__, $sql);
+				message_die(GENERAL_ERROR, $lang['No_update_flags'], "", __LINE__, __FILE__, $sql);
 			}
 
-			$message = $lang['Flag_removed'] . "<br /><br />" . sprintf($lang['Click_return_flagadmin'], "<a href=\"" . mx_append_sid("admin_language_flags.$phpEx") . "\">", "</a>") . "<br /><br />" . sprintf($lang['Click_return_admin_index'], "<a href=\"" . mx_append_sid("index.$phpEx?pane=right") . "\">", "</a>");
-			mx_message_die(GENERAL_MESSAGE, $message);
+			$message = $lang['Flag_removed'] . "<br /><br />" . sprintf($lang['Click_return_flagadmin'], "<a href=\"" . append_sid("admin_language_flags.$phpEx") . "\">", "</a>") . "<br /><br />" . sprintf($lang['Click_return_admin_index'], "<a href=\"" . append_sid("index.$phpEx?pane=right") . "\">", "</a>");
+			message_die(GENERAL_MESSAGE, $message);
 
 		}
 		else
 		{
-			mx_message_die(GENERAL_MESSAGE, $lang['Must_select_flag']);
+			message_die(GENERAL_MESSAGE, $lang['Must_select_flag']);
 		}
 	}
 	else
@@ -300,7 +297,7 @@ if( $mode != "" )
 			ORDER BY flag_name";
 		if( !$result = $db->sql_query($sql) )
 		{
-			mx_message_die(GENERAL_ERROR, "Couldn't obtain flags data", "", __LINE__, __FILE__, $sql);
+			message_die(GENERAL_ERROR, "Couldn't obtain flags data", "", __LINE__, __FILE__, $sql);
 		}
 
 		$flag_rows = $db->sql_fetchrowset($result);
@@ -316,7 +313,7 @@ if( $mode != "" )
 			"L_ADD_FLAG" => $lang['Add_new_flag'],
 			"L_ACTION" => $lang['Action'],
 			
-			"S_FLAGS_ACTION" => mx_append_sid("admin_language_flags.$phpEx"))
+			"S_FLAGS_ACTION" => append_sid("admin_language_flags.$phpEx"))
 		);
 
 		if (!file_exists('../images/flags/language/'.$flag_rows[$i]['flag_image']))
@@ -344,8 +341,8 @@ if( $mode != "" )
 				//"FLAG" => $flag,
 				"IMAGE_DISPLAY" => ( $flag_rows[$i]['flag_image'] != "" ) ? '<img src="' . $flag_dir . $flag_rows[$i]['flag_image'] . '" />' : "",
 
-				"U_FLAG_EDIT" => mx_append_sid("admin_language_flags.$phpEx?mode=edit&amp;id=$flag_id"),
-				"U_FLAG_DELETE" => mx_append_sid("admin_language_flags.$phpEx?mode=delete&amp;id=$flag_id"))
+				"U_FLAG_EDIT" => append_sid("admin_language_flags.$phpEx?mode=edit&amp;id=$flag_id"),
+				"U_FLAG_DELETE" => append_sid("admin_language_flags.$phpEx?mode=delete&amp;id=$flag_id"))
 			);
 		}
 
@@ -2852,6 +2849,7 @@ else
 			$return = ($langs_countries == true) ? $lang_name[$country_name] : $return;
 			return $return ;	}
 	
+	
 	/**
 	 * Returns flag files list from an specific directory path
 	 */
@@ -2859,7 +2857,7 @@ else
 	if (!class_exists('phpbb_db_tools') && !class_exists('tools'))
 	{
 		global $phpbb_root_path, $phpEx;
-		require($mx_root_path . 'includes/db/db_tools.' . $phpEx);
+		require($phpbb_root_path . 'includes/db/tools.' . $phpEx);
 	}
 
 	if (class_exists('phpbb_db_tools'))
@@ -2870,7 +2868,7 @@ else
 	{
 		$db_tools = new tools($db);
 	}
-
+	
 	$template->assign_vars(array(
 		"L_FLAGS_TITLE" => $lang['Flags_title'],
 		"L_FLAGS_TEXT" => $lang['Flags_explain'],
@@ -2881,7 +2879,7 @@ else
 		"L_ADD_FLAG" => $lang['Add_new_flag'],
 		"L_ACTION" => $lang['Action'],
 		
-		"S_FLAGS_ACTION" => mx_append_sid("admin_language_flags.$phpEx"))
+		"S_FLAGS_ACTION" => append_sid("admin_language_flags.$phpEx"))
 	);
 
 	//
@@ -2903,7 +2901,7 @@ else
 		//$sql = "SELECT * FROM " . LANG_FLAGS_TABLE;
 		if( !$result = $db->sql_query($sql) )
 		{
-			mx_message_die(GENERAL_ERROR, "Couldn't obtain flags data", "", __LINE__, __FILE__, $sql);
+			message_die(GENERAL_ERROR, "Couldn't obtain flags data", "", __LINE__, __FILE__, $sql);
 		}
 
 		$flag_count = $db->sql_numrows($result);
@@ -2927,21 +2925,20 @@ else
 				//We need multilanguage traslation for each flag
 				"FLAG" => isset($lang[strtoupper($flag)]) ? $lang[strtoupper($flag)] : $flag,
 				//"FLAG" => $flag,
-				"IMAGE_DISPLAY" => '<img src="' . $phpbb_root_path . 'images/flags/' . $flag_rows[$i]['flag_image'] . '" />',
+				"IMAGE_DISPLAY" => '<img src="../images/flags/' . $flag_rows[$i]['flag_image'] . '" />',
 
-				"U_FLAG_EDIT" => mx_append_sid("admin_language_flags.$phpEx?mode=edit&amp;id=$flag_id"),
-				"U_FLAG_DELETE" => mx_append_sid("admin_language_flags.$phpEx?mode=delete&amp;id=$flag_id"))
+				"U_FLAG_EDIT" => append_sid("admin_language_flags.$phpEx?mode=edit&amp;id=$flag_id"),
+				"U_FLAG_DELETE" => append_sid("admin_language_flags.$phpEx?mode=delete&amp;id=$flag_id"))
 			);
 		}
-		
 	}
 	else
 	{ 
 		$flag_id = 1;
 		$sql_ary[] = array();
-		
+
 		//$flag_count = (bool) count(glob($phpbb_root_path . '/images/flags', GLOB_BRACE));
-		if (!is_dir($phpbb_root_path . '/images/flags/language'))
+		if (!is_dir('../images/flags/language'))
 		{
 			$dir = @opendir($phpbb_root_path . '/images/flags');
 		}
@@ -2998,24 +2995,24 @@ else
 			if (!is_dir('../images/flags/'))
 			{
 				// create the directory flags
-				$result = mkdir($phpbb_root_path . '/images/flags/');
-				chmod($phpbb_root_path . 'images/flags/', 777);
-				chdir($phpbb_root_path . 'images/flags/');
+				$result = mkdir('../images/flags/');
+				chmod('../images/flags/', 777);
+				chdir('../images/flags/');
 			}
 
-			if (!is_dir($phpbb_root_path . '/images/flags/language/'))
+			if (!is_dir('../images/flags/language/'))
 			{
 				// create the directory language
-				$result = mkdir($phpbb_root_path . '/images/flags/language/');
-				chmod($phpbb_root_path . '/images/flags/language/', 777);
-				chdir($phpbb_root_path . '/images/flags/language/');
+				$result = mkdir('../images/flags/language/');
+				chmod('../images/flags/language/', 777);
+				chdir('../images/flags/language/');
 
-				$flag_dir = $phpbb_root_path . '/images/flags/';
+				$flag_dir = '../images/flags/';
 			}
 			else
 			{
 				// 
-				$flag_dir = $phpbb_root_path . '/images/flags/language/';
+				$flag_dir = '../images/flags/language/';
 			}
 
 			$ary = array(
@@ -3036,11 +3033,11 @@ else
 				$result = $db->sql_query($sql_flags);
 				if (!($result))
 				{
-					mx_message_die(CRITICAL_ERROR, "Could not add flags table to the DB", '', __LINE__, __FILE__, print_r($sql_ary, true));
+					message_die(CRITICAL_ERROR, "Could not add flags table to the DB", '', __LINE__, __FILE__, print_r($sql_ary, true));
 				}
 				
-				$message = $lang['Virtual_Go'] . "<br /><br />" . sprintf($lang['Click_return_flagadmin'], "<a href=\"" . mx_append_sid("admin_language_flags.$phpEx") . "\">", "</a>") . "<br /><br />" . sprintf($lang['Click_return_admin_index'], "<a href=\"" . mx_append_sid($phpbb_root_path . "admin/index.$phpEx?pane=right") . "\">", "</a>");
-				mx_message_die(GENERAL_MESSAGE, $message);
+				$message = $lang['Virtual_Go'] . "<br /><br />" . sprintf($lang['Click_return_flagadmin'], "<a href=\"" . append_sid("admin_language_flags.$phpEx") . "\">", "</a>") . "<br /><br />" . sprintf($lang['Click_return_admin_index'], "<a href=\"" . append_sid($phpbb_root_path . "admin/index.$phpEx?pane=right") . "\">", "</a>");
+				message_die(GENERAL_MESSAGE, $message);
 			}
 			elseif (is_request('add_table') && !$db_tools->sql_table_exists(LANG_FLAGS_TABLE))
 			{
@@ -3056,7 +3053,7 @@ else
 				$result = $db->sql_query($sql);
 				if (!($result))
 				{
-					mx_message_die(CRITICAL_ERROR, "Could not add flags table to the DB", '', __LINE__, __FILE__, $sql);
+					message_die(CRITICAL_ERROR, "Could not add flags table to the DB", '', __LINE__, __FILE__, $sql);
 				}
 			}
 
@@ -3066,21 +3063,21 @@ else
 				"FLAG" => isset($lang[$lang_name]) ? $lang[$lang_name] : $lang_name,
 				"IMAGE_DISPLAY" => ($flag) ? '<img title="' . $lang_name . '" alt="' . $displayname . '" src="' . $flag_dir . $flag . '" />' : "",
 
-				"U_FLAG_EDIT" => mx_append_sid("admin_language_flags.$phpEx?mode=edit&amp;id=$flag_id"),
-				"U_FLAG_DELETE" => mx_append_sid("admin_language_flags.$phpEx?mode=delete&amp;id=$flag_id"))
+				"U_FLAG_EDIT" => append_sid("admin_language_flags.$phpEx?mode=edit&amp;id=$flag_id"),
+				"U_FLAG_DELETE" => append_sid("admin_language_flags.$phpEx?mode=delete&amp;id=$flag_id"))
 			);
 			$flag_id++;
 		}
 		
 		if ($db_tools->sql_table_exists(LANG_FLAGS_TABLE))
 		{
-			$redirect_url = mx_append_sid("admin_language_flags.$phpEx?add_flags=add_lang_flags", true);
+			$redirect_url = append_sid("admin_language_flags.$phpEx?add_flags=add_lang_flags", true);
 			$message_info = '<div><span style="color: red;">Your flags are not added to the language flags DB table and so You will not be able to enable all features that come in this pannel...</div><i><div>Adding the flags to the is reversible from this pannel! You will be able to edit or remove each flag. If you are aware of that, please click this link to proceed:</i></span> <a href="' . $redirect_url . '">click here to begin</a></div>'; 
 			print($message_info);
 		}
 		else
 		{
-			$redirect_url = mx_append_sid("admin_language_flags.$phpEx?add_table=create_table", true);
+			$redirect_url = append_sid("admin_language_flags.$phpEx?add_table=create_table", true);
 			$message_info = '<div><span style="color: red;">Your flags table is not added to the DB and so You will not be able to enable all features that come in this pannel...</div><i><div>Adding the table is not reversible from this pannel! If you are aware of that, please click this link to proceed:</i></span> <a href="' . $redirect_url . '">click here to begin</a></div>'; 
 			print($message_info);
 		}
