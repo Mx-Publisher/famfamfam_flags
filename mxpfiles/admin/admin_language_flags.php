@@ -2400,6 +2400,14 @@ else
 					$country_name = 'PHILIPPINES';
 				break;
 				
+				case 'phn':
+					$country_name = 'Levant';
+					$lang_name = 'Phoenician'; //Phoenician	 language				
+				
+				case 'xpu':
+					$country_name = 'Levant';
+					$lang_name = 'Phoenicio-Punic'; //Punic language				
+				
 				case 'pf':
 					$country_name = 'French Polynesia';
 					$lang_name = 'tahitian'; //Polynésie française
