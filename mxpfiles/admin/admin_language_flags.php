@@ -2402,7 +2402,7 @@ else
 				
 				case 'phn':
 					$country_name = 'Levant';
-					$lang_name = 'Phoenician'; //Phoenician	 language				
+					$lang_name = 'PHOENICIAN'; //Phoenician	 language				
 				
 				case 'xpu':
 					$country_name = 'Levant';
